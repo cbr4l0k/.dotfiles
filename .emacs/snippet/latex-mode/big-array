@@ -1,0 +1,9 @@
+# name: big_array
+# key: {{
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\left\\\\{\n \\begin{array}{ll}\n `yas-selected-text`\n \\end{array}\n \\right.$0 ")
+(yas-expand-snippet "\\left\\\\{\n \\begin{array}{ll}\n $1\n \\end{array}\n \\right.$0\n "))

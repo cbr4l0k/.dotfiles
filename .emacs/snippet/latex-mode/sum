@@ -1,0 +1,9 @@
+# name: sum
+# key: sum
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\sum_\{${1:i\}=${2:0}}^\{${3:\\infty}\} $0")
+(yas-expand-snippet "\\sum_\{${1:i\}=${2:0}}^\{${3:\\infty}\} `yas-selected-text`"))

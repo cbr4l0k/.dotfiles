@@ -1,0 +1,6 @@
+# name: ecuación_parcial
+# key: part
+# contributor:yeiipi
+# group : math
+# --
+\\frac\{\\partial ${1:V}\}\{\\partial ${2:x}\} $0

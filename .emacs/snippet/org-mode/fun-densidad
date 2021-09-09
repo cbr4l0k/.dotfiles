@@ -1,0 +1,9 @@
+# name: fun_densidad
+# key: fd
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "f\\left\(`yas-selected-text`\\right\) $0")
+(yas-expand-snippet "f\\left\($1\\right\) $0"))

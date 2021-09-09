@@ -1,0 +1,11 @@
+# name: minipage
+# key: minipage
+# contributor:yeiipi
+# group : structures
+# type: command
+# --
+(progn
+  (if
+      (region-active-p)
+      (yas-expand-snippet "\\begin{minipage}{${1:0.50}  \\textwidth}\n	`yas-selected-text`$0\n\\end\{minipage\}")
+    (yas-expand-snippet "\\begin{minipage}{${1:0.50}  \\textwidth}\n	 $0\n\\end\{minipage\}")))

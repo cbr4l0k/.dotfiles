@@ -1,0 +1,9 @@
+# name: vector
+# key: vect
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\overrightarrow{`yas-selected-text`} $0")
+(yas-expand-snippet "\\overrightarrow{$1} $0"))

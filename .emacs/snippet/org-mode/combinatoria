@@ -1,0 +1,6 @@
+# name: combinatoria
+# key: comb
+# contributor:yeiipi
+# group : math
+# --
+\{\{$1\}\\choose\{$2\}\} $0

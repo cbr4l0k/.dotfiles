@@ -1,0 +1,9 @@
+# name: lr_sqr
+# key: lr[
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\left[ `yas-selected-text` \\right] $0")
+(yas-expand-snippet "\\left[ $1 \\right] $0"))

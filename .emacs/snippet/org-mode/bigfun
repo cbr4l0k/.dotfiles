@@ -1,0 +1,9 @@
+# name: bigfun
+# key: bigfun
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\begin\{align*\}\n\t$0\n\\end\{align\}")
+(yas-expand-snippet "\\begin\{align*\}\n\t`yas-selected-text`$0\n\\end\{align*\}"))

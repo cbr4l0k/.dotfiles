@@ -1,0 +1,8 @@
+# name: description
+# key: desc
+# contributor:yeiipi
+# group : structures
+# --
+\\begin\{description\}
+    \\item[$1] $0
+\\end\{description\}

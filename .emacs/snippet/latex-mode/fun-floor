@@ -1,0 +1,9 @@
+# name: fun_floor
+# key: floor
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+    (yas-expand-snippet "\\left\\lfloor `yas-selected-text` \\right\\rfloor$0")
+  (yas-expand-snippet "\\left\\lfloor $1 \\right\\rfloor$0"))

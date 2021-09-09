@@ -1,0 +1,6 @@
+# name: x_sub_n
+# key: xnn
+# contributor:yeiipi
+# group : math
+# --
+x_\{${1:n}\} $0

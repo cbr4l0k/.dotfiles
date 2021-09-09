@@ -1,0 +1,6 @@
+# name: subscript
+# key: __
+# contributor:yeiipi
+# group : math
+# --
+_\{$1\}$0

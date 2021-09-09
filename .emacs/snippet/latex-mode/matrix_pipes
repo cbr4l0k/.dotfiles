@@ -1,0 +1,9 @@
+# name: |matrix|
+# key: vmat
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+    (yas-expand-snippet "\\begin\{vmatrix\} `yas-selected-text` \\end\{vmatrix\} $0")
+  (yas-expand-snippet "\\begin\{vmatrix\} $1 \\end\{vmatrix\} $0"))

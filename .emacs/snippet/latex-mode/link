@@ -1,0 +1,9 @@
+# name: link
+# key: link
+# contributor:yeiipi
+# group : OL
+# type: command
+# --
+(if (region-active-p)
+    (yas-expand-snippet "\\href{${1:www.algo.com}}{${2:`yas-selected-text`}}$0")
+  (yas-expand-snippet "\\href{${1:www.algo.com}}{${2:texto_link}}$0"))

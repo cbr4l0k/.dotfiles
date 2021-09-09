@@ -1,0 +1,9 @@
+# name: braket
+# key: braket
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\left\\langle $1 \\right|\\left. $2 \\right\\rangle $0")
+(yas-expand-snippet "\\left\\langle $1 \\right|\\left. $2 \\right\\rangle $0"))

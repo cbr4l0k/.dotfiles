@@ -1,0 +1,10 @@
+# name: sssec
+# key: sssec
+# contributor:yeiipi
+# group : headlines
+# type: command
+# --
+(if (region-active-p)
+    (yas-expand-snippet "\\subsubsection{${1:subsubsection_name}}\n\\label{sec:${2:${1:$(string-for-latex-labels yas-text)}}}\n`yas-selected-text`$0")
+  (yas-expand-snippet "\\subsubsection{${1:subsubsection_name}}\n\\label{sec:${2:${1:$(string-for-latex-labels yas-text)}}}\n$0")
+)

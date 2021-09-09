@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: yeiipi
+# name: if
+# key: if
+# --
+\(if \(region-active-p\)
+    \(yas-expand-snippet "${1:if true}"\)
+  \(yas-expand-snippet "${2:if false}"\)\)

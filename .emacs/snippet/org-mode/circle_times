@@ -1,0 +1,9 @@
+# name: circle_times
+# key: xo
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\otimes $0")
+(yas-expand-snippet "\\otimes $0"))

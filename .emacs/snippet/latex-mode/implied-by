@@ -1,0 +1,6 @@
+# name: implied_by
+# key: =<
+# contributor:yeiipi
+# group : math
+# --
+\\impliedby $0

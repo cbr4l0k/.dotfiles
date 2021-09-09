@@ -1,0 +1,6 @@
+# name: exponential
+# key: exp
+# contributor:yeiipi
+# group : math
+# --
+e^\{${1:x}\} $0

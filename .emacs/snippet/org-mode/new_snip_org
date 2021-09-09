@@ -1,0 +1,11 @@
+# key: nso
+# name: new_snip_org
+# --
+#+BEGIN_SRC yasnippet :tangle ${2:./${1:$(string-for-latex-labels yas-text)}}
+# name: $1
+# key: ${3:snipp_key}
+# contributor:yeiipi
+# group : ${4:math}
+${5:# type: command}$6# --
+$0
+#+END_SRC${7:=}

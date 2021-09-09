@@ -1,0 +1,13 @@
+# name: table
+# key: table
+# contributor:yeiipi
+# group : structures
+# type: command
+# --
+(progn
+  (progn
+    (progn
+      (if
+          (region-active-p)
+          (yas-expand-snippet "\\begin{table}[${1:htpb}]\n\t\\centering\n\t\\caption{${2:caption}}\n\t\\label{tab:${3:label}}\n\t\\begin{tabular}{${4:c}}\n\t`yas-selected-text`\n\t\\end{tabular}\n\t\\end{table}$0")
+        (yas-expand-snippet "\\begin{table}[${1:htpb}]\n\t\\centering\n\t\\caption{${2:caption}}\n\t\\label{tab:${3:label}}\n\t\\begin{tabular}{${4:c}}\n\n$0\n\t\\end{tabular}\n\t\\end{table}$0")))))

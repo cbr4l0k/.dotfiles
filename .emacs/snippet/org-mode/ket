@@ -1,0 +1,9 @@
+# name: ket
+# key: ket
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\left| `yas-selected-text` \\right\\rangle $0")
+(yas-expand-snippet "\\left| $1 \\right\\rangle $0"))

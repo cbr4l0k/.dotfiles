@@ -1,0 +1,9 @@
+# name: sqrt
+# key: sq
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\sqrt\{ $1 \} $0")
+(yas-expand-snippet "\\sqrt\{`yas-selected-text`\} $0"))

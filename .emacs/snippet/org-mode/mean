@@ -1,0 +1,11 @@
+# name: mean
+# key: mean
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(progn
+  (if
+      (region-active-p)
+      (yas-expand-snippet "\\mathbb{E}\\left(`yas-selected-text`\\right) $0")
+    (yas-expand-snippet "\\mathbb{E}\\left($1\\right) $0")))

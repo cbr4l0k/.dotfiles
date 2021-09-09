@@ -1,0 +1,8 @@
+# name: enumerate
+# key: enum
+# contributor:yeiipi
+# group : structures
+# --
+\\begin\{enumerate\}
+    \\item $0
+\\end\{enumerate\}

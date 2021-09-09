@@ -1,0 +1,6 @@
+# name: n_power
+# key: td
+# contributor:yeiipi
+# group : math
+# --
+^\{$1\} $0
