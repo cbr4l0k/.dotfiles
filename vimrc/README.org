@@ -90,7 +90,7 @@ set incsearch
 
 - Corrector de Ortografía:
 
-  #+begin_src
+  #+begin_src vim
 setlocal spell spelllang=es_es
 let g:myLang=0
 let g:myLangList=["nospell","es_es","en_us"]
@@ -109,7 +109,7 @@ map <F5> z=
 
 - Otros:
 
-  #+begin_src
+  #+begin_src vim
 set mouse=a
 set noerrorbells
 set modifiable

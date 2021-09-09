@@ -147,3 +147,6 @@ alias kkk="kkdiscord ; kkzoom ; kkfirefox ; kkchrome"
 alias nessus="/bin/systemctl start nessusd.service"
 alias aaaa="clear;cal;tareas"
 alias dl_mus="youtube-dl --add-metadata -f 'bestaudio/best' -ciw -o '%(title)s.%(ext)s' -v --extract-audio --audio-quality 0 --audio-format opus --download-archive downloaded.txt"
+
+export MPD_HOST='localhost'
+export MPD_PORT='6601'

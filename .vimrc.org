@@ -20,7 +20,7 @@ En este archivo se encuentra la configuración que utilizo para mi ~.vimrc~.
 
 - Lo primero es aplicar el sentido común y utilizar la barra espaciadora como tecla lider:
 
-#+begin_src
+#+begin_src vim
 let mapleader=" "
 #+end_src
 
@@ -90,7 +90,7 @@ set incsearch
 
 - Corrector de Ortografía:
 
-  #+begin_src
+#+begin_src vim
 setlocal spell spelllang=es_es
 let g:myLang=0
 let g:myLangList=["nospell","es_es","en_us"]
@@ -105,11 +105,11 @@ map <F8> :call SwitchLanguage()<CR>
 map <F7> ]s
 map <F6> [s
 map <F5> z=
-  #+end_src
+#+end_src
 
 - Otros:
 
-  #+begin_src
+  #+begin_src vim
 set mouse=a
 set noerrorbells
 set modifiable

@@ -11,6 +11,7 @@ En este archivo se encuentra la configuración que utilizo para mi ~.bashrc~.
   - [[#terminal-promt][Terminal promt]]
   - [[#nvm][NVM]]
   - [[#alias][Alias]]
+  - [[#mpd-config][MPD config]]
 
 * Inicio de sesión personalizado
 
@@ -206,3 +207,10 @@ alias nessus="/bin/systemctl start nessusd.service"
 alias aaaa="clear;cal;tareas"
 alias dl_mus="youtube-dl --add-metadata -f 'bestaudio/best' -ciw -o '%(title)s.%(ext)s' -v --extract-audio --audio-quality 0 --audio-format opus --download-archive downloaded.txt"
 #+END_SRC
+
+** MPD config
+
+#+begin_src bash
+export MPD_HOST='localhost'
+export MPD_PORT='6601'
+#+end_src
