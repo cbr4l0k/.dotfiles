@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: for ... in ... : ...
+# name: for
 # key: for
-# uuid: for
-# group: control structure
+# contributor:yeiipi
+# group : basic
 # --
 for ${1:var} in ${2:collection}:
-    ${3:`(or % "pass")`}
+    $0

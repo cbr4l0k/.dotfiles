@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: init_docstring
+# key: id
+# contributor:yeiipi
+# group : classes-dunder-methods
+# --
+def __init__(self$1):
+    \"\"\"$2
+    ${1:$(python-args-to-docstring)}
+    \"\"\"
+    $0

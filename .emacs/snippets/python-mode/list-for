@@ -1,7 +1,8 @@
 # -*- mode: snippet -*-
-# name: from
-# key: from
+# name: list_for
+# key: li
 # contributor:yeiipi
 # group : misc
 # --
-from ${1:lib} import ${2:funs}
+[${1:el} for $1 in ${2:list}]
+$0

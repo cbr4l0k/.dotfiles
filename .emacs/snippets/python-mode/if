@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: if
 # key: if
-# uuid: if
-# group: control structure
+# contributor:yeiipi
+# group : basic
 # --
 if ${1:cond}:
-    ${2:`(or % "pass")`}
+    $0

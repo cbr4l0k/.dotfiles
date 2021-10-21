@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: from
-# key: from
+# name: fprint
+# key: fp
 # contributor:yeiipi
 # group : misc
 # --
-from ${1:lib} import ${2:funs}
+print( f"$0" )

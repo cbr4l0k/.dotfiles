@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
 # name: print
 # key: p
-# uuid: p
+# contributor:yeiipi
+# group : misc
 # --
-print($0)
+print( $0 )

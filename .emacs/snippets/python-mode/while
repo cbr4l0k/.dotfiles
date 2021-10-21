@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: while
 # key: wh
-# uuid: wh
-# group: control structure
+# contributor:yeiipi
+# group : basic
 # --
 while ${1:True}:
-      $0
+    $0

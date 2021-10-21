@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: with
 # key: with
-# uuid: with
-# group : control structure
+# contributor:yeiipi
+# group : basic
 # --
 with ${1:expr}${2: as ${3:alias}}:
-     $0
+    $0

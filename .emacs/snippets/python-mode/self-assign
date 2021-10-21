@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: self
-# key: .
+# name: self_assign
+# key: sn
 # contributor:yeiipi
 # group : classes
 # --
-self.$0
+self.$1 = $1

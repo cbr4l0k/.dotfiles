@@ -1,10 +1,12 @@
 # -*- mode: snippet -*-
-# name: ife
-# key: ife
+# name: try_else
+# key: trye
 # contributor:yeiipi
 # group : basic
 # --
-if $1:
+try:
+    $0
+except $1:
     $2
 else:
-    $0
+    $3

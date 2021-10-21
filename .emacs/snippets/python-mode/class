@@ -1,13 +1,8 @@
 # -*- mode: snippet -*-
 # name: class
-# key: cl
-# uuid: cl
-# group: object oriented
+# key: cls
+# contributor:yeiipi
+# group : classes
 # --
-class ${1:ClassName}(${2:object}):
-      """${3:Doc. for $1}
-
-      """
-      def __init__(self${4:, args}):
-          super($1,self).__init__($5)
-          $0
+class ${1:Class}:
+    $0

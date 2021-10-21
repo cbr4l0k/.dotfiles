@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
 # name: __str__
 # key: str
-# uuid: str
-# group: dunder methods
+# contributor:yeiipi
+# group : classes-dunder-methods
 # --
 def __str__(self):
     $0

@@ -682,6 +682,18 @@ ${1:N}_\{${1:n}\} $0
 (yas-expand-snippet "\\boldsymbol\{ $1 \}$0"))
 #+END_SRC
 
+#+BEGIN_SRC yasnippet :tangle ./ss-sign
+# name: scriptsize_simbol
+# key: sss
+# contributor:yeiipi
+# group : math
+# type: command
+# --
+(if (region-active-p)
+(yas-expand-snippet "\\scriptsize\{ `yas-selected-text` \}$0")
+(yas-expand-snippet "\\scriptsize\{ $1 \}$0"))
+#+END_SRC
+
 * Code utilities
 
 #+BEGIN_SRC yasnippet :tangle ./r-plot
@@ -704,4 +716,21 @@ ${1:N}_\{${1:n}\} $0
 # group : code block
 # --
 #+attr_html: :width ${1:420}px
+#+END_SRC
+
+#+BEGIN_SRC yasnippet :tangle ./new-snip-org
+# name: new_snip_org
+# key: nso
+# contributor:yeiipi
+# group : snipps
+# --
+#+BEGIN_SRC yasnippet :tangle ${2:./${1:$(string-for-latex-labels yas-text)}}
+# -*- mode: snippet -*-
+# name: $1
+# key: ${3:snipp_key}
+# contributor:yeiipi
+# group : ${4:math}
+${5:# type: command}$6# --
+$0
+#+END_SRC${7:=}
 #+END_SRC

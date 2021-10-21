@@ -1,5 +1,8 @@
 # -*- mode: snippet -*-
 # name: ifmain
+# key: ifm
+# contributor:yeiipi
+# group : misc
 # --
 if __name__ == '__main__':
-    ${1:`(or % "pass")`}
+    ${1:main()}

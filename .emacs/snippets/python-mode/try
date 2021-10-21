@@ -1,9 +1,10 @@
 # -*- mode: snippet -*-
 # name: try
 # key: try
-# uuid: try
+# contributor:yeiipi
+# group : basic
 # --
 try:
-    ${1:`(or % "pass")`}
-except ${2:Exception}:
     $0
+except ${1:Exception}:
+    $2
