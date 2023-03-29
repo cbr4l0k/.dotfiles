@@ -1,5 +1,5 @@
-vim.api.nvim_command('autocmd FileType * map <leader>. :w<CR>')
-vim.api.nvim_command('autocmd FileType * map <leader>pv :Ex<CR>')
+-- vim.api.nvim_command('autocmd FileType * map <leader>. :w<CR>')
+-- vim.api.nvim_command('autocmd FileType * map <leader>pv :Ex<CR>')
 
 vim.api.nvim_command('autocmd FileType python map <leader><leader> :!clear ;python3 %<CR>')
 vim.api.nvim_command('autocmd FileType python map <leader>b :!clear & black % <CR>')
@@ -14,6 +14,12 @@ vim.api.nvim_command('autocmd FileType javascript map <leader><leader> :!clear &
 
 vim.api.nvim_command('autocmd FileType go map <leader><leader> :!clear & go run % <CR>')
 vim.api.nvim_command('autocmd FileType go map <leader><leader><leader> :!clear & go run * <CR>')
+
+vim.keymap.set('n', '<leader>.', ':w<CR>', { buffer = true })
+vim.keymap.set('n', '<leader>pv', ':Ex<CR>', { buffer = true })
+
+vim.keymap.set('n', '<leader>.', ':w<CR>', { buffer = true })
+vim.keymap.set('n', '<leader>pv', ':Ex<CR>', { buffer = true })
 
 
 vim.keymap.set('v', "<C-J>", ":m '>+1<CR>gv=gv")
