@@ -1,9 +1,0 @@
-# name: (matrix)
-# key: pmat
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-    (yas-expand-snippet "\\begin\{pmatrix\} `yas-selected-text` \\end\{pmatrix\} $0")
-  (yas-expand-snippet "\\begin\{pmatrix\} $1 \\end\{pmatrix\} $0"))

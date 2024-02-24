@@ -1,9 +1,0 @@
-# name: /
-# key: /
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-    (yas-expand-snippet "\\frac\{`yas-selected-text`\}\{$1\}$0")
-  (yas-expand-snippet "\\frac\{$1\}\{$2\}$0"))

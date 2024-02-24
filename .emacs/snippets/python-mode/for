@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: for
-# key: for
-# contributor:yeiipi
-# group : basic
-# --
-for ${1:var} in ${2:collection}:
-    $0

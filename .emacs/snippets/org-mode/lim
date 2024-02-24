@@ -1,6 +1,0 @@
-# name: lim
-# key: lim
-# contributor:yeiipi
-# group : math
-# --
-\\lim_\{${1:n} \\to ${2:\\infty}\} $0

@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: np
-# key: np
-# contributor:yeiipi
-# group : misc
-# --
-import numpy as np
-$0

@@ -1,7 +1,0 @@
-# key: AA
-# name: visual_a
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "<a ${1:class='$2'}>`yas-selected-text`</a>$0")
-(yas-expand-snippet ""))

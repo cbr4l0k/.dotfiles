@@ -1,8 +1,0 @@
-# name: begin_end
-# key: beg
-# contributor:yeiipi
-# group : structures
-# type: command
-(if (region-active-p)
-    (yas-expand-snippet "\\begin{$1}\n\t`yas-selected-text`$0\n \\end{$1}")
-  (yas-expand-snippet "\\begin{$1}\n\t$0\n \\end{$1}")) --

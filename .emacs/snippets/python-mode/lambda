@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: lambda
-# key: lam
-# contributor:yeiipi
-# group : functions
-# --
-lambda ${1:x}: $0

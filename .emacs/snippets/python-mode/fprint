@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: fprint
-# key: fp
-# contributor:yeiipi
-# group : misc
-# --
-print( f"$0" )

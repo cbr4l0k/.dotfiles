@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: main
-# key: main
-# contributor:yeiipi
-# group : misc
-# --
-def main():
-    $0

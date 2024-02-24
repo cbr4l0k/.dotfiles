@@ -1,9 +1,0 @@
-# name: lr_tri
-# key: lr<
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\langle `yas-selected-text` \\rangle $0")
-(yas-expand-snippet "\\langle $1 \\rangle $0"))

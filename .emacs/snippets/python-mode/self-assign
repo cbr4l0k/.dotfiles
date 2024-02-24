@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: self_assign
-# key: sn
-# contributor:yeiipi
-# group : classes
-# --
-self.$1 = $1

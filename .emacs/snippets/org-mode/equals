@@ -1,6 +1,0 @@
-# name: equals
-# key: ==
-# contributor:yeiipi
-# group : math
-# --
-&= $1 \\\\

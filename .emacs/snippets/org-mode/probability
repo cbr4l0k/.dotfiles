@@ -1,9 +1,0 @@
-# name: probability
-# key: prob
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "P\\left\(`yas-selected-text`\\right\) $0")
-(yas-expand-snippet "P\\left\($1\\right\) $0"))

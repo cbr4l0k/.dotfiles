@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: class
-# key: cls
-# contributor:yeiipi
-# group : classes
-# --
-class ${1:Class}:
-    $0

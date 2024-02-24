@@ -1,15 +1,30 @@
-local lsp = require('lsp-zero').preset({
-	name = 'minimal',
-	set_lsp_keymaps = true,
-	manage_nvim_cmp = true,
-	suggest_lsp_servers = false,
-	sign_icons = {
-		error = '✘',
-		warn = '▲',
-		hint = '⚑',
-		info = ''
-	},
+local lsp_zero = require('lsp-zero')
 
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+      'bashls',
+      'clangd',
+      'dockerls',
+      'dotls',
+      'gopls',
+      'jsonls',
+      'julials',
+      'marksman',
+      'intelephense',
+      'lua_ls',
+      'pyright',
+      'rust_analyzer',
+      'texlab',
+  },
+  handlers = {
+    lsp_zero.default_setup,
+  },
 })
 
-lsp.setup()

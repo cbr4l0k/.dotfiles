@@ -1,9 +1,0 @@
-# name: bra
-# key: bra
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\left\\langle `yas-selected-text` \\righ| $0")
-(yas-expand-snippet "\\left\\langle $1 \\righ| $0"))

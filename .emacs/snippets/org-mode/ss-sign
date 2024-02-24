@@ -1,9 +1,0 @@
-# name: scriptsize_simbol
-# key: sss
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\scriptsize\{ `yas-selected-text` \}$0")
-(yas-expand-snippet "\\scriptsize\{ $1 \}$0"))

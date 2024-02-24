@@ -1,9 +1,0 @@
-# name: xor
-# key: xor
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\oplus $0")
-(yas-expand-snippet "\\oplus $0"))

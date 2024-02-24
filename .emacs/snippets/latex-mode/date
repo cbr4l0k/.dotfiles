@@ -1,6 +1,0 @@
-# name: date
-# key: date
-# contributor:yeiipi
-# group : OL
-# --
-`(format-time-string "%d.%m.%Y")`

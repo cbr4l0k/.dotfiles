@@ -1,9 +1,0 @@
-# name: bold_sign
-# key: bss
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\boldsymbol\{ `yas-selected-text` \}$0")
-(yas-expand-snippet "\\boldsymbol\{ $1 \}$0"))

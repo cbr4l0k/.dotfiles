@@ -1,9 +1,0 @@
-# name: integral
-# key: int
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-(yas-expand-snippet "\\int_\{$1\}^\{$2\} $0")
-(yas-expand-snippet "\\int_\{$1\}^\{$2\} `yas-selected-text`"))

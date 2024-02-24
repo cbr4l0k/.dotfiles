@@ -1,6 +1,0 @@
-# name: package
-# key: pac
-# contributor:yeiipi
-# group : OL
-# --
-\\usepackage[${1:options}]\{${2:package}\}$0

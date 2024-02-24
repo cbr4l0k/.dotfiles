@@ -1,2 +1,4 @@
-require("main")
+-- Requirements
+require("main_config")
+require("snips")
 

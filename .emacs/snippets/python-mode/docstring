@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: docstring
-# key: d
-# contributor:yeiipi
-# group : misc
-# --
-"""$0
-"""

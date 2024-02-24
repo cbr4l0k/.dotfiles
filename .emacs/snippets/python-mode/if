@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: if
-# key: if
-# contributor:yeiipi
-# group : basic
-# --
-if ${1:cond}:
-    $0

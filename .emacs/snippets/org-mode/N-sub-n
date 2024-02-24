@@ -1,6 +1,0 @@
-# name: N_sub_n
-# key: Nn
-# contributor:yeiipi
-# group : math
-# --
-${1:N}_\{${1:n}\} $0

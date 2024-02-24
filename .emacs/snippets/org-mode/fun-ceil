@@ -1,9 +1,0 @@
-# name: fun_ceil
-# key: ceil
-# contributor:yeiipi
-# group : math
-# type: command
-# --
-(if (region-active-p)
-    (yas-expand-snippet "\\left\\lceil `yas-selected-text` \\right\\rceil$0")
-  (yas-expand-snippet "\\left\\lceil $1 \\right\\rceil$0"))
