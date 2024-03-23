@@ -11,9 +11,6 @@ require('mason-lspconfig').setup({
   ensure_installed = {
       'bashls',
       'clangd',
-      'dockerls',
-      'dotls',
-      'gopls',
       'jsonls',
       'julials',
       'marksman',

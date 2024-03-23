@@ -30,7 +30,6 @@ opt.termguicolors = true
 
 opt.mouse = 'a'
 
-opt.colorcolumn = "80"
 
 opt.scrolloff = 999
 
