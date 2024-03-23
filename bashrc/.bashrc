@@ -1,16 +1,16 @@
-#
 # ~/.bashrc
 #
 
 set -o vi
 
-mdcat ~/.todo.md
+# mdcat ~/.todo.md
 
 export DOCKER_BUILDKIT=1
-export PATH=/home/cbr4lok/.surrealdb:/home/cbr4lok/go/bin:$HOME/.cargo/env:$PATH
+export PATH=$HOME/.local/bin/scripts:$HOME/go/bin:$PATH
 export BROWSER='/usr/bin/firefox'           	# default web browser
-export EDITOR='/usr/bin/vim'           	   	# default editor
+export EDITOR='/usr/bin/nvim'           	   	# default editor
 export MY_HTB_IP=$(ip a s | grep inet | grep tun0 | awk -F " " '{print $2}' | sed 's/\/.*//')
+export REAL_MAC=80:32:53:2c:17:30
 
 [[ $- != *i* ]] && return
 
@@ -146,11 +146,9 @@ ex ()
   fi
 }
 
-setxkbmap -model pc105 -layout us,latam -option grp:alt_shift_toggle
+# setxkbmap -model pc105 -layout us,latam -option grp:alt_shift_toggle
 
 
-
-. "$HOME/.cargo/env"
 
 eval "$(zoxide init --cmd cd bash)"
 eval "$(starship init bash)"
@@ -167,7 +165,7 @@ alias lL="ls -lia"
 
 alias nv="nvim"
 alias lg="lazygit"
-alias vim='gvim -v'
+# alias vim='gvim -v'
 alias mkcd='function mkcd { mkdir -p "$1" && cd "$1"; }; mkcd'
 
 alias tldrf='tldr --list | tr -d "[]'\''" | sed "s/, /\\n/g" | fzf --preview "tldr {1}" --preview-window=right,70% | xargs tldr'
