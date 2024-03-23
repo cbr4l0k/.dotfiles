@@ -1,4 +1,3 @@
-print("working luasnips")
 local cmp = require('cmp')
 
 local ls = require('luasnip')
@@ -8,22 +7,36 @@ ls.config.setup({
 
 local M = {}
 
+local function check_luasnip()
+    local ls_ok, ls_status = pcall(ls.active_snip)
+    if not ls_ok then
+        return false
+    end
+
+    return ls_status ~= nil
+end
+
 function M.expand_or_jump()
-	if ls.expand_or_jumpable() then
-		ls.expand_or_jump()
-	end
+    if check_luasnip() then
+        if ls.expand_or_jumpable() then
+            ls.expand_or_jump()
+        end
+    else
+        -- If not inside a snippet, just insert a tab
+        return vim.api.nvim_put({ '\t' }, '', false, true)
+    end
 end
 
 function M.jump_prev()
-	if ls.jumpable(-1) then
-		ls.jump(-1)
-	end
+    if ls.jumpable(-1) then
+        ls.jump(-1)
+    end
 end
 
 function M.change_choice()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
+    if ls.choice_active() then
+        ls.change_choice(1)
+    end
 end
 
 local mode = { 'i', 's' }
@@ -38,7 +51,7 @@ cmp.setup({
         { name = 'luasnip' },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<Esc>'] = cmp.mapping.abort(),
     })
 })

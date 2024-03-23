@@ -82,4 +82,6 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-web-devicons'
 
     use 'nanotee/zoxide.vim'
+    use 'elkowar/yuck.vim'
+    use 'eraserhd/parinfer-rust'
 end)
