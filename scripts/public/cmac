@@ -1,0 +1,85 @@
+#!/bin/bash
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "This script must be run as root (use sudo)." >&2
+    exit 1
+fi
+
+show_help() {
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "    -h          Display this help message."
+    echo "    -r          Set a random MAC address."
+    echo "    -o          Set the original hard-coded MAC address."
+    echo "    -s <value>  Set a specific MAC address. Value must be in the format XX:XX:XX:XX:XX:XX."
+}
+
+generate_random_mac() {
+    random_mac="$(openssl rand -hex 1):$(openssl rand -hex 1):$(openssl rand -hex 1):$(openssl rand -hex 1):$(openssl rand -hex 1):$(openssl rand -hex 1)"
+    echo $random_mac
+}
+
+check_mac_address() {
+    if echo "$1" | rg -q '^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$'; then
+        echo "$1"
+    else
+        echo "The MAC address \`$1\` is not valid. Value must be in the format XX:XX:XX:XX:XX:XX."
+        show_help
+        exit 1
+    fi
+}
+
+new_mac=""
+
+while getopts ":hros:" opt; do
+    case ${opt} in
+        h )
+            show_help
+            exit 0
+            ;;
+        r ) 
+            new_mac=$(generate_random_mac)
+            ;;
+        o )
+            new_mac="80:32:53:2c:17:30"
+            ;;
+        s )
+            new_mac=$(check_mac_address $OPTARG)
+            ;;
+        \? )
+            echo "Invalid option: $OPTARG" 1>&2
+            show_help
+            exit 1
+            ;;
+        : )
+            echo "Invalid option: $OPTARG requires an argument" 1>&2
+            show_help
+            exit 1
+            ;;
+    esac 
+done
+
+if [ -z "$new_mac" ]; then
+    echo " No MAC address specified. Use -r for random, -s to specify one, or -o for the original and hard-coded one."
+    show_help
+    exit 1
+fi
+
+# Changing the MAC address
+echo  "Setting the new MAC address: $new_mac"
+ip link set dev wlan0 down 2> /dev/null
+ip link set dev wlan0 address $new_mac 2> /dev/null
+ip link set dev wlan0 up 2> /dev/null
+
+# Verify the MAC address change
+
+actual_mac=$(ip link show wlan0 | rg -o -e "link\/ether \w{2}:\w{2}:\w{2}:\w{2}:\w{2}:\w{2}" | awk '{print $2}')
+
+if [ "$new_mac" != "$actual_mac" ]; then
+    echo "The MAC address was not change. Please try again."
+else
+    echo "The MAC address was changed."
+    echo "The new MAC address is: $new_mac"
+fi
+
+

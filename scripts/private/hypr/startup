@@ -1,0 +1,17 @@
+#!/bin/bash
+
+hyprctl dispatch workspace 1; firefox & disown;
+ 
+while ! hyprctl workspaces | rg "^workspace ID 1 \(1\) on monitor .+:" -A 5 | rg "lastwindowtitle: .* Firefox" > /dev/null; do sleep 2; done
+
+current_workspace=0
+firefox_windows=$(hyprctl clients -j | jq -r '.[] | select(.class? | test("(?i)firefox")) | select(.workspace.id==1) | .address')
+
+next_workspace=$((current_workspace + 1))
+
+for window in $firefox_windows; do
+    hyprctl dispatch movetoworkspacesilent $next_workspace,address:$window
+    next_workspace=$((next_workspace + 1))
+done
+
+hyprctl dispatch workspace special:magic; kitty --hold -e neofetch & disown
