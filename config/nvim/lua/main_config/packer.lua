@@ -63,9 +63,6 @@ return require('packer').startup(function(use)
 
     use 'voldikss/vim-floaterm'
 
-    -- Debugger
-    -- use 'puremourning/vimspector'
-
     use({
         "L3MON4D3/LuaSnip",
         -- follow latest release.
@@ -83,5 +80,20 @@ return require('packer').startup(function(use)
 
     use 'nanotee/zoxide.vim'
     use 'elkowar/yuck.vim'
-    use 'eraserhd/parinfer-rust'
+    use {
+        'eraserhd/parinfer-rust',
+        opt = true,
+        rtp = 'target/release',
+        run = 'cargo build --release'
+    }
+    use {
+        'harrygallagher4/nvim-parinfer-rust',
+        config = function()
+            vim.api.nvim_create_autocmd(
+            'VimEnter',
+            { callback = function() require'parinfer'.setup() end}
+            )
+        end
+    }
 end)
+

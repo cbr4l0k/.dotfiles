@@ -154,6 +154,12 @@ _G.packer_plugins = {
     path = "/home/cbr4l0k/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-parinfer-rust"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rparinfer\frequire]\1\0\5\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\5\0003\4\4\0=\4\6\3B\0\3\1K\0\1\0\rcallback\1\0\0\0\rVimEnter\24nvim_create_autocmd\bapi\bvim\0" },
+    loaded = true,
+    path = "/home/cbr4l0k/.local/share/nvim/site/pack/packer/start/nvim-parinfer-rust",
+    url = "https://github.com/harrygallagher4/nvim-parinfer-rust"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/cbr4l0k/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -174,6 +180,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cbr4l0k/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["parinfer-rust"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/cbr4l0k/.local/share/nvim/site/pack/packer/opt/parinfer-rust/target/release",
+    url = "https://github.com/eraserhd/parinfer-rust"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -223,6 +235,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/home/cbr4l0k/.local/share/nvim/site/pack/packer/opt/parinfer-rust/target/release"
+time([[Runtimepath customization]], false)
+-- Config for: nvim-parinfer-rust
+time([[Config for nvim-parinfer-rust]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rparinfer\frequire]\1\0\5\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0005\3\5\0003\4\4\0=\4\6\3B\0\3\1K\0\1\0\rcallback\1\0\0\0\rVimEnter\24nvim_create_autocmd\bapi\bvim\0", "config", "nvim-parinfer-rust")
+time([[Config for nvim-parinfer-rust]], false)
 -- Config for: oil.nvim
 time([[Config for oil.nvim]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0", "config", "oil.nvim")
