@@ -1,3 +1,13 @@
+# ============================================================================
+# ~/.config/lazygit/config.yml - Lazygit Configuration
+# ============================================================================
+# Lazygit is a simple terminal UI for git commands. This config customizes
+# the appearance, behavior, and keybindings for a more efficient workflow.
+# ============================================================================
+
+# ============================================================================
+# 1. GUI CONFIGURATION
+# ============================================================================
 # Config relating to the Lazygit UI
 gui:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
@@ -284,6 +294,9 @@ gui:
   # is already active, go to next tab instead
   switchTabsWithPanelJumpKeys: false
 
+# ============================================================================
+# 2. GIT CONFIGURATION
+# ============================================================================
 # Config relating to git
 git:
   # Array of pagers. Each entry has the following format:
@@ -444,6 +457,9 @@ git:
   # to 40 to disable truncation.
   truncateCopiedCommitHashesTo: 12
 
+# ============================================================================
+# 3. UPDATE CHECKS
+# ============================================================================
 # Periodic update checks
 update:
   # One of: 'prompt' (default) | 'background' | 'never'
@@ -452,6 +468,9 @@ update:
   # Period in days between update checks
   days: 14
 
+# ============================================================================
+# 4. BACKGROUND REFRESHES
+# ============================================================================
 # Background refreshes
 refresher:
   # File/submodule refresh interval in seconds.
@@ -462,6 +481,10 @@ refresher:
   # Auto-fetch can be disabled via option 'git.autoFetch'.
   fetchInterval: 60
 
+# ============================================================================
+# 5. QUIT BEHAVIOR
+# ============================================================================
+
 # If true, show a confirmation popup before quitting Lazygit
 confirmOnQuit: false
 
@@ -469,6 +492,9 @@ confirmOnQuit: false
 # nothing to cancel/close
 quitOnTopLevelReturn: false
 
+# ============================================================================
+# 6. OS INTEGRATION
+# ============================================================================
 # Config relating to things outside of Lazygit like how files are opened,
 # copying to clipboard, etc
 os:
@@ -514,8 +540,16 @@ os:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
   shellFunctionsFile: ""
 
+# ============================================================================
+# 7. STARTUP AND POPUPS
+# ============================================================================
+
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: false
+
+# ============================================================================
+# 8. CUSTOM COMMANDS AND SERVICES
+# ============================================================================
 
 # User-configured commands that can be invoked from within Lazygit
 # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md
@@ -523,6 +557,10 @@ customCommands: []
 
 # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-pull-request-urls
 services: {}
+
+# ============================================================================
+# 9. REPOSITORY BEHAVIOR
+# ============================================================================
 
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most
@@ -536,6 +574,9 @@ notARepository: prompt
 # view the output of the subprocess before returning to Lazygit.
 promptToReturnFromSubprocess: true
 
+# ============================================================================
+# 10. KEYBINDINGS
+# ============================================================================
 # Keybindings
 keybinding:
   universal:

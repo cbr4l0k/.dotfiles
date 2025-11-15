@@ -1,0 +1,33 @@
+#compdef vpn
+
+_vpn() {
+    local -a vpn_names
+    local -a main_options
+
+    main_options=(
+        '-i[Connect only to specified VPNs (comma-separated)]'
+        '--include[Connect only to specified VPNs (comma-separated)]'
+        '-e[Connect to all VPNs except specified (comma-separated)]'
+        '--exclude[Connect to all VPNs except specified (comma-separated)]'
+        '-a[Try all available VPN connections (default)]'
+        '--all[Try all available VPN connections (default)]'
+        '-r[Try VPNs in random order instead of sorted]'
+        '--random[Try VPNs in random order instead of sorted]'
+        '-d[Disconnect specific VPN]'
+        '--down[Disconnect specific VPN]'
+        '-D[Disconnect all active VPNs]'
+        '--down-all[Disconnect all active VPNs]'
+        '-h[Show help message]'
+        '--help[Show help message]'
+    )
+
+    if [[ ${words[CURRENT-1]} == (-i|--include|-e|--exclude|-d|--down) ]]; then
+        vpn_names=(${(f)"$(nmcli -t -f NAME,TYPE connection show 2>/dev/null | grep ':vpn$' | cut -d: -f1)"})
+        _describe 'vpn names' vpn_names
+    else
+        _arguments -s -S \
+            $main_options
+    fi
+}
+
+_vpn "$@"

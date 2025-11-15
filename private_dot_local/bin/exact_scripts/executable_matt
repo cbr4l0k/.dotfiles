@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Description: Move files to Obsidian attachments with sanitized filenames
+# Usage: matt <path_to_file>
+
+# Exit immediately if any command fails
+set -e
+
+# Check we have at least one argument
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <path_to_file>"
+  exit 1
+fi
+
+# Check that the OBSIDIAN_ATTACHMENTS variable is set
+if [ -z "$OBSIDIAN_ATTACHMENTS" ]; then
+  echo "Error: \$OBSIDIAN_ATTACHMENTS is not set."
+  exit 1
+fi
+
+# The file the user wants to move
+SOURCE_FILE="$1"
+
+# Check if the file exists
+if [ ! -f "$SOURCE_FILE" ]; then
+  echo "Error: File '$SOURCE_FILE' does not exist."
+  exit 1
+fi
+
+# Extract just the filename (no path)
+ORIGINAL_FILENAME="$(basename -- "$SOURCE_FILE")"
+
+
+# Allow Latin, Cyrillic, numbers, dot, underscore, and dash
+# The [:alpha:] pattern includes both Latin and Cyrillic when using UTF-8
+CLEAN_FILENAME="$(echo "$ORIGINAL_FILENAME" | LC_ALL=en_US.UTF-8 sed 's/[^[:alpha:][:digit:]._-]/_/g')"
+
+# Construct the full path in the attachments folder
+TARGET_PATH="$OBSIDIAN_ATTACHMENTS/$CLEAN_FILENAME"
+
+# Move the file
+mv "$SOURCE_FILE" "$TARGET_PATH"
+
+# Print success message
+echo "Moved '$SOURCE_FILE' to '$TARGET_PATH'"

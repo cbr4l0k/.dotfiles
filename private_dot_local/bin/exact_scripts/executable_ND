@@ -1,0 +1,345 @@
+#!/bin/bash
+# Description: Sybil document generator for creating business documents
+# Usage: ND
+
+set -euo pipefail
+
+readonly SCRIPT_NAME="Sybil Document Generator"
+readonly CONFIG_FILE="config.yaml"
+readonly TYPST_IMPORT='@local/sybil:1.0.0'
+
+# ============================================================================
+# Dependency Management
+# ============================================================================
+
+check_dependencies() {
+    local missing=()
+    for cmd in yq gum; do
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
+    done
+
+    if [[ ${#missing[@]} -gt 0 ]]; then
+        echo "Missing dependencies: ${missing[*]}"
+        echo "Install them to continue."
+        exit 1
+    fi
+}
+
+# ============================================================================
+# Configuration
+# ============================================================================
+
+ensure_config() {
+    if [[ ! -f "$CONFIG_FILE" ]]; then
+        local client
+        client=$(gum input --placeholder "Enter client name")
+        echo "cliente: $client" > "$CONFIG_FILE"
+        echo "Configuration created: $CONFIG_FILE"
+    fi
+}
+
+get_client_name() {
+    yq .cliente "$CONFIG_FILE"
+}
+
+normalize_client_name() {
+    local name=$1
+    echo "$name" | tr '[:upper:]' '[:lower:]' | \
+        sed -e 's/[^a-z0-9]/_/g' -e 's/__*/_/g' -e 's/^_//;s/_$//'
+}
+
+# ============================================================================
+# Document Numbering
+# ============================================================================
+
+next_doc_number() {
+    local prefix=$1
+    local pattern="${prefix}_[0-9][0-9][0-9]_*.typ"
+    local last_number
+
+    last_number=$(ls -1 $pattern 2>/dev/null | \
+        sed "s/${prefix}_\([0-9]\{3\}\).*/\1/" | \
+        sort -n | tail -1)
+
+    printf "%03d" $((10#${last_number:-000} + 1))
+}
+
+build_filename() {
+    local prefix=$1
+    local number=$2
+    local date=$3
+    local client_slug=$4
+    echo "${prefix}_${number}_${date}_${client_slug}.typ"
+}
+
+# ============================================================================
+# Template Generators
+# ============================================================================
+
+create_business_letter() {
+    local client=$1
+    local client_slug=$2
+    local num date subject recipient_name recipient_last_name recipient_position recipient_company recipient_address
+
+    num=$(next_doc_number "letter")
+    date=$(gum input --placeholder "Date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    subject=$(gum input --placeholder "Letter subject")
+    recipient_name=$(gum input --placeholder "Recipient first name")
+    recipient_last_name=$(gum input --placeholder "Recipient last name")
+    recipient_position=$(gum input --placeholder "Recipient position")
+    recipient_company=$(gum input --placeholder "Recipient company")
+    recipient_address=$(gum input --placeholder "Recipient address")
+
+    local filename
+    filename=$(build_filename "letter" "$num" "$date" "$client_slug")
+
+    cat > "$filename" <<EOF
+#import "$TYPST_IMPORT": *
+
+#show: letter.config.with(
+  sender_name: "Juan Pablo Sierra Useche",
+  sender_address: "Calle 153a # 6-51, Bogotá, Colombia",
+  sender_phone: "+7 (981) 010 9582",
+  sender_email: "jp.sierra@sybil.lat",
+
+  recipient_name: "$recipient_name",
+  recipient_last_name: "$recipient_last_name",
+  recipient_position: "$recipient_position",
+  recipient_company: "$recipient_company",
+  recipient_address: "$recipient_address",
+
+  subject: "$subject",
+  signatory_initials: "jps",
+  include_validity_notice: false,
+)
+
+// Write your letter content here
+EOF
+
+    echo "✓ Created: $filename"
+}
+
+create_proposal() {
+    local client=$1
+    local client_slug=$2
+    local num date title subtitle author confidentiality
+
+    num=$(next_doc_number "prop")
+    date=$(gum input --placeholder "Date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    title=$(gum input --placeholder "Proposal title")
+    subtitle=$(gum input --placeholder "Proposal subtitle (optional)")
+    author=$(gum input --placeholder "Author name" --value "Equipo Comercial Sybil")
+    confidentiality=$(gum choose "público" "interno" "confidencial" "restringido")
+
+    local filename doc_number
+    doc_number="PROP-$(date +%Y)-${num}"
+    filename=$(build_filename "prop" "$num" "$date" "$client_slug")
+
+    cat > "$filename" <<EOF
+#import "$TYPST_IMPORT": *
+
+#show: academic-document.config.with(
+  title: "$title",
+  subtitle: "$subtitle",
+  doc_number: "$doc_number",
+  author: "$author",
+  signatory_initials: "jps",
+  date: datetime(year: $(date -d "$date" +%Y), month: $(date -d "$date" +%-m), day: $(date -d "$date" +%-d)),
+  confidentiality: "$confidentiality",
+)
+
+= Executive Summary
+
+// Add your proposal content here
+
+#validity-notice(days: 30)
+EOF
+
+    echo "✓ Created: $filename"
+}
+
+create_memo() {
+    local client=$1
+    local client_slug=$2
+    local num date from_name from_position to_name to_position subject priority confidentiality cc
+
+    num=$(next_doc_number "memo")
+    date=$(gum input --placeholder "Date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    from_name=$(gum input --placeholder "From (name)" --value "Juan Pablo Sierra Useche")
+    from_position=$(gum input --placeholder "From (position)" --value "Director de Planeación")
+    to_name=$(gum input --placeholder "To (name/team)")
+    to_position=$(gum input --placeholder "To (position/area)")
+    cc=$(gum input --placeholder "CC (optional, comma-separated)")
+    subject=$(gum input --placeholder "Subject")
+    priority=$(gum choose "normal" "alta" "urgente")
+    confidentiality=$(gum choose "público" "interno" "confidencial")
+
+    local filename memo_number
+    memo_number="MEM-${num}-$(date -d "$date" +%Y)"
+    filename=$(build_filename "memo" "$num" "$date" "$client_slug")
+
+    local cc_param=""
+    [[ -n "$cc" ]] && cc_param="  cc: \"$cc\","
+
+    cat > "$filename" <<EOF
+#import "$TYPST_IMPORT": *
+
+#show: memo.config.with(
+  memo_type: "MEMORANDO",
+  memo_number: "$memo_number",
+  from: "$from_name",
+  from_position: "$from_position",
+  to: "$to_name",
+  to_position: "$to_position",
+$cc_param
+  subject: "$subject",
+  priority: "$priority",
+  signatory_initials: "jps",
+  confidentiality_level: "$confidentiality",
+)
+
+// Write your memo content here
+EOF
+
+    echo "✓ Created: $filename"
+}
+
+create_contract() {
+    local client=$1
+    local client_slug=$2
+    local num date contract_title party_b_name party_b_id party_b_address party_b_rep party_b_rep_id
+    local contract_object contract_value contract_duration
+
+    num=$(next_doc_number "contract")
+    date=$(gum input --placeholder "Date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    contract_title=$(gum input --placeholder "Contract title" --value "CONTRATO DE PRESTACIÓN DE SERVICIOS")
+
+    echo "Party B (Client) Information:"
+    party_b_name=$(gum input --placeholder "Company name")
+    party_b_id=$(gum input --placeholder "Tax ID (NIT)")
+    party_b_address=$(gum input --placeholder "Address")
+    party_b_rep=$(gum input --placeholder "Legal representative name")
+    party_b_rep_id=$(gum input --placeholder "Representative ID")
+
+    echo "Contract Details:"
+    contract_object=$(gum input --placeholder "Contract object")
+    contract_value=$(gum input --placeholder "Contract value (text)")
+    contract_duration=$(gum input --placeholder "Contract duration")
+
+    local filename contract_number
+    contract_number="CTR-$(date -d "$date" +%Y)-${num}"
+    filename=$(build_filename "contract" "$num" "$date" "$client_slug")
+
+    cat > "$filename" <<EOF
+#import "$TYPST_IMPORT": *
+
+#show: contract.config.with(
+  contract_title: "$contract_title",
+  contract_number: "$contract_number",
+  contract_date: datetime(year: $(date -d "$date" +%Y), month: $(date -d "$date" +%-m), day: $(date -d "$date" +%-d)),
+
+  party_a_name: "SYBIL S.A.S.",
+  party_a_id: "NIT 901.234.567-8",
+  party_a_address: "Calle 153a # 6-51, Bogotá D.C.",
+  party_a_representative: "Juan Pablo Sierra Useche",
+  party_a_representative_id: "C.C. 1.234.567.890",
+
+  party_b_name: "$party_b_name",
+  party_b_id: "$party_b_id",
+  party_b_address: "$party_b_address",
+  party_b_representative: "$party_b_rep",
+  party_b_representative_id: "$party_b_rep_id",
+
+  contract_object: "$contract_object",
+  contract_value: "$contract_value",
+  contract_duration: "$contract_duration",
+
+  party_a_signatory: "jps",
+  party_b_signatory: "",
+)
+
+= CLÁUSULA PRIMERA – OBJETO
+
+// Add contract clauses here
+EOF
+
+    echo "✓ Created: $filename"
+}
+
+create_meeting_minutes() {
+    local client=$1
+    local client_slug=$2
+    local num date title
+
+    num=$(next_doc_number "acta")
+    date=$(gum input --placeholder "Meeting date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    title=$(gum input --placeholder "Meeting title" --value "Acta de Reunión")
+
+    local filename doc_number
+    doc_number="ACTA-${num}-$(date -d "$date" +%Y)"
+    filename=$(build_filename "acta" "$num" "$date" "$client_slug")
+
+    cat > "$filename" <<EOF
+#import "$TYPST_IMPORT": *
+
+#show: academic-document.config.with(
+  title: "$title",
+  subtitle: "Cliente: $client",
+  doc_number: "$doc_number",
+  author: "Sybil",
+  signatory_initials: "jps",
+  date: datetime(year: $(date -d "$date" +%Y), month: $(date -d "$date" +%-m), day: $(date -d "$date" +%-d)),
+  confidentiality: "interno",
+)
+
+= General Information
+
+// Add meeting details, participants, and notes here
+EOF
+
+    echo "✓ Created: $filename"
+}
+
+# ============================================================================
+# Main Menu
+# ============================================================================
+
+main() {
+    check_dependencies
+    ensure_config
+
+    local client client_slug doc_type
+    client=$(get_client_name)
+    client_slug=$(normalize_client_name "$client")
+
+    doc_type=$(gum choose \
+        "Business Letter" \
+        "Proposal/Project Document" \
+        "Internal Memo" \
+        "Contract" \
+        "Meeting Minutes")
+
+    case "$doc_type" in
+        "Business Letter")
+            create_business_letter "$client" "$client_slug"
+            ;;
+        "Proposal/Project Document")
+            create_proposal "$client" "$client_slug"
+            ;;
+        "Internal Memo")
+            create_memo "$client" "$client_slug"
+            ;;
+        "Contract")
+            create_contract "$client" "$client_slug"
+            ;;
+        "Meeting Minutes")
+            create_meeting_minutes "$client" "$client_slug"
+            ;;
+        *)
+            echo "Invalid option"
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"

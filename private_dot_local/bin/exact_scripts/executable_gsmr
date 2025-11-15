@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# Description: Git Save Multiple Repos - commit and push changes before shutdown
+# Usage: gsmr
+
+set -o errexit   # exit on any command failure
+set -o nounset   # treat unset variables as errors
+set -o pipefail  # fail if any element of a pipeline fails
+
+# ——— logging helpers ———
+log_info()  { echo >&2 "[INFO]  $*"; }
+log_warn()  { echo >&2 "[WARN]  $*"; }
+log_error() { echo >&2 "[ERROR] $*"; }
+
+# ——— error handler ———
+error_exit() {
+    local lineno=${1:-?}
+    local msg=${2:-"Unexpected error"}
+    log_error "Line ${lineno}: ${msg}"
+    exit 1
+}
+trap 'error_exit ${LINENO}' ERR
+
+# ——— config setup ———
+CONFIG_DIR="${HOME}/.config/gsmr"
+CONFIG_FILE="${CONFIG_DIR}/gsmr.conf"
+
+mkdir -p "$CONFIG_DIR"
+log_info "Ensured configuration directory: $CONFIG_DIR"
+
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    log_info "Creating default configuration at $CONFIG_FILE"
+    cat <<EOF > "$CONFIG_FILE" || error_exit ${LINENO} "Cannot write to $CONFIG_FILE"
+# Default GSMR repositories
+# Add your repository paths below, one per line
+# Example:
+/home/user/repo1
+/home/user/repo2
+EOF
+    log_info "Default config created; please edit $CONFIG_FILE and re‑run."
+    exit 0
+else
+    log_info "Using existing config: $CONFIG_FILE"
+fi
+
+# ——— process each repo ———
+while IFS= read -r line || [[ -n "$line" ]]; do
+    # Strip comments and trim whitespace
+    repo="${line%%#*}"                          # remove anything after #
+    repo="${repo#"${repo%%[![:space:]]*}"}"     # left trim
+    repo="${repo%"${repo##*[![:space:]]}"}"     # right trim
+    [[ -z "$repo" ]] && continue                # skip blank lines
+
+    if [[ ! -d "$repo" ]]; then
+        log_warn "Not a directory, skipping: $repo"
+        continue
+    fi
+
+    log_info "Processing repository: $repo"
+    pushd "$repo" > /dev/null
+
+    # ensure it's a git repo
+    if [[ ! -d .git ]]; then
+        log_warn "No .git dir, skipping: $repo"
+        popd > /dev/null
+        continue
+    fi
+
+    # detect changes
+    if git diff-index --quiet HEAD --; then
+        log_info "Clean: $repo"
+    else
+        timestamp=$(date '+%Y-%m-%d|%H:%M:%S')
+        log_info "Changes found; committing & pushing"
+
+        git add .                        || error_exit ${LINENO} "git add failed"
+        git commit -m "Saved before shutdown on $timestamp" \
+                                         || error_exit ${LINENO} "git commit failed"
+        git push                         || error_exit ${LINENO} "git push failed"
+
+        # make a unique tag so we don't collide
+        tag="gsmr-$(date '+%Y%m%d%H%M%S')"
+        git tag "$tag"                   || error_exit ${LINENO} "git tag failed"
+        git push origin "$tag"           || error_exit ${LINENO} "git push tag failed"
+
+        log_info "Committed & pushed with tag $tag"
+    fi
+
+    popd > /dev/null
+done < "$CONFIG_FILE"

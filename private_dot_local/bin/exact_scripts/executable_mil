@@ -1,0 +1,10 @@
+#!/bin/bash
+# Description: Display current IP address and country
+# Usage: mil
+
+set -euo pipefail
+
+jq -r '"\(.ip) (\(.country))"' <<< "$(curl -s https://ifconfig.co/json)" || {
+    echo "Error formatting output"
+    exit 1
+}

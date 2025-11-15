@@ -1,0 +1,9 @@
+#!/bin/bash
+# Description: Run CryptoHack SageMath environment in Podman
+# Usage: cryptohack
+
+podman run --rm \
+  -p 127.0.0.1:8888:8888 \
+  -v $HOME/Documents/projects/cryptohack/labs:/home/sage/work:U \
+  -w /home/sage/work \
+  -it hyperreality/cryptohack:latest

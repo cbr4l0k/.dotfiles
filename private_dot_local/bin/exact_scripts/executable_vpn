@@ -1,0 +1,241 @@
+#!/bin/bash
+# Description: Fast VPN connection management with multiple options
+# Usage: vpn [OPTIONS]
+
+set -euo pipefail
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Trap Ctrl+C and exit cleanly
+trap 'echo -e "\n${YELLOW}Interrupted by user. Exiting...${NC}"; exit 130' SIGINT SIGTERM
+
+# Function to display help
+show_help() {
+    cat << EOF
+VPN Manager - Fast VPN connection management
+
+Usage: $0 [OPTIONS]
+
+Connection Options:
+  -i, --include <list>    Connect only to specified VPNs (comma-separated)
+                          Example: -i at,be,ca
+  -e, --exclude <list>    Connect to all VPNs except specified (comma-separated)
+                          Example: -e de,fr
+  -a, --all              Try all available VPN connections (default)
+  -r, --random           Try VPNs in random order instead of sorted
+
+Disconnect Options:
+  -d, --down <vpn>       Disconnect specific VPN
+  -D, --down-all         Disconnect all active VPNs
+
+Other Options:
+  -h, --help             Show this help message
+
+===================================================================
+Examples:
+
+EOF
+  echo -e "    vpn                     ${GREEN}# Try all VPNs${NC}"
+  echo -e "    vpn -i at,be,ca         ${GREEN}# Try only Austria, Belgium, Canada${NC}"
+  echo -e "    vpn -e us,tw            ${GREEN}# Try all except US and Taiwan${NC}"
+  echo -e "    vpn -e co -r            ${GREEN}# Try all except Colombia in random order${NC}"
+  echo -e "    vpn -r                  ${GREEN}# Try all VPNs in random order${NC}"
+  echo -e "    vpn -d at               ${RED}# Disconnect Austria VPN${NC}"
+  echo -e "    vpn -D                  ${RED}# Disconnect all VPNs${NC}"
+  echo "==================================================================="
+}
+
+# Function to get all VPN connections
+get_all_vpns() {
+    nmcli -t -f NAME,TYPE connection show | rg ":vpn$" | awk -F: '{print $1}' | sort
+}
+
+# Function to get active VPN connections
+get_active_vpns() {
+    nmcli -t -f NAME,TYPE connection show --active | rg ":vpn$" | awk -F: '{print $1}' || true
+}
+
+# Function to shuffle array in place
+shuffle_array() {
+    local -n arr=$1
+    local i tmp size rand
+    size=${#arr[@]}
+
+    for ((i=size-1; i>0; i--)); do
+        rand=$((RANDOM % (i+1)))
+        tmp="${arr[i]}"
+        arr[i]="${arr[rand]}"
+        arr[rand]="$tmp"
+    done
+}
+
+# Function to disconnect VPN
+disconnect_vpn() {
+    local vpn="$1"
+    echo -n "Disconnecting $vpn... "
+    if nmcli connection down "$vpn" &> /dev/null; then
+        echo -e "${GREEN}✓ Done${NC}"
+        notify-send "VPN Manager" "Disconnected from $vpn" -u normal 2>/dev/null || true
+        return 0
+    else
+        echo -e "${RED}✗ Failed${NC}"
+        return 1
+    fi
+}
+
+# Function to disconnect all VPNs
+disconnect_all_vpns() {
+    local active_vpns
+    active_vpns=$(get_active_vpns)
+
+    if [ -z "$active_vpns" ]; then
+        echo -e "${YELLOW}No active VPN connections found${NC}"
+        return 0
+    fi
+
+    echo "Disconnecting all active VPNs..."
+    while IFS= read -r vpn; do
+        disconnect_vpn "$vpn"
+    done <<< "$active_vpns"
+
+    echo -e "${GREEN}Disconnected from all VPN${NC}"
+}
+
+# Function to try connecting to VPNs
+connect_vpns() {
+    local vpn_list=("$@")
+
+    if [ ${#vpn_list[@]} -eq 0 ]; then
+        echo -e "${RED}No VPNs to try${NC}"
+        return 1
+    fi
+
+    echo "VPNs to try: ${vpn_list[*]}"
+    echo ""
+
+    while true; do
+        for vpn in "${vpn_list[@]}"; do
+            echo -n "  Trying «$vpn»... "
+            if nmcli connection up "$vpn" &> /tmp/nmcli-vpn.log; then
+                echo -e "${GREEN}✓ Connected!${NC}"
+                notify-send "VPN Manager" "$vpn" -u normal -i network-vpn 2>/dev/null || true
+                return 0
+            else
+                echo -e "${RED}✗ Failed${NC}"
+                echo "Error details:"
+                cat /tmp/nmcli-vpn.log
+            fi
+        done
+
+        echo -e "${YELLOW}All VPNs failed, retrying in 1s...${NC}"
+        sleep 1
+    done
+}
+
+# Main script logic
+main() {
+    local include_list=()
+    local exclude_list=()
+    local mode="all"
+    local disconnect_target=""
+    local random=0
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -h|--help)
+                show_help
+                exit 0
+                ;;
+            -i|--include)
+                mode="include"
+                IFS=',' read -ra include_list <<< "$2"
+                shift 2
+                ;;
+            -e|--exclude)
+                mode="exclude"
+                IFS=',' read -ra exclude_list <<< "$2"
+                shift 2
+                ;;
+            -a|--all)
+                mode="all"
+                shift
+                ;;
+            -r|--random)
+                random=1
+                shift
+                ;;
+            -d|--down)
+                mode="disconnect"
+                disconnect_target="$2"
+                shift 2
+                ;;
+            -D|--down-all)
+                mode="disconnect-all"
+                shift
+                ;;
+            *)
+                echo -e "${RED}Unknown option: $1${NC}"
+                show_help
+                exit 1
+                ;;
+        esac
+    done
+
+    # Execute based on mode
+    case "$mode" in
+        include)
+            if [ $random -eq 1 ]; then
+                shuffle_array include_list
+            fi
+            connect_vpns "${include_list[@]}"
+            ;;
+
+        exclude)
+            local all_vpns
+            mapfile -t all_vpns < <(get_all_vpns)
+            local vpns_to_try=()
+
+            for vpn in "${all_vpns[@]}"; do
+                local skip=0
+                for exc in "${exclude_list[@]}"; do
+                    if [ "$vpn" = "$exc" ]; then
+                        skip=1
+                        break
+                    fi
+                done
+                if [ $skip -eq 0 ]; then
+                    vpns_to_try+=("$vpn")
+                fi
+            done
+
+            if [ $random -eq 1 ]; then
+                shuffle_array vpns_to_try
+            fi
+            connect_vpns "${vpns_to_try[@]}"
+            ;;
+
+        all)
+            local all_vpns
+            mapfile -t all_vpns < <(get_all_vpns)
+            if [ $random -eq 1 ]; then
+                shuffle_array all_vpns
+            fi
+            connect_vpns "${all_vpns[@]}"
+            ;;
+
+        disconnect)
+            disconnect_vpn "$disconnect_target"
+            ;;
+
+        disconnect-all)
+            disconnect_all_vpns
+            ;;
+    esac
+}
+
+main "$@"

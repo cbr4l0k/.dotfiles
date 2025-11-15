@@ -1,0 +1,15 @@
+#compdef cur
+
+_cur() {
+  local -a commands
+  commands=(
+    'show:Show where ~/current points'
+    'go:Start a subshell in ~/current'
+    'force:Replace ~/current even if it is a real directory'
+    'help:Show usage information'
+  )
+
+  _describe 'cur command' commands
+}
+
+_cur "$@"

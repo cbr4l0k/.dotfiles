@@ -51,6 +51,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+# Add custom completions directory
+fpath=(~/.local/bin/scripts $fpath)
+
 # Enable command auto-completion
 autoload -Uz compinit
 compinit
@@ -232,6 +235,7 @@ fi
 # Starship - cross-shell prompt
 if command -v starship >/dev/null 2>&1; then
     eval "$(starship init zsh)"
+	export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 fi
 
 # Atuin - enhanced history
@@ -272,28 +276,8 @@ if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; 
 fi
 
 # ============================================================================
-# OPTIONAL/COMMENTED SECTIONS
+# SELF-ADDED ON INSTALLATION
 # ============================================================================
-
-# Safety aliases
-# alias cp="cp -i"
-# alias mv="mv -i"
-# alias rm="rm -i"
-
-# System information
-# alias df='df -h'
-# alias free='free -m'
-
-# Keyboard layout switching
-# setxkbmap -model pc105 -layout us,latam -option grp:alt_shift_toggle
-
-# Display TODO list
-# mdcat ~/.todo.md
-
-# ============================================================================
-# END OF CONFIGURATION
-# ============================================================================
-
 
 # bun completions
 [ -s "/home/cbr4l0k/.bun/_bun" ] && source "/home/cbr4l0k/.bun/_bun"

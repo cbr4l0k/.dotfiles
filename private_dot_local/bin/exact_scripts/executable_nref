@@ -1,0 +1,520 @@
+#!/bin/bash
+# Description: Manage references, books, quotes, and strategic planning
+# Usage: nref
+
+set -e
+
+REFS_FILE="${SEWS_REF_PATH}"
+READ_FILE="${SEWS_REA_PATH}"
+
+if [[ -z "$REFS_FILE" ]]; then
+    echo "Error: SEWS_REF_PATH environment variable is not set"
+    exit 1
+fi
+
+if [[ -z "$READ_FILE" ]]; then
+    echo "Error: SEWS_REA_PATH environment variable is not set"
+    exit 1
+fi
+
+if [[ ! -f "$REFS_FILE" ]]; then
+    echo "[]" > "$REFS_FILE"
+fi
+
+if [[ ! -f "$READ_FILE" ]]; then
+    echo "[]" > "$READ_FILE"
+fi
+
+add_reference() {
+    echo "Adding new reference..."
+    
+    title=$(gum input --placeholder "Enter title")
+    [[ -z "$title" ]] && { echo "Title cannot be empty"; exit 1; }
+    
+    description=$(gum write --placeholder "Enter description")
+    [[ -z "$description" ]] && { echo "Description cannot be empty"; exit 1; }
+    
+    reference=$(gum write --placeholder "Enter reference")
+    [[ -z "$reference" ]] && { echo "Reference cannot be empty"; exit 1; }
+    
+    url=$(gum input --placeholder "Enter URL")
+    [[ -z "$url" ]] && { echo "URL cannot be empty"; exit 1; }
+    
+    new_entry=$(jq -n \
+        --arg title "$title" \
+        --arg description "$description" \
+        --arg reference "$reference" \
+        --arg url "$url" \
+        '{title: $title, description: $description, reference: $reference, url: $url}')
+    
+    jq ". += [$new_entry]" "$REFS_FILE" > "$REFS_FILE.tmp" && mv "$REFS_FILE.tmp" "$REFS_FILE"
+    
+    echo "Reference added successfully!"
+}
+
+add_book() {
+    echo "Adding new book..."
+
+    title=$(gum input --placeholder "Enter book title")
+    [[ -z "$title" ]] && { echo "Title cannot be empty"; exit 1; }
+
+    author=$(gum input --placeholder "Enter author")
+    [[ -z "$author" ]] && { echo "Author cannot be empty"; exit 1; }
+
+    date=$(gum input --placeholder "Enter date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)")
+    [[ -z "$date" ]] && { echo "Date cannot be empty"; exit 1; }
+
+    new_book=$(jq -n \
+        --arg title "$title" \
+        --arg author "$author" \
+        --arg date "$date" \
+        '{title: $title, author: $author, date: $date, quotes: []}')
+
+    jq ". += [$new_book]" "$READ_FILE" > "$READ_FILE.tmp" && mv "$READ_FILE.tmp" "$READ_FILE"
+
+    echo "Book added successfully!"
+}
+
+add_quote() {
+    if [[ ! -s "$READ_FILE" ]] || [[ "$(jq 'length' "$READ_FILE")" -eq 0 ]]; then
+        echo "No books found. Add a book first."
+        return
+    fi
+
+    book_titles=$(jq -r '.[].title' "$READ_FILE")
+    selected_book=$(echo "$book_titles" | gum choose --header "Select book to add quote to:")
+
+    if [[ -z "$selected_book" ]]; then
+        echo "No book selected."
+        return
+    fi
+
+    quote_text=$(gum write --placeholder "Enter quote")
+    [[ -z "$quote_text" ]] && { echo "Quote cannot be empty"; exit 1; }
+
+    note=$(gum write --placeholder "Enter note (optional)")
+
+    book_index=$(jq --arg title "$selected_book" 'map(.title == $title) | index(true)' "$READ_FILE")
+
+    if [[ -n "$note" ]]; then
+        new_quote=$(jq -n --arg quote "$quote_text" --arg note "$note" '{quote: $quote, note: $note}')
+    else
+        new_quote=$(jq -n --arg quote "$quote_text" '{quote: $quote}')
+    fi
+
+    jq \
+        --arg index "$book_index" \
+        --argjson quote "$new_quote" \
+        '.[$index | tonumber].quotes += [$quote]' \
+        "$READ_FILE" > "$READ_FILE.tmp" && mv "$READ_FILE.tmp" "$READ_FILE"
+
+    echo "Quote added successfully!"
+}
+
+list_books() {
+    if [[ ! -s "$READ_FILE" ]] || [[ "$(jq 'length' "$READ_FILE")" -eq 0 ]]; then
+        echo "No books found."
+        return
+    fi
+
+    echo "Current books:"
+    jq -r '.[] | "Title: \(.title)\nAuthor: \(.author)\nDate: \(.date)\nQuotes: \(.quotes | length)\n---"' "$READ_FILE"
+}
+
+list_quotes() {
+    if [[ ! -s "$READ_FILE" ]] || [[ "$(jq 'length' "$READ_FILE")" -eq 0 ]]; then
+        echo "No books found."
+        return
+    fi
+
+    book_titles=$(jq -r '.[].title' "$READ_FILE")
+    selected_book=$(echo "$book_titles" | gum choose --header "Select book to view quotes:")
+
+    if [[ -z "$selected_book" ]]; then
+        echo "No book selected."
+        return
+    fi
+
+    book_index=$(jq --arg title "$selected_book" 'map(.title == $title) | index(true)' "$READ_FILE")
+    quotes_count=$(jq ".[$book_index].quotes | length" "$READ_FILE")
+
+    if [[ "$quotes_count" -eq 0 ]]; then
+        echo "No quotes found for this book."
+        return
+    fi
+
+    echo "Quotes from: $selected_book"
+    jq -r ".[$book_index].quotes[] | if .note then \"Quote: \(.quote)\nNote: \(.note)\n---\" else \"Quote: \(.quote)\n---\" end" "$READ_FILE"
+}
+
+list_references() {
+    if [[ ! -s "$REFS_FILE" ]] || [[ "$(jq 'length' "$REFS_FILE")" -eq 0 ]]; then
+        echo "No references found."
+        return
+    fi
+    
+    echo "Current references:"
+    jq -r '.[] | "Title: \(.title)\nDescription: \(.description)\nReference: \(.reference)\nURL: \(.url)\n---"' "$REFS_FILE"
+}
+
+edit_reference() {
+    if [[ ! -s "$REFS_FILE" ]] || [[ "$(jq 'length' "$REFS_FILE")" -eq 0 ]]; then
+        echo "No references found to edit."
+        return
+    fi
+    
+    titles=$(jq -r '.[].title' "$REFS_FILE")
+    selected_title=$(echo "$titles" | gum choose --header "Select reference to edit:")
+    
+    if [[ -z "$selected_title" ]]; then
+        echo "No reference selected."
+        return
+    fi
+    
+    index=$(jq --arg title "$selected_title" 'map(.title == $title) | index(true)' "$REFS_FILE")
+    
+    current=$(jq ".[$index]" "$REFS_FILE")
+    current_title=$(echo "$current" | jq -r '.title')
+    current_description=$(echo "$current" | jq -r '.description')
+    current_reference=$(echo "$current" | jq -r '.reference')
+    current_url=$(echo "$current" | jq -r '.url')
+    
+    echo "Editing reference: $current_title"
+    
+    new_title=$(gum input --placeholder "Title" --value "$current_title")
+    new_description=$(gum write --placeholder "Description" --value "$current_description")
+    new_reference=$(gum write --placeholder "Reference" --value "$current_reference")
+    new_url=$(gum input --placeholder "URL" --value "$current_url")
+    
+    [[ -z "$new_title" ]] && new_title="$current_title"
+    [[ -z "$new_description" ]] && new_description="$current_description"
+    [[ -z "$new_reference" ]] && new_reference="$current_reference"
+    [[ -z "$new_url" ]] && new_url="$current_url"
+    
+    jq \
+        --arg index "$index" \
+        --arg title "$new_title" \
+        --arg description "$new_description" \
+        --arg reference "$new_reference" \
+        --arg url "$new_url" \
+        '.[$index | tonumber] = {title: $title, description: $description, reference: $reference, url: $url}' \
+        "$REFS_FILE" > "$REFS_FILE.tmp" && mv "$REFS_FILE.tmp" "$REFS_FILE"
+    
+    echo "Reference updated successfully!"
+}
+
+# ##############################################
+#      Strategic Planner API integration
+#   (All additions; core nref logic untouched)
+# ##############################################
+
+# Config: override with PLANNER_BASE_URL env var if you like
+PLANNER_BASE_URL="${PLANNER_BASE_URL:-http://127.0.0.1:3000/api}"
+
+# ---- helpers -------------------------------------------------------
+#
+_api_get()  { curl -sS --fail "${PLANNER_BASE_URL}$1"; }
+_api_del()  { curl -sS --fail -X DELETE "${PLANNER_BASE_URL}$1"; }
+_api_post() { curl -sS --fail -H "Content-Type: application/json" -X POST -d "$2" "${PLANNER_BASE_URL}$1"; }
+_api_put()  { curl -sS --fail -H "Content-Type: application/json" -X PUT  -d "$2" "${PLANNER_BASE_URL}$1"; }
+
+_fmt_or_error() {
+    local status=$?
+    if [[ $status -ne 0 ]]; then
+        echo "Request failed. Check PLANNER_BASE_URL (${PLANNER_BASE_URL}) and server status." >&2
+        return $status
+    fi
+    jq -C . 2>/dev/null || cat
+}
+
+_choose_from_json_list() {
+    # $1: json array, $2: label jq expr, $3: value jq expr
+    local json="$1" label="$2" value="$3"
+    echo "$json" | jq -r "[.[] | {label: ($label), value: ($value)}] | .[].label" | gum choose --no-limit=false --header "Select one:" | while read -r chosen; do
+        echo "$json" | jq -r --arg chosen "$chosen" "[.[] | {label: ($label), value: ($value)}] | map(select(.label==\$chosen)) | .[0].value"
+        break
+    done
+}
+
+_yes_no() {
+    gum choose "No" "Yes" --header "${1:-Completed?}" | grep -q Yes && echo "true" || echo "false"
+}
+
+_comma_to_json_array_numbers() {
+    # "1,2,3" -> [1,2,3] ; empty -> []
+    local s="${1//[[:space:]]/}"
+    [[ -z "$s" ]] && echo "[]" && return
+    echo "[$(echo "$s" | awk -F',' '{for(i=1;i<=NF;i++){if($i~/^[0-9]+$/){printf "%s%s", (i>1?",":""), $i}else{exit 1}}}')]"
+}
+
+_comma_to_json_array_strings() {
+    # "a,b" -> ["a","b"] ; empty -> []
+    local s="${1//[[:space:]]/}"
+    [[ -z "$s" ]] && echo "[]" && return
+    echo "$s" | awk -F',' 'BEGIN{printf "["}{for(i=1;i<=NF;i++){gsub(/"/,"\\\"", $i); printf "%s\"%s\"", (i>1?",":""), $i} }END{print "]"}'
+}
+
+# ---- Vision -----------------------------------------------------------
+
+planner_show_vision() {
+    echo "Fetching vision..."
+    _api_get "/vision" | _fmt_or_error
+}
+
+planner_update_vision() {
+    local statement timeframe
+    statement=$(gum write --placeholder "Vision statement")
+    [[ -z "$statement" ]] && { echo "Statement cannot be empty"; return 1; }
+    timeframe=$(gum input --placeholder "Timeframe (years)" --value "5")
+    [[ -z "$timeframe" ]] && timeframe="5"
+    _api_put "/vision" "$(jq -n --arg s "$statement" --argjson t "${timeframe:-5}" '{statement:$s,timeframe:$t}')" | _fmt_or_error
+}
+
+# ---- Objectives -------------------------------------------------------
+
+planner_list_objectives() {
+    echo "Objectives:"
+    _api_get "/objectives" | _fmt_or_error
+}
+
+planner_add_objective() {
+    local name metric target current
+    name=$(gum input --placeholder "Objective name") || return
+    metric=$(gum input --placeholder "Metric (e.g., Annual Revenue)") || return
+    target=$(gum input --placeholder "Target (number)" --value "0") || return
+    current=$(gum input --placeholder "Current (number)" --value "0") || return
+    _api_post "/objectives" "$(jq -n --arg n "$name" --arg m "$metric" --argjson ta ${target:-0} --argjson cu ${current:-0} '{name:$n,metric:$m,target:$ta,current:$cu}')" | _fmt_or_error
+}
+
+planner_edit_objective() {
+    local all id
+    all=$(_api_get "/objectives") || { _fmt_or_error; return 1; }
+    [[ "$(echo "$all" | jq 'length')" -eq 0 ]] && { echo "No objectives."; return; }
+    id=$(_choose_from_json_list "$all" '.id|tostring + " • " + .name + " (" + .metric + ")"' '.id')
+    [[ -z "$id" ]] && return
+    local name metric target current
+    name=$(gum input --placeholder "Name (leave blank to keep)")
+    metric=$(gum input --placeholder "Metric (leave blank to keep)")
+    target=$(gum input --placeholder "Target (leave blank to keep)")
+    current=$(gum input --placeholder "Current (leave blank to keep)")
+    local body="{}"
+    [[ -n "$name"   ]] && body=$(echo "$body" | jq --arg v "$name"   '. + {name:$v}')
+    [[ -n "$metric" ]] && body=$(echo "$body" | jq --arg v "$metric" '. + {metric:$v}')
+    [[ -n "$target" ]] && body=$(echo "$body" | jq --argjson v "${target}" '. + {target:$v}')
+    [[ -n "$current" ]] && body=$(echo "$body" | jq --argjson v "${current}" '. + {current:$v}')
+    _api_put "/objectives/${id}" "$body" | _fmt_or_error
+}
+
+planner_delete_objective() {
+    local all id
+    all=$(_api_get "/objectives") || { _fmt_or_error; return 1; }
+    [[ "$(echo "$all" | jq 'length')" -eq 0 ]] && { echo "No objectives."; return; }
+    id=$(_choose_from_json_list "$all" '.id|tostring + " • " + .name' '.id')
+    [[ -z "$id" ]] && return
+    _api_del "/objectives/${id}" && echo "Deleted."
+}
+
+# ---- Goals (read/create basic) ---------------------------------------
+
+planner_list_goals() {
+    echo "Goals:"
+    _api_get "/goals" | _fmt_or_error
+}
+
+planner_add_goal() {
+    local name metric target current year quarter objectives_csv objectiveIds
+    name=$(gum input --placeholder "Goal name") || return
+    objectives_csv=$(gum input --placeholder "Objective IDs (comma-separated, optional)")
+    objectiveIds=$(_comma_to_json_array_numbers "$objectives_csv")
+    metric=$(gum input --placeholder "Metric") || return
+    target=$(gum input --placeholder "Target (number)" --value "0") || return
+    current=$(gum input --placeholder "Current (number)" --value "0") || return
+    year=$(gum input --placeholder "Year (e.g., 2025)" --value "$(date +%Y)") || return
+    quarter=$(gum choose "Q1" "Q2" "Q3" "Q4" --header "Quarter")
+    _api_post "/goals" "$(jq -n --arg n "$name" --arg m "$metric" --argjson ta ${target:-0} --argjson cu ${current:-0} --argjson y ${year:-0} --arg q "$quarter" --argjson o "$objectiveIds" '{name:$n,metric:$m,target:$ta,current:$cu,year:$y,quarter:$q,objectiveIds:$o}')" | _fmt_or_error
+}
+
+# ---- Initiatives & Tasks --------------------------------------------------
+
+planner_list_initiatives() {
+    echo "Initiatives:"
+    _api_get "/initiatives" | _fmt_or_error
+}
+
+planner_add_initiative() {
+    local name owner startDate goalIds_csv goalIds
+    name=$(gum input --placeholder "Initiative name") || return
+    owner=$(gum input --placeholder "Owner/Team") || return
+    startDate=$(gum input --placeholder "Start date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)") || return
+    goalIds_csv=$(gum input --placeholder "Goal IDs (comma-separated, optional)")
+    goalIds=$(_comma_to_json_array_numbers "$goalIds_csv")
+    _api_post "/initiatives" "$(jq -n --arg n "$name" --arg o "$owner" --arg s "$startDate" --argjson g "$goalIds" '{name:$n,owner:$o,startDate:$s,goalIds:$g,tasks:[] }')" | _fmt_or_error
+}
+
+planner_add_task() {
+    local inits init_id
+    inits=$(_api_get "/initiatives") || { _fmt_or_error; return 1; }
+    [[ "$(echo "$inits" | jq 'length')" -eq 0 ]] && { echo "No initiatives."; return; }
+    init_id=$(_choose_from_json_list "$inits" '.id|tostring + " • " + .name' '.id')
+    [[ -z "$init_id" ]] && return
+
+    local tid tname sdate edate deps_csv deps completed
+    tid=$(gum input --placeholder "Task ID (string like t1)") || return
+    tname=$(gum input --placeholder "Task name") || return
+    sdate=$(gum input --placeholder "Start date (YYYY-MM-DD)" --value "$(date +%Y-%m-%d)") || return
+    edate=$(gum input --placeholder "End date (YYYY-MM-DD)" --value "$(date -d '+14 days' +%Y-%m-%d 2>/dev/null || date +%Y-%m-%d)") || return
+    deps_csv=$(gum input --placeholder "Dependencies (task IDs, comma-separated, optional)")
+    deps=$(_comma_to_json_array_strings "$deps_csv")
+    completed=$(_yes_no "Completed?")
+
+    local payload
+    payload=$(jq -n --arg id "$tid" --arg n "$tname" --arg sd "$sdate" --arg ed "$edate" --argjson d "$deps" --argjson c $( [[ "$completed" == "true" ]] && echo true || echo false ) \
+        '{task:{id:$id,name:$n,startDate:$sd,endDate:$ed,dependencies:$d,completed:$c}}')
+    _api_post "/initiatives/${init_id}/tasks" "$payload" | _fmt_or_error
+}
+
+planner_edit_task() {
+    local inits init tasks tid
+    inits=$(_api_get "/initiatives") || { _fmt_or_error; return 1; }
+    [[ "$(echo "$inits" | jq 'length')" -eq 0 ]] && { echo "No initiatives."; return; }
+    init=$(_choose_from_json_list "$inits" '.id|tostring + " • " + .name' '.') || return
+    [[ -z "$init" ]] && return
+    tasks=$(echo "$init" | jq -c '.tasks')
+    [[ "$(echo "$tasks" | jq 'length')" -eq 0 ]] && { echo "No tasks on this initiative."; return; }
+    tid=$(_choose_from_json_list "$tasks" '.id + " • " + .name' '.id')
+    [[ -z "$tid" ]] && return
+
+    local tname sdate edate deps_csv deps completed
+    tname=$(gum input --placeholder "Name (blank=keep)")
+    sdate=$(gum input --placeholder "Start date YYYY-MM-DD (blank=keep)")
+    edate=$(gum input --placeholder "End date YYYY-MM-DD (blank=keep)")
+    deps_csv=$(gum input --placeholder "Dependencies CSV (blank=keep)")
+    completed=$(gum choose "Keep" "Set Completed=true" "Set Completed=false" --header "Completed status")
+
+    local body="{}"
+    [[ -n "$tname" ]] && body=$(echo "$body" | jq --arg v "$tname" '. + {name:$v}')
+    [[ -n "$sdate" ]] && body=$(echo "$body" | jq --arg v "$sdate" '. + {startDate:$v}')
+    [[ -n "$edate" ]] && body=$(echo "$body" | jq --arg v "$edate" '. + {endDate:$v}')
+    [[ -n "$deps_csv" ]] && { deps=$(_comma_to_json_array_strings "$deps_csv"); body=$(echo "$body" | jq --argjson v "$deps" '. + {dependencies:$v}'); }
+    case "$completed" in
+        "Set Completed=true")  body=$(echo "$body" | jq '. + {completed:true}') ;;
+        "Set Completed=false") body=$(echo "$body" | jq '. + {completed:false}') ;;
+        *) ;;
+    esac
+
+    _api_put "/initiatives/$(echo "$init" | jq -r .id)/tasks/${tid}" "$(jq -n --argjson task "$body" '{task:$task}')" | _fmt_or_error
+}
+
+planner_delete_task() {
+    local inits init tasks tid
+    inits=$(_api_get "/initiatives") || { _fmt_or_error; return 1; }
+    [[ "$(echo "$inits" | jq 'length')" -eq 0 ]] && { echo "No initiatives."; return; }
+    init=$(_choose_from_json_list "$inits" '.id|tostring + " • " + .name' '.') || return
+    tasks=$(echo "$init" | jq -c '.tasks')
+    [[ "$(echo "$tasks" | jq 'length')" -eq 0 ]] && { echo "No tasks on this initiative."; return; }
+    tid=$(_choose_from_json_list "$tasks" '.id + " • " + .name' '.id')
+    [[ -z "$tid" ]] && return
+    _api_del "/initiatives/$(echo "$init" | jq -r .id)/tasks/${tid}" && echo "Deleted."
+}
+
+# ---- Calculations -----------------------------------------------------
+
+planner_show_cpm() {
+    echo "Calculating CPM..."
+    _api_get "/calculations/cpm" | _fmt_or_error
+}
+
+planner_show_priority_matrix() {
+    echo "Priority Matrix:"
+    _api_get "/calculations/priority-matrix" | _fmt_or_error
+}
+
+# ---- Submenu ----------------------------------------------------------
+
+planner_menu() {
+    # Keep this separate so main menu stays clean
+    local action
+    action=$(gum choose \
+        "Vision: Show" \
+        "Vision: Update" \
+        "Objectives: List" \
+        "Objectives: Add" \
+        "Objectives: Edit" \
+        "Objectives: Delete" \
+        "Goals: List" \
+        "Goals: Add" \
+        "Initiatives: List" \
+        "Initiatives: Add" \
+        "Tasks: Add" \
+        "Tasks: Edit" \
+        "Tasks: Delete" \
+        "Calculations: CPM" \
+        "Calculations: Priority Matrix" \
+        --header "Planner — choose an action") || return
+
+    case "$action" in
+        "Vision: Show")                  planner_show_vision ;;
+        "Vision: Update")                planner_update_vision ;;
+        "Objectives: List")              planner_list_objectives ;;
+        "Objectives: Add")               planner_add_objective ;;
+        "Objectives: Edit")              planner_edit_objective ;;
+        "Objectives: Delete")            planner_delete_objective ;;
+        "Goals: List")                   planner_list_goals ;;
+        "Goals: Add")                    planner_add_goal ;;
+        "Initiatives: List")             planner_list_initiatives ;;
+        "Initiatives: Add")              planner_add_initiative ;;
+        "Tasks: Add")                    planner_add_task ;;
+        "Tasks: Edit")                   planner_edit_task ;;
+        "Tasks: Delete")                 planner_delete_task ;;
+        "Calculations: CPM")             planner_show_cpm ;;
+        "Calculations: Priority Matrix") planner_show_priority_matrix ;;
+        *) echo "Unknown option";;
+    esac
+}
+
+main() {
+    if ! command -v gum &> /dev/null; then
+        echo "Error: gum is not installed. Please install charmbracelet/gum"
+        exit 1
+    fi
+    
+    if ! command -v jq &> /dev/null; then
+        echo "Error: jq is not installed. Please install jq"
+        exit 1
+    fi
+    
+    action=$(gum choose "Planner" "Add reference" "List references" "Edit reference" "Add book" "Add quote" "List books" "List quotes" --header "What would you like to do?")
+    
+    case "$action" in
+        "Planner")
+            planner_menu
+            ;;
+        "Add reference")
+            add_reference
+            ;;
+        "List references")
+            list_references
+            ;;
+        "Edit reference")
+            edit_reference
+            ;;
+        "Add book")
+            add_book
+            ;;
+        "Add quote")
+            add_quote
+            ;;
+        "List books")
+            list_books
+            ;;
+        "List quotes")
+            list_quotes
+            ;;
+        *)
+            echo "Invalid option"
+            exit 1
+            ;;
+    esac
+}
+
+main "$@"
