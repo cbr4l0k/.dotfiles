@@ -1,0 +1,37 @@
+% recon, dns, passive
+
+# [tool][whois][domain basic info]
+whois --verbose <Domain>
+
+# [tool][host][dns info gathering]
+host -t <RecordType> <Domain>
+
+$ RecordType: echo -e "ns\na\naaaa\nmx\nptr\ncname\ntxt"
+
+# [tool][dnsrecon][dns info gathering]
+dnsrecon -d <Domain> -t <EnumerationType> 
+
+$ EnumerationType: dnsrecon -h | rg "^.+:.+\.$" | awk -F: '{ print $1 }' | sed 's/^\s*//g'
+
+# [tool][dnsenum][dns bruteforce kinda enumeration]
+dnsenum <Domain> 2>/dev/null
+
+% recon, snmp, passive
+
+# [tool][onesixtyone][Uses seclist's community strings to bruteforce against a list of IP addresses]
+sudo onesixtyone -c /usr/share/seclists/Discovery/SNMP/common-snmp-community-strings-onesixtyone.txt -i <IPFile>  -w 100
+
+$ IPFile: ls
+
+# [tool][snmpwalk][Basic snmpwalk enumeration with file of OID Values]
+snmpwalk -c <CommunityString> -v<SnmpVersion> <IP> <OIDValue>
+
+$ SnmpVersion: echo -e "1\n2c\n3"
+$ OIDValue: cat $HOME/.config/navi/files/recon_snmpwalk.txt
+
+% recon, active, port scanning
+
+# [tool][rustscan][Scan with default scripts and version detection]
+rustscan -a <IP> --ulimit 5000 -- -sCV -oA <file-name>
+
+

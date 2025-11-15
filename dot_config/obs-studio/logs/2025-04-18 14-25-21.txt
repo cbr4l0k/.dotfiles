@@ -1,0 +1,872 @@
+14:25:21.617: Command Line Arguments: --verbose
+14:25:21.617: Platform: Wayland
+14:25:21.617: CPU Name: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+14:25:21.617: CPU Speed: 1340.812MHz
+14:25:21.617: Physical Cores: 4, Logical Cores: 8
+14:25:21.617: Physical Memory: 15838MB Total, 11708MB Free
+14:25:21.617: Kernel Version: Linux 6.12.23-1-lts
+14:25:21.617: Distribution: "Arch Linux" Unknown
+14:25:21.617: Desktop Environment: Hyprland (Hyprland)
+14:25:21.617: Session Type: wayland
+14:25:21.620: canvas 'Main' (6c69626f-6273-4c00-9d88-c5136d61696e) created
+14:25:21.620: Qt Version: 6.9.0 (runtime), 6.9.0 (compiled)
+14:25:21.620: Portable mode: false
+14:25:21.675: OBS 31.0.3 (linux)
+14:25:21.675: ---------------------------------
+14:25:21.678: ---------------------------------
+14:25:21.678: audio settings reset:
+14:25:21.678: 	samples per sec: 48000
+14:25:21.678: 	speakers:        2
+14:25:21.678: 	max buffering:   960 milliseconds
+14:25:21.678: 	buffering type:  dynamically increasing
+14:25:21.681: ---------------------------------
+14:25:21.681: Initializing OpenGL...
+14:25:21.681: Using EGL/Wayland
+14:25:21.728: Initialized EGL 1.5
+14:25:21.728: Supported EGL Extensions: EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_config_select_group EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_EXT_present_opaque EGL_EXT_query_reset_notification_strategy EGL_EXT_surface_compression EGL_EXT_swap_buffers_with_damage EGL_IMG_context_priority EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image_base EGL_KHR_no_config_context EGL_KHR_partial_update EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_drm_image EGL_MESA_gl_interop EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_MESA_x11_native_visual_id EGL_WL_bind_wayland_display EGL_WL_create_wayland_buffer_from_image 
+14:25:21.746: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 620 (WHL GT2)
+14:25:21.746: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.0.3-arch1.1, shading language 4.60
+14:25:21.782: ---------------------------------
+14:25:21.782: video settings reset:
+14:25:21.782: 	base resolution:   1366x768
+14:25:21.782: 	output resolution: 1364x768
+14:25:21.782: 	downscale filter:  Bicubic
+14:25:21.782: 	fps:               30/1
+14:25:21.782: 	format:            NV12
+14:25:21.782: 	YUV mode:          Rec. 709/Partial
+14:25:21.782: NV12 texture support enabled
+14:25:21.782: P010 texture support not available
+14:25:21.787: Audio monitoring device:
+14:25:21.787: 	name: Default
+14:25:21.787: 	id: default
+14:25:21.788: ---------------------------------
+14:25:21.807: ---------------------------------
+14:25:21.817: Loading module: aja-output-ui.so
+14:25:21.818: No AJA devices found, skipping loading AJA UI plugin
+14:25:21.818: Failed to initialize module 'aja-output-ui.so'
+14:25:21.822: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:25:21.822: 
+14:25:21.824: ---------------------------------
+14:25:21.825: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:25:21.825: 
+14:25:21.825: Module '/usr/lib/obs-plugins/aja.so' not loaded
+14:25:21.825: Failed to load module file '/usr/lib/obs-plugins/aja.so', file not found
+14:25:21.831: ---------------------------------
+14:25:21.832: Loading module: decklink-captions.so
+14:25:21.832: Failed to load 'en-US' text for module: 'decklink-captions.so'
+14:25:21.837: ---------------------------------
+14:25:21.839: Loading module: decklink-output-ui.so
+14:25:21.840: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+14:25:21.845: ---------------------------------
+14:25:21.846: Loading module: decklink.so
+14:25:21.846: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+14:25:21.846: Failed to initialize module 'decklink.so'
+14:25:21.854: ---------------------------------
+14:25:21.857: Loading module: frontend-tools.so
+14:25:21.947: ---------------------------------
+14:25:21.948: Loading module: image-source.so
+14:25:22.018: ---------------------------------
+14:25:22.037: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libcef.so' not found, loading of module failed
+14:25:22.037: Failed to load module file '/usr/lib/obs-plugins/libcef.so', not an OBS plugin
+14:25:22.043: ---------------------------------
+14:25:22.043: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libEGL.so' not found, loading of module failed
+14:25:22.043: Failed to load module file '/usr/lib/obs-plugins/libEGL.so', not an OBS plugin
+14:25:22.056: ---------------------------------
+14:25:22.061: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libGLESv2.so' not found, loading of module failed
+14:25:22.061: Failed to load module file '/usr/lib/obs-plugins/libGLESv2.so', not an OBS plugin
+14:25:22.070: ---------------------------------
+14:25:22.071: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libvk_swiftshader.so' not found, loading of module failed
+14:25:22.071: Failed to load module file '/usr/lib/obs-plugins/libvk_swiftshader.so', not an OBS plugin
+14:25:22.077: ---------------------------------
+14:25:22.079: Loading module: linux-alsa.so
+14:25:22.086: ---------------------------------
+14:25:22.088: Loading module: linux-capture.so
+14:25:22.097: ---------------------------------
+14:25:22.099: Loading module: linux-jack.so
+14:25:22.107: ---------------------------------
+14:25:22.110: Loading module: linux-pipewire.so
+14:25:22.140: [pipewire] Available capture sources:
+14:25:22.140: [pipewire]     - Monitor source
+14:25:22.140: [pipewire]     - Window source
+14:25:22.146: ---------------------------------
+14:25:22.147: Loading module: linux-pulseaudio.so
+14:25:22.156: ---------------------------------
+14:25:22.157: Loading module: linux-v4l2.so
+14:25:22.171: ---------------------------------
+14:25:22.173: Loading module: obs-browser.so
+14:25:22.174: [obs-browser]: Version 2.24.6
+14:25:22.174: [obs-browser]: CEF Version 127.0.6533.120 (runtime), 127.0.0-6533-fix-stutter.3039+g9d68db8+chromium-127.0.6533.120 (compiled)
+14:25:22.224: ---------------------------------
+14:25:22.252: Loading module: obs-ffmpeg.so
+14:25:22.253: VAAPI: Initializing display in vaapi_device_h264_supported
+14:25:22.253: Libva: VA-API version 1.22.0
+14:25:22.253: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:25:22.255: Libva: Found init function __vaDriverInit_1_22
+14:25:22.255: Libva: va_openDriver() returns 0
+14:25:22.255: VAAPI: Display initialized
+14:25:22.256: VAAPI: API version 1.22
+14:25:22.256: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:25:22.256: '/dev/dri/renderD128' support encoding with VAProfileH264ConstrainedBaseline
+14:25:22.256: '/dev/dri/renderD128' support encoding with VAProfileH264Main
+14:25:22.256: '/dev/dri/renderD128' support encoding with VAProfileH264High
+14:25:22.256: FFmpeg VAAPI H264 encoding supported
+14:25:22.256: VAAPI: Initializing display in vaapi_device_av1_supported
+14:25:22.256: Libva: VA-API version 1.22.0
+14:25:22.256: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:25:22.256: Libva: Found init function __vaDriverInit_1_22
+14:25:22.257: Libva: va_openDriver() returns 0
+14:25:22.257: VAAPI: Display initialized
+14:25:22.257: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:25:22.257: VAAPI: VAProfileAV1Profile0 is not supported by the device '/dev/dri/renderD128'
+14:25:22.257: VAAPI: VAProfileAV1Profile0 is not supported by the device '/dev/dri/renderD128'
+14:25:22.257: FFmpeg VAAPI AV1 encoding not supported
+14:25:22.257: VAAPI: Initializing display in vaapi_device_hevc_supported
+14:25:22.257: Libva: VA-API version 1.22.0
+14:25:22.257: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:25:22.257: Libva: Found init function __vaDriverInit_1_22
+14:25:22.257: Libva: va_openDriver() returns 0
+14:25:22.257: VAAPI: Display initialized
+14:25:22.257: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:25:22.257: '/dev/dri/renderD128' support encoding with VAProfileHEVCMain
+14:25:22.257: '/dev/dri/renderD128' support encoding with VAProfileHEVCMain10
+14:25:22.258: FFmpeg VAAPI HEVC encoding supported
+14:25:22.266: ---------------------------------
+14:25:22.267: Loading module: obs-filters.so
+14:25:22.275: ---------------------------------
+14:25:22.276: Loading module: obs-libfdk.so
+14:25:22.283: ---------------------------------
+14:25:22.284: Loading module: obs-nvenc.so
+14:25:22.285: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+14:25:22.285: 
+14:25:22.285: NVENC not supported
+14:25:22.285: Failed to initialize module 'obs-nvenc.so'
+14:25:22.292: ---------------------------------
+14:25:22.293: Loading module: obs-outputs.so
+14:25:22.301: ---------------------------------
+14:25:22.302: Loading module: obs-qsv11.so
+14:25:22.312: ---------------------------------
+14:25:22.313: Loading module: obs-transitions.so
+14:25:22.321: ---------------------------------
+14:25:22.322: Loading module: obs-vst.so
+14:25:22.340: ---------------------------------
+14:25:22.348: Loading module: obs-webrtc.so
+14:25:22.359: ---------------------------------
+14:25:22.361: Loading module: obs-websocket.so
+14:25:22.362: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.5.6 | RPC Version: 1)
+14:25:22.362: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.9.0 | Qt version (run-time): 6.9.0
+14:25:22.362: [obs-websocket] [obs_module_load] Linked ASIO Version: 103200
+14:25:22.362: DEPRECATION: obs_frontend_get_global_config is deprecated. Read from global or user configuration explicitly instead.
+14:25:22.362: [obs-websocket] [Config::Save] Saved config.
+14:25:22.368: [obs-websocket] [obs_module_load] Module loaded.
+14:25:22.375: ---------------------------------
+14:25:22.377: Loading module: obs-x264.so
+14:25:22.385: ---------------------------------
+14:25:22.386: Loading module: rtmp-services.so
+14:25:22.396: ---------------------------------
+14:25:22.397: Loading module: text-freetype2.so
+14:25:22.405: ---------------------------------
+14:25:22.407: Loading module: vlc-video.so
+14:25:22.410: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+14:25:22.410: ---------------------------------
+14:25:22.410:   Loaded Modules:
+14:25:22.410:     vlc-video.so
+14:25:22.410:     text-freetype2.so
+14:25:22.410:     rtmp-services.so
+14:25:22.410:     obs-x264.so
+14:25:22.410:     obs-websocket.so
+14:25:22.410:     obs-webrtc.so
+14:25:22.410:     obs-vst.so
+14:25:22.410:     obs-transitions.so
+14:25:22.410:     obs-qsv11.so
+14:25:22.410:     obs-outputs.so
+14:25:22.410:     obs-libfdk.so
+14:25:22.410:     obs-filters.so
+14:25:22.410:     obs-ffmpeg.so
+14:25:22.410:     obs-browser.so
+14:25:22.410:     linux-v4l2.so
+14:25:22.410:     linux-pulseaudio.so
+14:25:22.410:     linux-pipewire.so
+14:25:22.410:     linux-jack.so
+14:25:22.410:     linux-capture.so
+14:25:22.410:     linux-alsa.so
+14:25:22.410:     image-source.so
+14:25:22.410:     frontend-tools.so
+14:25:22.410:     decklink-output-ui.so
+14:25:22.410:     decklink-captions.so
+14:25:22.410: ---------------------------------
+14:25:22.411: ---------------------------------
+14:25:22.411: Available Encoders:
+14:25:22.411:   Video Encoders:
+14:25:22.411: 	- ffmpeg_svt_av1 (SVT-AV1)
+14:25:22.411: 	- ffmpeg_aom_av1 (AOM AV1)
+14:25:22.411: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+14:25:22.411: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+14:25:22.411: 	- obs_qsv11_v2 (QuickSync H.264)
+14:25:22.411: 	- obs_qsv11_hevc (QuickSync HEVC)
+14:25:22.411: 	- obs_x264 (x264)
+14:25:22.411:   Audio Encoders:
+14:25:22.411: 	- ffmpeg_aac (FFmpeg AAC)
+14:25:22.411: 	- ffmpeg_opus (FFmpeg Opus)
+14:25:22.411: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+14:25:22.411: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+14:25:22.411: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+14:25:22.411: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+14:25:22.411: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+14:25:22.411: 	- libfdk_aac (libfdk AAC)
+14:25:22.411: ==== Startup complete ===============================================
+14:25:22.414: service 'default_service' (rtmp_common) created
+14:25:22.414: output 'virtualcam_output' (virtualcam_output) created
+14:25:22.414: encoder 'simple_video_stream' (obs_x264) created
+14:25:22.414: Fallback encoder bitrates:
+14:25:22.414: 	 64 kbit/s:
+14:25:22.414: 	 96 kbit/s:
+14:25:22.414: 	128 kbit/s:
+14:25:22.414: 	160 kbit/s:
+14:25:22.414: 	192 kbit/s:
+14:25:22.414: 	224 kbit/s:
+14:25:22.414: 	256 kbit/s:
+14:25:22.414: 	288 kbit/s:
+14:25:22.414: 	320 kbit/s:
+14:25:22.414: 	352 kbit/s:
+14:25:22.414: 	384 kbit/s:
+14:25:22.414: 	416 kbit/s:
+14:25:22.414: 	448 kbit/s:
+14:25:22.414: 	480 kbit/s:
+14:25:22.414: 	512 kbit/s:
+14:25:22.414: 	544 kbit/s:
+14:25:22.414: 	576 kbit/s:
+14:25:22.414: 	608 kbit/s:
+14:25:22.414: 	640 kbit/s:
+14:25:22.414: 	672 kbit/s:
+14:25:22.414: 	704 kbit/s:
+14:25:22.414: 	736 kbit/s:
+14:25:22.414: 	768 kbit/s:
+14:25:22.414: 	800 kbit/s:
+14:25:22.414: 	832 kbit/s:
+14:25:22.414: 	864 kbit/s:
+14:25:22.414: 	896 kbit/s:
+14:25:22.414: 	928 kbit/s:
+14:25:22.414: 	960 kbit/s:
+14:25:22.414: 	992 kbit/s:
+14:25:22.414: 	1024 kbit/s:
+14:25:22.414: FFmpeg PCM (16-bit) (ffmpeg_pcm_s16le) encoder bitrates:
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: FFmpeg PCM (24-bit) (ffmpeg_pcm_s24le) encoder bitrates:
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: FFmpeg PCM (32-bit float) (ffmpeg_pcm_f32le) encoder bitrates:
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: FFmpeg ALAC (24-bit) (ffmpeg_alac) encoder bitrates:
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: FFmpeg FLAC (16-bit) (ffmpeg_flac) encoder bitrates:
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: libfdk AAC (libfdk_aac) encoder bitrates:
+14:25:22.414: 	 32 kbit/s
+14:25:22.414: 	 64 kbit/s
+14:25:22.414: 	 96 kbit/s
+14:25:22.414: 	128 kbit/s
+14:25:22.414: 	160 kbit/s
+14:25:22.414: 	192 kbit/s
+14:25:22.414: 	224 kbit/s
+14:25:22.414: 	256 kbit/s
+14:25:22.414: 	288 kbit/s
+14:25:22.414: 	320 kbit/s
+14:25:22.414: 	352 kbit/s
+14:25:22.414: 	384 kbit/s
+14:25:22.414: 	416 kbit/s
+14:25:22.414: 	448 kbit/s
+14:25:22.414: 	480 kbit/s
+14:25:22.414: 	512 kbit/s
+14:25:22.414: 	544 kbit/s
+14:25:22.414: 	576 kbit/s
+14:25:22.414: 	608 kbit/s
+14:25:22.414: 	640 kbit/s
+14:25:22.414: 	672 kbit/s
+14:25:22.414: 	704 kbit/s
+14:25:22.414: 	736 kbit/s
+14:25:22.414: 	768 kbit/s
+14:25:22.414: 	800 kbit/s
+14:25:22.414: 	832 kbit/s
+14:25:22.414: 	864 kbit/s
+14:25:22.414: 	896 kbit/s
+14:25:22.414: 	928 kbit/s
+14:25:22.414: 	960 kbit/s
+14:25:22.414: 	992 kbit/s
+14:25:22.414: 	1024 kbit/s
+14:25:22.414: AAC simple encoder bitrate mapping:
+14:25:22.414: 	 32 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	 64 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	 96 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	128 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	160 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	192 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	224 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	256 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	288 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	320 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	352 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	384 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	416 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	448 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	480 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	512 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	544 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	576 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	608 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	640 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	672 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	704 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	736 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	768 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	800 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	832 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	864 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	896 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	928 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	960 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	992 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: 	1024 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:25:22.414: encoder 'simple_aac' (libfdk_aac) created
+14:25:22.414: encoder 'simple_archive_audio' (libfdk_aac) created
+14:25:22.414: output 'simple_file_output' (ffmpeg_muxer) created
+14:25:22.415: obs_source_get_name: Null 'source' parameter
+14:25:22.415: obs_scene_duplicate: Null 'scene' parameter
+14:25:22.415: obs_transition_set: Null 'transition' parameter
+14:25:22.415: Switched to Preview/Program mode
+14:25:22.415: ------------------------------------------------
+14:25:22.415: obs_source_get_name: Null 'source' parameter
+14:25:22.415: obs_source_get_name: Null 'source' parameter
+14:25:22.470: All scene data cleared
+14:25:22.470: ------------------------------------------------
+14:25:22.470: private source 'Cut' (cut_transition) created
+14:25:22.471: private source 'Fade' (fade_transition) created
+14:25:22.475: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:25:22.475: pulse-input: Default output device: 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:25:22.476: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:25:22.476: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor' (default)
+14:25:22.476: source 'Desktop Audio' (pulse_output_capture) created
+14:25:22.476: [Loaded global audio device]: 'Desktop Audio'
+14:25:22.476: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:25:22.476: pulse-input: Default input device: 'alsa_input.pci-0000_00_1f.3.analog-stereo'
+14:25:22.477: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:25:22.477: pulse-input: Started recording from 'alsa_input.pci-0000_00_1f.3.analog-stereo' (default)
+14:25:22.477: source 'Mic/Aux' (pulse_input_capture) created
+14:25:22.477: [Loaded global audio device]: 'Mic/Aux'
+14:25:22.477: source 'Online Meeting Recording' (scene) created
+14:25:22.477: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:25:22.478: pulse-input: An error occurred while getting the source info!
+14:25:22.478: source 'Audio Input Capture (PulseAudio)' (pulse_input_capture) created
+14:25:22.478: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:25:22.479: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:25:22.479: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:25:22.479: source 'Audio Output Capture (PulseAudio)' (pulse_output_capture) created
+14:25:22.479: PipeWire initialized
+14:25:22.479: source 'Screen Capture (PipeWire) 2' (pipewire-screen-capture-source) created
+14:25:22.481: obs_source_get_name: Null 'source' parameter
+14:25:22.481: Switched to scene 'Online Meeting Recording'
+14:25:22.481: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:25:22.481: private source 'Online Meeting Recording' (scene) created
+14:25:22.481: User switched Program to scene 'Online Meeting Recording'
+14:25:22.482: ------------------------------------------------
+14:25:22.482: Loaded scenes:
+14:25:22.482: - scene 'Online Meeting Recording':
+14:25:22.482:     - source: 'Audio Input Capture (PulseAudio)' (pulse_input_capture)
+14:25:22.482:     - source: 'Audio Output Capture (PulseAudio)' (pulse_output_capture)
+14:25:22.482:     - source: 'Screen Capture (PipeWire) 2' (pipewire-screen-capture-source)
+14:25:22.482: ------------------------------------------------
+14:25:22.545: [pipewire] Screencast session created
+14:25:22.595: Attempted path: /usr/bin/../share/obs/obs-studio/images/overflow.png
+14:25:23.129: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+14:25:23.129: 
+14:25:23.172: adding 21 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Mic/Aux)
+14:25:23.172: 
+14:25:23.311: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74566284 ns, expected 40476184253, input 40401617969
+14:25:23.588: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77240389 ns, expected 40601617969, input 40678858358
+14:25:23.589: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74606062 ns, expected 40753858358, input 40679252296
+14:25:23.737: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73296249 ns, expected 40754252296, input 40827548545
+14:25:23.737: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74889532 ns, expected 40902548545, input 40827659013
+14:25:23.887: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74438928 ns, expected 40902659013, input 40977097941
+14:25:23.887: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74714752 ns, expected 41052097941, input 40977383189
+14:25:24.036: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74223784 ns, expected 41052383189, input 41126606973
+14:25:24.036: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74696309 ns, expected 41201606973, input 41126910664
+14:25:24.185: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73795247 ns, expected 41201910664, input 41275705911
+14:25:24.185: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74698195 ns, expected 41350705911, input 41276007716
+14:25:24.462: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=76971909 ns, expected 41476007716, input 41552979625
+14:25:24.463: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74679200 ns, expected 41627979625, input 41553300425
+14:25:24.612: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74006421 ns, expected 41628300425, input 41702306846
+14:25:24.612: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74676197 ns, expected 41777306846, input 41702630649
+14:25:24.761: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73926091 ns, expected 41777630649, input 41851556740
+14:25:24.761: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74655761 ns, expected 41926556740, input 41851900979
+14:25:25.188: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=76405993 ns, expected 42201900979, input 42278306972
+14:25:25.188: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74699263 ns, expected 42353306972, input 42278607709
+14:25:25.338: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74493275 ns, expected 42353607709, input 42428100984
+14:25:25.338: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74659147 ns, expected 42503100984, input 42428441837
+14:25:25.488: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75168630 ns, expected 42503441837, input 42578610467
+14:25:25.488: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74634100 ns, expected 42653610467, input 42578976367
+14:25:25.638: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74823464 ns, expected 42653976367, input 42728799831
+14:25:25.639: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74609492 ns, expected 42803799831, input 42729190339
+14:25:26.070: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=81168155 ns, expected 43079190339, input 43160358494
+14:25:26.070: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74701855 ns, expected 43235358494, input 43160656639
+14:25:26.525: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=79473418 ns, expected 43535656639, input 43615130057
+14:25:26.525: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74684932 ns, expected 43690130057, input 43615445125
+14:25:26.807: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=81663355 ns, expected 43815445125, input 43897108480
+14:25:26.807: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74733888 ns, expected 43972108480, input 43897374592
+14:25:28.982: Last log entry repeated for 22 more lines
+14:25:28.982: [pipewire] Response to select source received
+14:25:28.982: [pipewire] Asking for monitor and window
+14:25:28.989: [pipewire] source selected, setting up screencast
+14:25:28.996: [pipewire] Server version: 1.4.2
+14:25:28.996: [pipewire] Library version: 1.4.2
+14:25:28.996: [pipewire] Header version: 1.4.2
+14:25:28.996: [pipewire] registered event 0x652e7094b880
+14:25:28.996: [pipewire] Created stream 0x652e7094b8f0
+14:25:28.996: [pipewire] Stream 0x652e7094b8f0 state: "connecting" (error: none)
+14:25:28.997: [pipewire] Playing stream 0x652e7094b8f0
+14:25:28.997: [pipewire] Stream 0x652e7094b8f0 state: "paused" (error: none)
+14:25:29.013: [pipewire] Negotiated format:
+14:25:29.013: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:25:29.014: [pipewire]     Modifier: 0x0
+14:25:29.014: [pipewire]     Size: 1332x694
+14:25:29.014: [pipewire]     Framerate: 0/1
+14:25:29.015: [pipewire] Negotiated format:
+14:25:29.015: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:25:29.015: [pipewire]     Modifier: 0x100000000000004
+14:25:29.015: [pipewire]     Size: 1332x694
+14:25:29.015: [pipewire]     Framerate: 0/1
+14:25:29.018: [pipewire] Stream 0x652e7094b8f0 state: "streaming" (error: none)
+14:25:29.024: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+14:25:29.025: [pipewire] Renegotiating stream
+14:25:29.025: [pipewire] Stream 0x652e7094b8f0 state: "paused" (error: none)
+14:25:29.025: [pipewire] Negotiated format:
+14:25:29.025: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:25:29.025: [pipewire]     Modifier: 0x100000000000004
+14:25:29.025: [pipewire]     Size: 1332x694
+14:25:29.025: [pipewire]     Framerate: 0/1
+14:25:29.026: [pipewire] Negotiated format:
+14:25:29.026: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:25:29.026: [pipewire]     Modifier: 0x100000000000002
+14:25:29.026: [pipewire]     Size: 1332x694
+14:25:29.026: [pipewire]     Framerate: 0/1
+14:25:29.031: [pipewire] Stream 0x652e7094b8f0 state: "streaming" (error: none)
+14:25:29.317: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=81366122 ns, expected 46326403863, input 46407769985
+14:25:29.318: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74696995 ns, expected 46482769985, input 46408072990
+14:25:29.468: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75437295 ns, expected 46483072990, input 46558510285
+14:25:29.468: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74824251 ns, expected 46633510285, input 46558686034
+14:25:29.490: Audio timestamp for 'Desktop Audio' exceeded TS_SMOOTHING_THRESHOLD, diff=70813475 ns, expected 46509349422, input 46580162897
+14:25:29.619: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75977884 ns, expected 46633686034, input 46709663918
+14:25:29.619: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74650462 ns, expected 46784663918, input 46710013456
+14:25:29.672: Audio timestamp for 'Mic/Aux' exceeded TS_SMOOTHING_THRESHOLD, diff=70505402 ns, expected 46691893109, input 46762398511
+14:25:29.770: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75485075 ns, expected 46785013456, input 46860498531
+14:25:29.770: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74700305 ns, expected 46935498531, input 46860798226
+14:25:30.050: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=79633552 ns, expected 47060798226, input 47140431778
+14:25:30.050: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74660448 ns, expected 47215431778, input 47140771330
+14:25:30.201: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75410036 ns, expected 47215771330, input 47291181366
+14:25:30.201: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74713150 ns, expected 47366181366, input 47291468216
+14:25:30.351: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75371386 ns, expected 47366468216, input 47441839602
+14:25:30.352: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74707735 ns, expected 47516839602, input 47442131867
+14:25:30.502: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75342930 ns, expected 47517131867, input 47592474797
+14:25:30.548: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=78824015 ns, expected 47717474797, input 47638650782
+14:25:30.652: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=79299603 ns, expected 47663650782, input 47742950385
+14:25:30.653: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74660814 ns, expected 47817950385, input 47743289571
+14:25:30.932: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=78893975 ns, expected 47943289571, input 48022183546
+14:25:30.932: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74850733 ns, expected 48097183546, input 48022332813
+14:25:31.082: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75553246 ns, expected 48097332813, input 48172886059
+14:25:31.083: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74685128 ns, expected 48247886059, input 48173200931
+14:25:31.233: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75154240 ns, expected 48248200931, input 48323355171
+14:25:31.233: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74704494 ns, expected 48398355171, input 48323650677
+14:25:31.383: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75017964 ns, expected 48398650677, input 48473668641
+14:25:31.383: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74698408 ns, expected 48548668641, input 48473970233
+14:25:31.662: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=78833528 ns, expected 48673970233, input 48752803761
+14:25:31.663: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74615064 ns, expected 48827803761, input 48753188697
+14:25:31.813: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74965312 ns, expected 48828188697, input 48903154009
+14:25:31.813: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74666994 ns, expected 48978154009, input 48903487015
+14:25:31.963: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75060917 ns, expected 48978487015, input 49053547932
+14:25:31.963: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74712125 ns, expected 49128547932, input 49053835807
+14:25:32.113: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=75085432 ns, expected 49128835807, input 49203921239
+14:25:32.114: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74706800 ns, expected 49278921239, input 49204214439
+14:25:32.264: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74910891 ns, expected 49279214439, input 49354125330
+14:25:32.264: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74718343 ns, expected 49429125330, input 49354406987
+14:25:32.543: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=78791604 ns, expected 49554406987, input 49633198591
+14:25:35.976: Last log entry repeated for 39 more lines
+14:25:35.976: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:25:35.976: private source 'vcam_source' (scene) created
+14:25:35.976: Tried to add a NULL source to a scene
+14:25:35.976: NV12 texture support enabled
+14:25:35.976: P010 texture support not available
+14:25:36.058: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74714266 ns, expected 53073836359, input 53148550625
+14:25:36.058: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74593899 ns, expected 53223550625, input 53148956726
+14:25:36.208: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74275440 ns, expected 53223956726, input 53298232166
+14:25:36.208: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74875406 ns, expected 53373232166, input 53298356760
+14:25:36.486: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=78503528 ns, expected 53498356760, input 53576860288
+14:25:36.487: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74701694 ns, expected 53651860288, input 53577158594
+14:25:36.636: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74509114 ns, expected 53652158594, input 53726667708
+14:25:36.636: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74669154 ns, expected 53801667708, input 53726998554
+14:25:36.786: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74539422 ns, expected 53801998554, input 53876537976
+14:25:36.786: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74705221 ns, expected 53951537976, input 53876832755
+14:25:36.936: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74541076 ns, expected 53951832755, input 54026373831
+14:25:36.936: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74709023 ns, expected 54101373831, input 54026664808
+14:25:37.086: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74475918 ns, expected 54101664808, input 54176140726
+14:25:37.086: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74708935 ns, expected 54251140726, input 54176431791
+14:25:37.364: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77963731 ns, expected 54376431791, input 54454395522
+14:25:37.364: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74660559 ns, expected 54529395522, input 54454734963
+14:25:37.514: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74396855 ns, expected 54529734963, input 54604131818
+14:25:37.514: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74702823 ns, expected 54679131818, input 54604428995
+14:25:37.663: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74558727 ns, expected 54679428995, input 54753987722
+14:25:37.664: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74623139 ns, expected 54828987722, input 54754364583
+14:25:37.813: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74308733 ns, expected 54829364583, input 54903673316
+14:25:37.813: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74635118 ns, expected 54978673316, input 54904038198
+14:25:38.091: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77843743 ns, expected 55104038198, input 55181881941
+14:25:38.092: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74593825 ns, expected 55256881941, input 55182288116
+14:25:38.241: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74474243 ns, expected 55257288116, input 55331762359
+14:25:38.242: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74687258 ns, expected 55406762359, input 55332075101
+14:25:38.391: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74189677 ns, expected 55407075101, input 55481264778
+14:25:38.391: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74712354 ns, expected 55556264778, input 55481552424
+14:25:38.541: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74569690 ns, expected 55556552424, input 55631122114
+14:25:38.541: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74666802 ns, expected 55706122114, input 55631455312
+14:25:38.690: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74403477 ns, expected 55706455312, input 55780858789
+14:25:45.700: Last log entry repeated for 79 more lines
+14:25:45.700: Failed to start streaming on '/dev/video2' (Invalid argument)
+14:25:45.700: Failed to start virtual camera
+14:25:45.827: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73744561 ns, expected 62843838775, input 62917583336
+14:25:45.827: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74893191 ns, expected 62992583336, input 62917690145
+14:25:46.105: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77724962 ns, expected 63117690145, input 63195415107
+14:25:46.105: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74646312 ns, expected 63270415107, input 63195768795
+14:25:46.254: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74145550 ns, expected 63270768795, input 63344914345
+14:25:46.255: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74671385 ns, expected 63419914345, input 63345242960
+14:25:46.404: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74135296 ns, expected 63420242960, input 63494378256
+14:25:46.404: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74701283 ns, expected 63569378256, input 63494676973
+14:25:46.553: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74199964 ns, expected 63569676973, input 63643876937
+14:25:46.554: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74618938 ns, expected 63718876937, input 63644257999
+14:25:46.703: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74070471 ns, expected 63719257999, input 63793328470
+14:25:46.703: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74674317 ns, expected 63868328470, input 63793654153
+14:25:46.980: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77238781 ns, expected 63993654153, input 64070892934
+14:25:46.981: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74670068 ns, expected 64145892934, input 64071222866
+14:25:47.130: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74074444 ns, expected 64146222866, input 64220297310
+14:25:47.130: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74670196 ns, expected 64295297310, input 64220627114
+14:25:47.279: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74162907 ns, expected 64295627114, input 64369790021
+14:25:47.280: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74682215 ns, expected 64444790021, input 64370107806
+14:25:47.429: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74072896 ns, expected 64445107806, input 64519180702
+14:25:47.429: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74689390 ns, expected 64594180702, input 64519491312
+14:25:47.706: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77313141 ns, expected 64719491312, input 64796804453
+14:25:47.707: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74688981 ns, expected 64871804453, input 64797115472
+14:25:47.856: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74178847 ns, expected 64872115472, input 64946294319
+14:25:47.856: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74598623 ns, expected 65021294319, input 64946695696
+14:25:48.005: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74075066 ns, expected 65021695696, input 65095770762
+14:25:48.006: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74652805 ns, expected 65170770762, input 65096117957
+14:25:48.155: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74126853 ns, expected 65171117957, input 65245244810
+14:25:48.155: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74682947 ns, expected 65320244810, input 65245561863
+14:25:48.304: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74128347 ns, expected 65320561863, input 65394690210
+14:25:48.304: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74699326 ns, expected 65469690210, input 65394990884
+14:25:48.582: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77217389 ns, expected 65594990884, input 65672208273
+14:25:56.276: Last log entry repeated for 87 more lines
+14:25:56.276: Starting Virtual Camera output to Source : Screen Capture (PipeWire)
+14:25:56.276: private source 'vcam_source' destroyed
+14:25:56.307: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74209233 ns, expected 73323794751, input 73398003984
+14:25:56.308: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74627456 ns, expected 73473003984, input 73398376528
+14:25:56.585: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=76992963 ns, expected 73598376528, input 73675369491
+14:25:56.585: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74637148 ns, expected 73750369491, input 73675732343
+14:25:56.734: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74058968 ns, expected 73750732343, input 73824791311
+14:25:56.735: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74627711 ns, expected 73899791311, input 73825163600
+14:25:56.883: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73765230 ns, expected 73900163600, input 73973928830
+14:25:56.884: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74643953 ns, expected 74048928830, input 73974284877
+14:25:57.033: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74161833 ns, expected 74049284877, input 74123446710
+14:25:57.033: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74656728 ns, expected 74198446710, input 74123789982
+14:25:57.310: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77195348 ns, expected 74323789982, input 74400985330
+14:25:57.311: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74627900 ns, expected 74475985330, input 74401357430
+14:25:57.460: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73897477 ns, expected 74476357430, input 74550254907
+14:25:57.460: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74673682 ns, expected 74625254907, input 74550581225
+14:25:57.609: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74018743 ns, expected 74625581225, input 74699599968
+14:25:57.609: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74675905 ns, expected 74774599968, input 74699924063
+14:25:57.758: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73961173 ns, expected 74774924063, input 74848885236
+14:25:57.759: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74639730 ns, expected 74923885236, input 74849245506
+14:25:57.908: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74064699 ns, expected 74924245506, input 74998310205
+14:25:57.908: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74269038 ns, expected 75073310205, input 74999041167
+14:25:57.992: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:25:57.992: private source 'vcam_source' (scene) created
+14:25:57.992: Tried to add a NULL source to a scene
+14:25:57.992: NV12 texture support enabled
+14:25:57.992: P010 texture support not available
+14:25:58.113: Failed to start streaming on '/dev/video2' (Invalid argument)
+14:25:58.114: Failed to start virtual camera
+14:25:58.185: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=76339777 ns, expected 75199041167, input 75275380944
+14:25:58.185: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74855745 ns, expected 75350380944, input 75275525199
+14:25:58.334: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74392508 ns, expected 75350525199, input 75424917707
+14:25:58.335: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74654889 ns, expected 75499917707, input 75425262818
+14:25:58.484: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74086497 ns, expected 75500262818, input 75574349315
+14:25:58.484: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74574265 ns, expected 75649349315, input 75574775050
+14:25:58.633: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74013561 ns, expected 75649775050, input 75723788611
+14:25:58.634: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74598430 ns, expected 75798788611, input 75724190181
+14:25:58.911: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77037721 ns, expected 75924190181, input 76001227902
+14:25:58.911: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74698854 ns, expected 76076227902, input 76001529048
+14:25:59.060: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73969957 ns, expected 76076529048, input 76150499005
+14:25:59.060: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74711646 ns, expected 76225499005, input 76150787359
+14:25:59.209: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74033161 ns, expected 76225787359, input 76299820520
+14:25:59.210: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74625801 ns, expected 76374820520, input 76300194719
+14:25:59.359: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73943463 ns, expected 76375194719, input 76449138182
+14:25:59.359: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74617618 ns, expected 76524138182, input 76449520564
+14:25:59.508: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74216279 ns, expected 76524520564, input 76598736843
+14:25:59.509: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74608625 ns, expected 76673736843, input 76599128218
+14:25:59.785: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=76854458 ns, expected 76799128218, input 76875982676
+14:25:59.786: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74607298 ns, expected 76950982676, input 76876375378
+14:25:59.935: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74016021 ns, expected 76951375378, input 77025391399
+14:25:59.935: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74605890 ns, expected 77100391399, input 77025785509
+14:26:00.084: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74056406 ns, expected 77100785509, input 77174841915
+14:26:00.085: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74529255 ns, expected 77249841915, input 77175312660
+14:26:00.233: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73693497 ns, expected 77250312660, input 77324006157
+14:26:00.234: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74646014 ns, expected 77399006157, input 77324360143
+14:26:00.511: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=77361335 ns, expected 77524360143, input 77601721478
+14:26:00.512: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74592366 ns, expected 77676721478, input 77602129112
+14:26:00.660: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73782932 ns, expected 77677129112, input 77750912044
+14:26:00.661: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=74640094 ns, expected 77825912044, input 77751271950
+14:26:00.810: Audio timestamp for 'Audio Output Capture (PulseAudio)' exceeded TS_SMOOTHING_THRESHOLD, diff=73810619 ns, expected 77826271950, input 77900082569
+14:26:02.230: Last log entry repeated for 15 more lines
+14:26:02.230: ==== Shutting down ==================================================
+14:26:02.236: obs_source_get_name: Null 'source' parameter
+14:26:02.238: private source 'Cut' destroyed
+14:26:02.238: private source 'Online Meeting Recording' destroyed
+14:26:02.238: private source 'Fade' destroyed
+14:26:02.238: pulse-input: Stopped recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:26:02.238: pulse-input: Got 1581 packets with 1897200 frames
+14:26:02.238: source 'Desktop Audio' destroyed
+14:26:02.238: pulse-input: Stopped recording from 'alsa_input.pci-0000_00_1f.3.analog-stereo'
+14:26:02.238: pulse-input: Got 1580 packets with 1896000 frames
+14:26:02.238: source 'Mic/Aux' destroyed
+14:26:02.239: source 'Online Meeting Recording' destroyed
+14:26:02.239: source 'Audio Input Capture (PulseAudio)' destroyed
+14:26:02.239: pulse-input: Stopped recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:26:02.239: pulse-input: Got 1576 packets with 1891200 frames
+14:26:02.239: source 'Audio Output Capture (PulseAudio)' destroyed
+14:26:02.240: [pipewire] Stream 0x652e7094b8f0 state: "paused" (error: none)
+14:26:02.240: [pipewire] Stream 0x652e7094b8f0 state: "unconnected" (error: none)
+14:26:02.242: source 'Screen Capture (PipeWire) 2' destroyed
+14:26:02.276: All scene data cleared
+14:26:02.276: ------------------------------------------------
+14:26:02.276: Starting Virtual Camera output to Program
+14:26:02.277: service 'default_service' destroyed
+14:26:02.277: encoder 'simple_archive_audio' destroyed
+14:26:02.277: encoder 'simple_video_stream' destroyed
+14:26:02.277: encoder 'simple_aac' destroyed
+14:26:02.277: output 'virtualcam_output' destroyed
+14:26:02.277: output 'simple_file_output' destroyed
+14:26:02.345: [obs-websocket] [obs_module_unload] Shutting down...
+14:26:02.346: Tried to call obs_frontend_remove_event_callback with no callbacks!
+14:26:02.346: [obs-websocket] [obs_module_unload] Finished shutting down.
+14:26:02.371: [Scripting] Total detached callbacks: 0
+14:26:02.372: Freeing OBS context data
+14:26:02.372: canvas 'Main' (6c69626f-6273-4c00-9d88-c5136d61696e) destroyed
+14:26:02.372: 	1 source(s) were remaining
+14:26:02.372: private source 'vcam_source' destroyed
+14:26:02.372: Number of remaining views: 1
+14:26:02.390: == Profiler Results =============================
+14:26:02.390: run_program_init: 1088.14 ms
+14:26:02.390:  ┣OBSApp::AppInit: 138.108 ms
+14:26:02.390:  ┃ ┗OBSApp::InitLocale: 5.321 ms
+14:26:02.390:  ┗OBSApp::OBSInit: 919.116 ms
+14:26:02.390:    ┣obs_startup: 3.502 ms
+14:26:02.390:    ┗OBSBasic::OBSInit: 859.7 ms
+14:26:02.390:      ┣OBSBasic::InitBasicConfig: 1.762 ms
+14:26:02.390:      ┣OBSBasic::ResetAudio: 0.29 ms
+14:26:02.390:      ┣OBSBasic::ResetVideo: 109.271 ms
+14:26:02.391:      ┃ ┗obs_init_graphics: 104.026 ms
+14:26:02.391:      ┃   ┗shader compilation: 35.438 ms
+14:26:02.391:      ┣OBSBasic::InitOBSCallbacks: 0.003 ms
+14:26:02.391:      ┣OBSBasic::InitHotkeys: 0.02 ms
+14:26:02.391:      ┣obs_load_all_modules2: 622.155 ms
+14:26:02.391:      ┃ ┣obs_init_module(aja-output-ui.so): 0.417 ms
+14:26:02.391:      ┃ ┣obs_init_module(decklink-captions.so): 0 ms
+14:26:02.391:      ┃ ┣obs_init_module(decklink-output-ui.so): 0 ms
+14:26:02.391:      ┃ ┣obs_init_module(decklink.so): 0.078 ms
+14:26:02.391:      ┃ ┣obs_init_module(frontend-tools.so): 84.389 ms
+14:26:02.391:      ┃ ┣obs_init_module(image-source.so): 0.007 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-alsa.so): 0.002 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-capture.so): 0 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-jack.so): 0.005 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-pipewire.so): 29.931 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-pulseaudio.so): 0.005 ms
+14:26:02.391:      ┃ ┣obs_init_module(linux-v4l2.so): 5.095 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-browser.so): 0.048 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-ffmpeg.so): 5.027 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-filters.so): 0.02 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-libfdk.so): 0.002 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-nvenc.so): 0.081 ms
+14:26:02.391:      ┃ ┃ ┗nvenc_check: 0.073 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-outputs.so): 0.004 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-qsv11.so): 1.936 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-transitions.so): 0.008 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-vst.so): 0.006 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-webrtc.so): 0.004 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-websocket.so): 6.301 ms
+14:26:02.391:      ┃ ┣obs_init_module(obs-x264.so): 0.002 ms
+14:26:02.391:      ┃ ┣obs_init_module(rtmp-services.so): 1.714 ms
+14:26:02.391:      ┃ ┣obs_init_module(text-freetype2.so): 0.018 ms
+14:26:02.391:      ┃ ┗obs_init_module(vlc-video.so): 3.412 ms
+14:26:02.391:      ┣OBSBasic::InitService: 2.656 ms
+14:26:02.391:      ┣OBSBasic::ResetOutputs: 0.663 ms
+14:26:02.391:      ┣OBSBasic::CreateHotkeys: 0.033 ms
+14:26:02.391:      ┣OBSBasic::InitPrimitives: 0.113 ms
+14:26:02.391:      ┗OBSBasic::Load: 73.025 ms
+14:26:02.391: obs_hotkey_thread(25 ms): min=0 ms, median=0 ms, max=0.002 ms, 99th percentile=0.001 ms, 100% below 25 ms
+14:26:02.391: audio_thread(Audio): min=0.008 ms, median=0.216 ms, max=16.972 ms, 99th percentile=0.898 ms
+14:26:02.391: obs_graphics_thread(33.3333 ms): min=0.09 ms, median=1.442 ms, max=28.351 ms, 99th percentile=1.973 ms, 100% below 33.333 ms
+14:26:02.391:  ┣tick_sources: min=0 ms, median=0.019 ms, max=0.068 ms, 99th percentile=0.028 ms
+14:26:02.391:  ┣output_frame: min=0.065 ms, median=0.622 ms, max=27.461 ms, 99th percentile=0.922 ms
+14:26:02.391:  ┃ ┗gs_context(video->graphics): min=0.022 ms, median=0.326 ms, max=27.457 ms, 99th percentile=0.775 ms, 1.60691 calls per parent call
+14:26:02.391:  ┃   ┣render_video: min=0.006 ms, median=0.096 ms, max=27.123 ms, 99th percentile=0.394 ms
+14:26:02.391:  ┃   ┃ ┗render_main_texture: min=0.006 ms, median=0.088 ms, max=27.113 ms, 99th percentile=0.385 ms
+14:26:02.391:  ┃   ┗gs_flush: min=0.011 ms, median=0.211 ms, max=0.905 ms, 99th percentile=0.464 ms
+14:26:02.391:  ┗render_displays: min=0.002 ms, median=0.743 ms, max=19.677 ms, 99th percentile=1.102 ms
+14:26:02.391: =================================================
+14:26:02.391: == Profiler Time Between Calls ==================
+14:26:02.391: obs_hotkey_thread(25 ms): min=25.048 ms, median=25.151 ms, max=26.949 ms, 99.6908% within ±2% of 25 ms (0% lower, 0.309215% higher)
+14:26:02.391: obs_graphics_thread(33.3333 ms): min=32.808 ms, median=33.333 ms, max=33.851 ms, 100% within ±2% of 33.333 ms (0% lower, 0% higher)
+14:26:02.391: =================================================
+14:26:02.397: Number of memory leaks: 2

@@ -1,0 +1,3 @@
+% utils, htb, config
+# Adds an IP address and hostname pair to the system's hosts file for local name resolution.
+echo "<ip> <host>" | sudo tee -a /etc/hosts

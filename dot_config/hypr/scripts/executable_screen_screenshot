@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+grim -g "$(slurp -o -r)" - | satty --filename - --fullscreen --copy-command wl-copy
+

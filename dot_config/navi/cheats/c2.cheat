@@ -1,0 +1,6 @@
+% c2, revshell
+
+# Reverse shell with wrapper for semi-tty experience.
+rlwrap nc -lvnp <Port>
+
+$ Port: echo -e "6969\n1337"

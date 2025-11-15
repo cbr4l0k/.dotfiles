@@ -1,0 +1,26 @@
+% [dev][python][django]
+
+# Run django project command with specific settings.
+DJANGO_SETTINGS_MODULE=<settings_path> python manage.py <commands>
+
+$ commands: DJANGO_SETTINGS_MODULE=<settings_path> python manage.py help | sort -u | rg -v "^\[|^Type|^Available|^$" | sed -e 's/^[ \t]*//'
+$ settings_path: ls settings/ | rg -o -e "^(_[a-zA-Z]+)\.py$" --replace '$1' | awk '{print "settings." $0}'
+
+% [dev][python]
+
+# Activate a virtual environment.
+source <venvs>
+
+$ venvs: fd . -I | rg -e "^\w+\/bin\/activate$"
+
+
+% npx, react, ts, typescript, js, javascript
+
+# Create a `next` app using npx.
+npx create-next-app@latest <app-name>
+
+# Init shadcn-ui in project.
+npx shadcn-ui@latest init
+
+# Run react project
+npm run dev

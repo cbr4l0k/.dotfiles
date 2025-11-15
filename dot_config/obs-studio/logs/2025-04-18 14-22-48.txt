@@ -1,0 +1,576 @@
+14:22:48.462: Command Line Arguments: --verbose
+14:22:48.462: Platform: Wayland
+14:22:48.462: CPU Name: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+14:22:48.462: CPU Speed: 3314.685MHz
+14:22:48.462: Physical Cores: 4, Logical Cores: 8
+14:22:48.462: Physical Memory: 15838MB Total, 2208MB Free
+14:22:48.462: Kernel Version: Linux 6.12.23-1-lts
+14:22:48.462: Distribution: "Arch Linux" Unknown
+14:22:48.462: Desktop Environment: Hyprland (Hyprland)
+14:22:48.462: Session Type: wayland
+14:22:48.465: canvas 'Main' (6c69626f-6273-4c00-9d88-c5136d61696e) created
+14:22:48.465: Qt Version: 6.9.0 (runtime), 6.9.0 (compiled)
+14:22:48.465: Portable mode: false
+14:22:48.521: OBS 31.0.3 (linux)
+14:22:48.521: ---------------------------------
+14:22:48.522: ---------------------------------
+14:22:48.522: audio settings reset:
+14:22:48.522: 	samples per sec: 48000
+14:22:48.522: 	speakers:        2
+14:22:48.522: 	max buffering:   960 milliseconds
+14:22:48.522: 	buffering type:  dynamically increasing
+14:22:48.524: ---------------------------------
+14:22:48.524: Initializing OpenGL...
+14:22:48.524: Using EGL/Wayland
+14:22:48.575: Initialized EGL 1.5
+14:22:48.575: Supported EGL Extensions: EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_config_select_group EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_EXT_present_opaque EGL_EXT_query_reset_notification_strategy EGL_EXT_surface_compression EGL_EXT_swap_buffers_with_damage EGL_IMG_context_priority EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image_base EGL_KHR_no_config_context EGL_KHR_partial_update EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_drm_image EGL_MESA_gl_interop EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_MESA_x11_native_visual_id EGL_WL_bind_wayland_display EGL_WL_create_wayland_buffer_from_image 
+14:22:48.598: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 620 (WHL GT2)
+14:22:48.598: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.0.3-arch1.1, shading language 4.60
+14:22:48.642: ---------------------------------
+14:22:48.642: video settings reset:
+14:22:48.642: 	base resolution:   1366x768
+14:22:48.642: 	output resolution: 1364x768
+14:22:48.642: 	downscale filter:  Bicubic
+14:22:48.642: 	fps:               30/1
+14:22:48.642: 	format:            NV12
+14:22:48.642: 	YUV mode:          Rec. 709/Partial
+14:22:48.642: NV12 texture support enabled
+14:22:48.642: P010 texture support not available
+14:22:48.648: Audio monitoring device:
+14:22:48.648: 	name: Default
+14:22:48.648: 	id: default
+14:22:48.648: ---------------------------------
+14:22:48.664: ---------------------------------
+14:22:48.678: Loading module: aja-output-ui.so
+14:22:48.678: No AJA devices found, skipping loading AJA UI plugin
+14:22:48.678: Failed to initialize module 'aja-output-ui.so'
+14:22:48.683: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:22:48.683: 
+14:22:48.685: ---------------------------------
+14:22:48.687: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:22:48.687: 
+14:22:48.687: Module '/usr/lib/obs-plugins/aja.so' not loaded
+14:22:48.687: Failed to load module file '/usr/lib/obs-plugins/aja.so', file not found
+14:22:48.694: ---------------------------------
+14:22:48.696: Loading module: decklink-captions.so
+14:22:48.696: Failed to load 'en-US' text for module: 'decklink-captions.so'
+14:22:48.704: ---------------------------------
+14:22:48.706: Loading module: decklink-output-ui.so
+14:22:48.706: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+14:22:48.713: ---------------------------------
+14:22:48.715: Loading module: decklink.so
+14:22:48.715: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+14:22:48.715: Failed to initialize module 'decklink.so'
+14:22:48.726: ---------------------------------
+14:22:48.730: Loading module: frontend-tools.so
+14:22:48.845: ---------------------------------
+14:22:48.847: Loading module: image-source.so
+14:22:48.876: ---------------------------------
+14:22:48.902: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libcef.so' not found, loading of module failed
+14:22:48.902: Failed to load module file '/usr/lib/obs-plugins/libcef.so', not an OBS plugin
+14:22:48.909: ---------------------------------
+14:22:48.910: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libEGL.so' not found, loading of module failed
+14:22:48.910: Failed to load module file '/usr/lib/obs-plugins/libEGL.so', not an OBS plugin
+14:22:48.924: ---------------------------------
+14:22:48.932: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libGLESv2.so' not found, loading of module failed
+14:22:48.932: Failed to load module file '/usr/lib/obs-plugins/libGLESv2.so', not an OBS plugin
+14:22:48.939: ---------------------------------
+14:22:48.940: Required module function 'obs_module_load' in module '/usr/lib/obs-plugins/libvk_swiftshader.so' not found, loading of module failed
+14:22:48.940: Failed to load module file '/usr/lib/obs-plugins/libvk_swiftshader.so', not an OBS plugin
+14:22:48.947: ---------------------------------
+14:22:48.949: Loading module: linux-alsa.so
+14:22:48.957: ---------------------------------
+14:22:48.959: Loading module: linux-capture.so
+14:22:48.969: ---------------------------------
+14:22:48.973: Loading module: linux-jack.so
+14:22:48.981: ---------------------------------
+14:22:48.983: Loading module: linux-pipewire.so
+14:22:49.008: [pipewire] Available capture sources:
+14:22:49.009: [pipewire]     - Monitor source
+14:22:49.009: [pipewire]     - Window source
+14:22:49.017: ---------------------------------
+14:22:49.019: Loading module: linux-pulseaudio.so
+14:22:49.028: ---------------------------------
+14:22:49.030: Loading module: linux-v4l2.so
+14:22:49.040: ---------------------------------
+14:22:49.043: Loading module: obs-browser.so
+14:22:49.043: [obs-browser]: Version 2.24.6
+14:22:49.043: [obs-browser]: CEF Version 127.0.6533.120 (runtime), 127.0.0-6533-fix-stutter.3039+g9d68db8+chromium-127.0.6533.120 (compiled)
+14:22:49.085: ---------------------------------
+14:22:49.131: Loading module: obs-ffmpeg.so
+14:22:49.132: VAAPI: Initializing display in vaapi_device_h264_supported
+14:22:49.132: Libva: VA-API version 1.22.0
+14:22:49.132: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:22:49.133: Libva: Found init function __vaDriverInit_1_22
+14:22:49.134: Libva: va_openDriver() returns 0
+14:22:49.134: VAAPI: Display initialized
+14:22:49.134: VAAPI: API version 1.22
+14:22:49.134: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:22:49.134: '/dev/dri/renderD128' support encoding with VAProfileH264ConstrainedBaseline
+14:22:49.134: '/dev/dri/renderD128' support encoding with VAProfileH264Main
+14:22:49.134: '/dev/dri/renderD128' support encoding with VAProfileH264High
+14:22:49.134: FFmpeg VAAPI H264 encoding supported
+14:22:49.134: VAAPI: Initializing display in vaapi_device_av1_supported
+14:22:49.134: Libva: VA-API version 1.22.0
+14:22:49.134: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:22:49.134: Libva: Found init function __vaDriverInit_1_22
+14:22:49.135: Libva: va_openDriver() returns 0
+14:22:49.135: VAAPI: Display initialized
+14:22:49.135: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:22:49.135: VAAPI: VAProfileAV1Profile0 is not supported by the device '/dev/dri/renderD128'
+14:22:49.135: VAAPI: VAProfileAV1Profile0 is not supported by the device '/dev/dri/renderD128'
+14:22:49.135: FFmpeg VAAPI AV1 encoding not supported
+14:22:49.135: VAAPI: Initializing display in vaapi_device_hevc_supported
+14:22:49.135: Libva: VA-API version 1.22.0
+14:22:49.135: Libva: Trying to open /usr/lib/dri/iHD_drv_video.so
+14:22:49.135: Libva: Found init function __vaDriverInit_1_22
+14:22:49.136: Libva: va_openDriver() returns 0
+14:22:49.136: VAAPI: Display initialized
+14:22:49.136: VAAPI: 'Intel iHD driver for Intel(R) Gen Graphics - 25.2.0 ()' in use for device '/dev/dri/renderD128'
+14:22:49.136: '/dev/dri/renderD128' support encoding with VAProfileHEVCMain
+14:22:49.136: '/dev/dri/renderD128' support encoding with VAProfileHEVCMain10
+14:22:49.136: FFmpeg VAAPI HEVC encoding supported
+14:22:49.144: ---------------------------------
+14:22:49.146: Loading module: obs-filters.so
+14:22:49.154: ---------------------------------
+14:22:49.155: Loading module: obs-libfdk.so
+14:22:49.164: ---------------------------------
+14:22:49.165: Loading module: obs-nvenc.so
+14:22:49.165: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+14:22:49.165: 
+14:22:49.165: NVENC not supported
+14:22:49.165: Failed to initialize module 'obs-nvenc.so'
+14:22:49.174: ---------------------------------
+14:22:49.176: Loading module: obs-outputs.so
+14:22:49.185: ---------------------------------
+14:22:49.187: Loading module: obs-qsv11.so
+14:22:49.200: ---------------------------------
+14:22:49.202: Loading module: obs-transitions.so
+14:22:49.212: ---------------------------------
+14:22:49.214: Loading module: obs-vst.so
+14:22:49.234: ---------------------------------
+14:22:49.245: Loading module: obs-webrtc.so
+14:22:49.255: ---------------------------------
+14:22:49.257: Loading module: obs-websocket.so
+14:22:49.258: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.5.6 | RPC Version: 1)
+14:22:49.258: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.9.0 | Qt version (run-time): 6.9.0
+14:22:49.258: [obs-websocket] [obs_module_load] Linked ASIO Version: 103200
+14:22:49.258: DEPRECATION: obs_frontend_get_global_config is deprecated. Read from global or user configuration explicitly instead.
+14:22:49.258: [obs-websocket] [Config::Save] Saved config.
+14:22:49.264: [obs-websocket] [obs_module_load] Module loaded.
+14:22:49.273: ---------------------------------
+14:22:49.275: Loading module: obs-x264.so
+14:22:49.284: ---------------------------------
+14:22:49.286: Loading module: rtmp-services.so
+14:22:49.298: ---------------------------------
+14:22:49.299: Loading module: text-freetype2.so
+14:22:49.310: ---------------------------------
+14:22:49.312: Loading module: vlc-video.so
+14:22:49.315: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+14:22:49.316: ---------------------------------
+14:22:49.316:   Loaded Modules:
+14:22:49.316:     vlc-video.so
+14:22:49.316:     text-freetype2.so
+14:22:49.316:     rtmp-services.so
+14:22:49.316:     obs-x264.so
+14:22:49.316:     obs-websocket.so
+14:22:49.316:     obs-webrtc.so
+14:22:49.316:     obs-vst.so
+14:22:49.316:     obs-transitions.so
+14:22:49.316:     obs-qsv11.so
+14:22:49.316:     obs-outputs.so
+14:22:49.316:     obs-libfdk.so
+14:22:49.316:     obs-filters.so
+14:22:49.316:     obs-ffmpeg.so
+14:22:49.316:     obs-browser.so
+14:22:49.316:     linux-v4l2.so
+14:22:49.316:     linux-pulseaudio.so
+14:22:49.316:     linux-pipewire.so
+14:22:49.316:     linux-jack.so
+14:22:49.316:     linux-capture.so
+14:22:49.316:     linux-alsa.so
+14:22:49.316:     image-source.so
+14:22:49.316:     frontend-tools.so
+14:22:49.316:     decklink-output-ui.so
+14:22:49.316:     decklink-captions.so
+14:22:49.316: ---------------------------------
+14:22:49.316: ---------------------------------
+14:22:49.316: Available Encoders:
+14:22:49.316:   Video Encoders:
+14:22:49.316: 	- ffmpeg_svt_av1 (SVT-AV1)
+14:22:49.316: 	- ffmpeg_aom_av1 (AOM AV1)
+14:22:49.316: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+14:22:49.316: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+14:22:49.316: 	- obs_qsv11_v2 (QuickSync H.264)
+14:22:49.316: 	- obs_qsv11_hevc (QuickSync HEVC)
+14:22:49.316: 	- obs_x264 (x264)
+14:22:49.316:   Audio Encoders:
+14:22:49.316: 	- ffmpeg_aac (FFmpeg AAC)
+14:22:49.316: 	- ffmpeg_opus (FFmpeg Opus)
+14:22:49.316: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+14:22:49.316: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+14:22:49.316: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+14:22:49.316: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+14:22:49.316: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+14:22:49.316: 	- libfdk_aac (libfdk AAC)
+14:22:49.316: ==== Startup complete ===============================================
+14:22:49.320: service 'default_service' (rtmp_common) created
+14:22:49.320: output 'virtualcam_output' (virtualcam_output) created
+14:22:49.320: encoder 'simple_video_stream' (obs_x264) created
+14:22:49.320: Fallback encoder bitrates:
+14:22:49.320: 	 64 kbit/s:
+14:22:49.320: 	 96 kbit/s:
+14:22:49.320: 	128 kbit/s:
+14:22:49.320: 	160 kbit/s:
+14:22:49.320: 	192 kbit/s:
+14:22:49.320: 	224 kbit/s:
+14:22:49.320: 	256 kbit/s:
+14:22:49.320: 	288 kbit/s:
+14:22:49.320: 	320 kbit/s:
+14:22:49.320: 	352 kbit/s:
+14:22:49.320: 	384 kbit/s:
+14:22:49.320: 	416 kbit/s:
+14:22:49.320: 	448 kbit/s:
+14:22:49.320: 	480 kbit/s:
+14:22:49.320: 	512 kbit/s:
+14:22:49.320: 	544 kbit/s:
+14:22:49.320: 	576 kbit/s:
+14:22:49.320: 	608 kbit/s:
+14:22:49.320: 	640 kbit/s:
+14:22:49.320: 	672 kbit/s:
+14:22:49.320: 	704 kbit/s:
+14:22:49.320: 	736 kbit/s:
+14:22:49.320: 	768 kbit/s:
+14:22:49.320: 	800 kbit/s:
+14:22:49.320: 	832 kbit/s:
+14:22:49.320: 	864 kbit/s:
+14:22:49.320: 	896 kbit/s:
+14:22:49.320: 	928 kbit/s:
+14:22:49.320: 	960 kbit/s:
+14:22:49.320: 	992 kbit/s:
+14:22:49.320: 	1024 kbit/s:
+14:22:49.321: FFmpeg PCM (16-bit) (ffmpeg_pcm_s16le) encoder bitrates:
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: FFmpeg PCM (24-bit) (ffmpeg_pcm_s24le) encoder bitrates:
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: FFmpeg PCM (32-bit float) (ffmpeg_pcm_f32le) encoder bitrates:
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: FFmpeg ALAC (24-bit) (ffmpeg_alac) encoder bitrates:
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: FFmpeg FLAC (16-bit) (ffmpeg_flac) encoder bitrates:
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: libfdk AAC (libfdk_aac) encoder bitrates:
+14:22:49.321: 	 32 kbit/s
+14:22:49.321: 	 64 kbit/s
+14:22:49.321: 	 96 kbit/s
+14:22:49.321: 	128 kbit/s
+14:22:49.321: 	160 kbit/s
+14:22:49.321: 	192 kbit/s
+14:22:49.321: 	224 kbit/s
+14:22:49.321: 	256 kbit/s
+14:22:49.321: 	288 kbit/s
+14:22:49.321: 	320 kbit/s
+14:22:49.321: 	352 kbit/s
+14:22:49.321: 	384 kbit/s
+14:22:49.321: 	416 kbit/s
+14:22:49.321: 	448 kbit/s
+14:22:49.321: 	480 kbit/s
+14:22:49.321: 	512 kbit/s
+14:22:49.321: 	544 kbit/s
+14:22:49.321: 	576 kbit/s
+14:22:49.321: 	608 kbit/s
+14:22:49.321: 	640 kbit/s
+14:22:49.321: 	672 kbit/s
+14:22:49.321: 	704 kbit/s
+14:22:49.321: 	736 kbit/s
+14:22:49.321: 	768 kbit/s
+14:22:49.321: 	800 kbit/s
+14:22:49.321: 	832 kbit/s
+14:22:49.321: 	864 kbit/s
+14:22:49.321: 	896 kbit/s
+14:22:49.321: 	928 kbit/s
+14:22:49.321: 	960 kbit/s
+14:22:49.321: 	992 kbit/s
+14:22:49.321: 	1024 kbit/s
+14:22:49.321: AAC simple encoder bitrate mapping:
+14:22:49.321: 	 32 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	 64 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	 96 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	128 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	160 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	192 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	224 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	256 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	288 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	320 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	352 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	384 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	416 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	448 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	480 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	512 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	544 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	576 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	608 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	640 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	672 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	704 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	736 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	768 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	800 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	832 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	864 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	896 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	928 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	960 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	992 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: 	1024 kbit/s: 'libfdk AAC' (libfdk_aac)
+14:22:49.321: encoder 'simple_aac' (libfdk_aac) created
+14:22:49.321: encoder 'simple_archive_audio' (libfdk_aac) created
+14:22:49.321: output 'simple_file_output' (ffmpeg_muxer) created
+14:22:49.322: obs_source_get_name: Null 'source' parameter
+14:22:49.322: obs_scene_duplicate: Null 'scene' parameter
+14:22:49.322: obs_transition_set: Null 'transition' parameter
+14:22:49.322: Switched to Preview/Program mode
+14:22:49.322: ------------------------------------------------
+14:22:49.323: obs_source_get_name: Null 'source' parameter
+14:22:49.323: obs_source_get_name: Null 'source' parameter
+14:22:49.357: All scene data cleared
+14:22:49.357: ------------------------------------------------
+14:22:49.357: private source 'Cut' (cut_transition) created
+14:22:49.358: private source 'Fade' (fade_transition) created
+14:22:49.361: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:22:49.361: pulse-input: Default output device: 'bluez_output.F4_B6_2D_D2_8C_E3.1.monitor'
+14:22:49.362: pulse-input: Audio format: s16le, 16000 Hz, 1 channels
+14:22:49.362: pulse-input: Started recording from 'bluez_output.F4_B6_2D_D2_8C_E3.1.monitor' (default)
+14:22:49.362: source 'Desktop Audio' (pulse_output_capture) created
+14:22:49.362: [Loaded global audio device]: 'Desktop Audio'
+14:22:49.362: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:22:49.362: pulse-input: Default input device: 'bluez_input.F4:B6:2D:D2:8C:E3'
+14:22:49.362: pulse-input: Audio format: float32le, 48000 Hz, 1 channels
+14:22:49.362: pulse-input: Started recording from 'bluez_input.F4:B6:2D:D2:8C:E3' (default)
+14:22:49.362: source 'Mic/Aux' (pulse_input_capture) created
+14:22:49.362: [Loaded global audio device]: 'Mic/Aux'
+14:22:49.363: source 'Online Meeting Recording' (scene) created
+14:22:49.363: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:22:49.363: pulse-input: Audio format: float32le, 48000 Hz, 1 channels
+14:22:49.363: pulse-input: Started recording from 'bluez_input.F4:B6:2D:D2:8C:E3'
+14:22:49.363: source 'Audio Input Capture (PulseAudio)' (pulse_input_capture) created
+14:22:49.364: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:22:49.364: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:22:49.364: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:22:49.364: source 'Audio Output Capture (PulseAudio)' (pulse_output_capture) created
+14:22:49.364: PipeWire initialized
+14:22:49.364: source 'Screen Capture (PipeWire) 2' (pipewire-screen-capture-source) created
+14:22:49.366: obs_source_get_name: Null 'source' parameter
+14:22:49.366: Switched to scene 'Online Meeting Recording'
+14:22:49.366: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:22:49.366: private source 'Online Meeting Recording' (scene) created
+14:22:49.366: User switched Program to scene 'Online Meeting Recording'
+14:22:49.367: ------------------------------------------------
+14:22:49.367: Loaded scenes:
+14:22:49.367: - scene 'Online Meeting Recording':
+14:22:49.367:     - source: 'Audio Input Capture (PulseAudio)' (pulse_input_capture)
+14:22:49.367:     - source: 'Audio Output Capture (PulseAudio)' (pulse_output_capture)
+14:22:49.367:     - source: 'Screen Capture (PipeWire) 2' (pipewire-screen-capture-source)
+14:22:49.367: ------------------------------------------------
+14:22:49.432: [pipewire] Screencast session created
+14:22:49.487: Attempted path: /usr/bin/../share/obs/obs-studio/images/overflow.png
+14:22:49.952: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+14:22:49.952: 
+14:22:51.512: [pipewire] Response to select source received
+14:22:51.512: [pipewire] Asking for monitor and window
+14:22:51.516: [pipewire] source selected, setting up screencast
+14:22:51.529: [pipewire] Server version: 1.4.2
+14:22:51.529: [pipewire] Library version: 1.4.2
+14:22:51.529: [pipewire] Header version: 1.4.2
+14:22:51.529: [pipewire] registered event 0x5b031ff8fe00
+14:22:51.529: [pipewire] Created stream 0x5b031ff8fe70
+14:22:51.529: [pipewire] Stream 0x5b031ff8fe70 state: "connecting" (error: none)
+14:22:51.529: [pipewire] Playing stream 0x5b031ff8fe70
+14:22:51.530: [pipewire] Stream 0x5b031ff8fe70 state: "paused" (error: none)
+14:22:51.599: [pipewire] Negotiated format:
+14:22:51.599: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:22:51.599: [pipewire]     Modifier: 0x0
+14:22:51.599: [pipewire]     Size: 660x694
+14:22:51.599: [pipewire]     Framerate: 0/1
+14:22:51.600: [pipewire] Negotiated format:
+14:22:51.600: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:22:51.600: [pipewire]     Modifier: 0x100000000000004
+14:22:51.600: [pipewire]     Size: 660x694
+14:22:51.600: [pipewire]     Framerate: 0/1
+14:22:51.603: [pipewire] Stream 0x5b031ff8fe70 state: "streaming" (error: none)
+14:22:51.605: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+14:22:51.605: [pipewire] Renegotiating stream
+14:22:51.605: [pipewire] Stream 0x5b031ff8fe70 state: "paused" (error: none)
+14:22:51.606: [pipewire] Negotiated format:
+14:22:51.606: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:22:51.606: [pipewire]     Modifier: 0x100000000000004
+14:22:51.606: [pipewire]     Size: 660x694
+14:22:51.606: [pipewire]     Framerate: 0/1
+14:22:51.607: [pipewire] Negotiated format:
+14:22:51.607: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:22:51.607: [pipewire]     Modifier: 0x100000000000002
+14:22:51.607: [pipewire]     Size: 660x694
+14:22:51.607: [pipewire]     Framerate: 0/1
+14:22:51.609: [pipewire] Stream 0x5b031ff8fe70 state: "streaming" (error: none)
+14:22:52.864: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:22:52.864: private source 'vcam_source' (scene) created
+14:22:52.864: Tried to add a NULL source to a scene
+14:22:52.864: NV12 texture support enabled
+14:22:52.864: P010 texture support not available
+14:22:52.878: Failed to start streaming on '/dev/video2' (Invalid argument)
+14:22:52.878: Failed to start virtual camera
+14:22:54.175: Starting Virtual Camera output to Source : Screen Capture (PipeWire)
+14:22:54.175: private source 'vcam_source' destroyed
+14:23:06.277: The Wayland connection broke. Did the Wayland compositor die?

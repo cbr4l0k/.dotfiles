@@ -1,0 +1,148 @@
+14:47:30.523: Platform: Wayland
+14:47:30.523: CPU Name: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+14:47:30.523: CPU Speed: 3700.011MHz
+14:47:30.524: Physical Cores: 4, Logical Cores: 8
+14:47:30.524: Physical Memory: 15838MB Total, 8319MB Free
+14:47:30.524: Kernel Version: Linux 6.12.23-1-lts
+14:47:30.524: Distribution: "Arch Linux" Unknown
+14:47:30.524: Desktop Environment: Hyprland (Hyprland)
+14:47:30.524: Session Type: wayland
+14:47:30.526: Qt Version: 6.9.0 (runtime), 6.9.0 (compiled)
+14:47:30.526: Portable mode: false
+14:47:30.572: OBS 31.0.3 (linux)
+14:47:30.572: ---------------------------------
+14:47:30.573: ---------------------------------
+14:47:30.573: audio settings reset:
+14:47:30.573: 	samples per sec: 48000
+14:47:30.573: 	speakers:        2
+14:47:30.573: 	max buffering:   960 milliseconds
+14:47:30.573: 	buffering type:  dynamically increasing
+14:47:30.575: ---------------------------------
+14:47:30.575: Initializing OpenGL...
+14:47:30.575: Using EGL/Wayland
+14:47:30.620: Initialized EGL 1.5
+14:47:30.640: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 620 (WHL GT2)
+14:47:30.640: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.0.3-arch1.1, shading language 4.60
+14:47:30.677: ---------------------------------
+14:47:30.677: video settings reset:
+14:47:30.677: 	base resolution:   1366x768
+14:47:30.677: 	output resolution: 1364x768
+14:47:30.677: 	downscale filter:  Bicubic
+14:47:30.677: 	fps:               30/1
+14:47:30.677: 	format:            NV12
+14:47:30.677: 	YUV mode:          Rec. 709/Partial
+14:47:30.677: NV12 texture support enabled
+14:47:30.677: P010 texture support not available
+14:47:30.682: Audio monitoring device:
+14:47:30.682: 	name: Default
+14:47:30.682: 	id: default
+14:47:30.683: ---------------------------------
+14:47:30.710: No AJA devices found, skipping loading AJA UI plugin
+14:47:30.710: Failed to initialize module 'aja-output-ui.so'
+14:47:30.713: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:47:30.713: 
+14:47:30.717: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:47:30.717: 
+14:47:30.717: Module '/usr/lib/obs-plugins/aja.so' not loaded
+14:47:30.724: Failed to load 'en-US' text for module: 'decklink-captions.so'
+14:47:30.731: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+14:47:30.736: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+14:47:30.736: Failed to initialize module 'decklink.so'
+14:47:30.953: [pipewire] Available capture sources:
+14:47:30.953: [pipewire]     - Monitor source
+14:47:30.953: [pipewire]     - Window source
+14:47:30.977: [obs-browser]: Version 2.24.6
+14:47:30.977: [obs-browser]: CEF Version 127.0.6533.120 (runtime), 127.0.0-6533-fix-stutter.3039+g9d68db8+chromium-127.0.6533.120 (compiled)
+14:47:31.047: VAAPI: API version 1.22
+14:47:31.047: FFmpeg VAAPI H264 encoding supported
+14:47:31.048: FFmpeg VAAPI AV1 encoding not supported
+14:47:31.049: FFmpeg VAAPI HEVC encoding supported
+14:47:31.073: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+14:47:31.073: 
+14:47:31.073: NVENC not supported
+14:47:31.073: Failed to initialize module 'obs-nvenc.so'
+14:47:31.138: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.5.6 | RPC Version: 1)
+14:47:31.138: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.9.0 | Qt version (run-time): 6.9.0
+14:47:31.138: [obs-websocket] [obs_module_load] Linked ASIO Version: 103200
+14:47:31.138: DEPRECATION: obs_frontend_get_global_config is deprecated. Read from global or user configuration explicitly instead.
+14:47:31.143: [obs-websocket] [obs_module_load] Module loaded.
+14:47:31.178: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+14:47:31.186: ---------------------------------
+14:47:31.187:   Loaded Modules:
+14:47:31.187:     wlrobs.so
+14:47:31.187:     vlc-video.so
+14:47:31.187:     text-freetype2.so
+14:47:31.187:     rtmp-services.so
+14:47:31.187:     obs-x264.so
+14:47:31.187:     obs-websocket.so
+14:47:31.187:     obs-webrtc.so
+14:47:31.187:     obs-vst.so
+14:47:31.187:     obs-transitions.so
+14:47:31.187:     obs-qsv11.so
+14:47:31.187:     obs-outputs.so
+14:47:31.187:     obs-libfdk.so
+14:47:31.187:     obs-filters.so
+14:47:31.187:     obs-ffmpeg.so
+14:47:31.187:     obs-browser.so
+14:47:31.187:     linux-v4l2.so
+14:47:31.187:     linux-pulseaudio.so
+14:47:31.187:     linux-pipewire.so
+14:47:31.187:     linux-jack.so
+14:47:31.187:     linux-capture.so
+14:47:31.187:     linux-alsa.so
+14:47:31.187:     image-source.so
+14:47:31.187:     frontend-tools.so
+14:47:31.187:     decklink-output-ui.so
+14:47:31.187:     decklink-captions.so
+14:47:31.187: ---------------------------------
+14:47:31.187: ---------------------------------
+14:47:31.187: Available Encoders:
+14:47:31.187:   Video Encoders:
+14:47:31.187: 	- ffmpeg_svt_av1 (SVT-AV1)
+14:47:31.187: 	- ffmpeg_aom_av1 (AOM AV1)
+14:47:31.187: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+14:47:31.187: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+14:47:31.187: 	- obs_qsv11_v2 (QuickSync H.264)
+14:47:31.187: 	- obs_qsv11_hevc (QuickSync HEVC)
+14:47:31.187: 	- obs_x264 (x264)
+14:47:31.187:   Audio Encoders:
+14:47:31.187: 	- ffmpeg_aac (FFmpeg AAC)
+14:47:31.187: 	- ffmpeg_opus (FFmpeg Opus)
+14:47:31.187: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+14:47:31.187: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+14:47:31.187: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+14:47:31.187: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+14:47:31.187: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+14:47:31.187: 	- libfdk_aac (libfdk AAC)
+14:47:31.187: ==== Startup complete ===============================================
+14:47:31.190: Switched to Preview/Program mode
+14:47:31.190: ------------------------------------------------
+14:47:31.237: All scene data cleared
+14:47:31.237: ------------------------------------------------
+14:47:31.242: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:47:31.242: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:47:31.242: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor' (default)
+14:47:31.242: [Loaded global audio device]: 'Desktop Audio'
+14:47:31.242: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:47:31.243: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:47:31.243: pulse-input: Started recording from 'alsa_input.pci-0000_00_1f.3.analog-stereo' (default)
+14:47:31.243: [Loaded global audio device]: 'Mic/Aux'
+14:47:31.265: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:47:31.266: pulse-input: An error occurred while getting the source info!
+14:47:31.266: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:47:31.266: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:47:31.267: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:47:31.267: PipeWire initialized
+14:47:31.269: Switched to scene 'Online Meeting Recording'
+14:47:31.269: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:47:31.269: User switched Program to scene 'Online Meeting Recording'
+14:47:31.270: ------------------------------------------------
+14:47:31.270: Loaded scenes:
+14:47:31.270: - scene 'Online Meeting Recording':
+14:47:31.270:     - source: 'Audio Input Capture (PulseAudio)' (pulse_input_capture)
+14:47:31.270:     - source: 'Audio Output Capture (PulseAudio)' (pulse_output_capture)
+14:47:31.270:     - source: 'Screen Capture (PipeWire)' (pipewire-screen-capture-source)
+14:47:31.270: ------------------------------------------------
+14:47:31.326: [pipewire] Screencast session created
+14:47:31.384: wl_egl_window_create failed
+14:47:31.384: device_swapchain_create (GL) failed

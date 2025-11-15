@@ -1,0 +1,148 @@
+14:38:54.068: Command Line Arguments: --disable-preview
+14:38:54.068: Platform: Wayland
+14:38:54.069: CPU Name: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+14:38:54.069: CPU Speed: 3697.715MHz
+14:38:54.069: Physical Cores: 4, Logical Cores: 8
+14:38:54.069: Physical Memory: 15838MB Total, 9763MB Free
+14:38:54.069: Kernel Version: Linux 6.12.23-1-lts
+14:38:54.069: Distribution: "Arch Linux" Unknown
+14:38:54.069: Desktop Environment: Hyprland (Hyprland)
+14:38:54.069: Session Type: wayland
+14:38:54.071: Qt Version: 6.9.0 (runtime), 6.9.0 (compiled)
+14:38:54.071: Portable mode: false
+14:38:54.113: OBS 31.0.3 (linux)
+14:38:54.113: ---------------------------------
+14:38:54.114: ---------------------------------
+14:38:54.114: audio settings reset:
+14:38:54.114: 	samples per sec: 48000
+14:38:54.114: 	speakers:        2
+14:38:54.114: 	max buffering:   960 milliseconds
+14:38:54.114: 	buffering type:  dynamically increasing
+14:38:54.115: ---------------------------------
+14:38:54.115: Initializing OpenGL...
+14:38:54.115: Using EGL/Wayland
+14:38:54.156: Initialized EGL 1.5
+14:38:54.174: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 620 (WHL GT2)
+14:38:54.174: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.0.3-arch1.1, shading language 4.60
+14:38:54.207: ---------------------------------
+14:38:54.207: video settings reset:
+14:38:54.207: 	base resolution:   1366x768
+14:38:54.207: 	output resolution: 1364x768
+14:38:54.207: 	downscale filter:  Bicubic
+14:38:54.207: 	fps:               30/1
+14:38:54.207: 	format:            NV12
+14:38:54.207: 	YUV mode:          Rec. 709/Partial
+14:38:54.207: NV12 texture support enabled
+14:38:54.207: P010 texture support not available
+14:38:54.213: Audio monitoring device:
+14:38:54.213: 	name: Default
+14:38:54.213: 	id: default
+14:38:54.213: ---------------------------------
+14:38:54.237: No AJA devices found, skipping loading AJA UI plugin
+14:38:54.237: Failed to initialize module 'aja-output-ui.so'
+14:38:54.241: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:38:54.241: 
+14:38:54.244: os_dlopen(/usr/lib/obs-plugins/aja.so->/usr/lib/obs-plugins/aja.so): /usr/lib/obs-plugins/aja.so: undefined symbol: _ZN18CNTV2DeviceScanner17GetDeviceInfoListEv
+14:38:54.244: 
+14:38:54.245: Module '/usr/lib/obs-plugins/aja.so' not loaded
+14:38:54.251: Failed to load 'en-US' text for module: 'decklink-captions.so'
+14:38:54.258: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+14:38:54.264: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+14:38:54.264: Failed to initialize module 'decklink.so'
+14:38:54.483: [pipewire] Available capture sources:
+14:38:54.483: [pipewire]     - Monitor source
+14:38:54.483: [pipewire]     - Window source
+14:38:54.509: [obs-browser]: Version 2.24.6
+14:38:54.509: [obs-browser]: CEF Version 127.0.6533.120 (runtime), 127.0.0-6533-fix-stutter.3039+g9d68db8+chromium-127.0.6533.120 (compiled)
+14:38:54.573: VAAPI: API version 1.22
+14:38:54.573: FFmpeg VAAPI H264 encoding supported
+14:38:54.574: FFmpeg VAAPI AV1 encoding not supported
+14:38:54.574: FFmpeg VAAPI HEVC encoding supported
+14:38:54.600: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: cannot open shared object file: No such file or directory
+14:38:54.600: 
+14:38:54.600: NVENC not supported
+14:38:54.600: Failed to initialize module 'obs-nvenc.so'
+14:38:54.672: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.5.6 | RPC Version: 1)
+14:38:54.672: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.9.0 | Qt version (run-time): 6.9.0
+14:38:54.672: [obs-websocket] [obs_module_load] Linked ASIO Version: 103200
+14:38:54.672: DEPRECATION: obs_frontend_get_global_config is deprecated. Read from global or user configuration explicitly instead.
+14:38:54.677: [obs-websocket] [obs_module_load] Module loaded.
+14:38:54.719: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+14:38:54.728: ---------------------------------
+14:38:54.728:   Loaded Modules:
+14:38:54.728:     wlrobs.so
+14:38:54.728:     vlc-video.so
+14:38:54.728:     text-freetype2.so
+14:38:54.728:     rtmp-services.so
+14:38:54.728:     obs-x264.so
+14:38:54.728:     obs-websocket.so
+14:38:54.728:     obs-webrtc.so
+14:38:54.728:     obs-vst.so
+14:38:54.728:     obs-transitions.so
+14:38:54.728:     obs-qsv11.so
+14:38:54.728:     obs-outputs.so
+14:38:54.728:     obs-libfdk.so
+14:38:54.728:     obs-filters.so
+14:38:54.728:     obs-ffmpeg.so
+14:38:54.728:     obs-browser.so
+14:38:54.728:     linux-v4l2.so
+14:38:54.728:     linux-pulseaudio.so
+14:38:54.728:     linux-pipewire.so
+14:38:54.728:     linux-jack.so
+14:38:54.728:     linux-capture.so
+14:38:54.728:     linux-alsa.so
+14:38:54.728:     image-source.so
+14:38:54.728:     frontend-tools.so
+14:38:54.728:     decklink-output-ui.so
+14:38:54.728:     decklink-captions.so
+14:38:54.728: ---------------------------------
+14:38:54.728: ---------------------------------
+14:38:54.728: Available Encoders:
+14:38:54.728:   Video Encoders:
+14:38:54.728: 	- ffmpeg_svt_av1 (SVT-AV1)
+14:38:54.728: 	- ffmpeg_aom_av1 (AOM AV1)
+14:38:54.728: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+14:38:54.728: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+14:38:54.728: 	- obs_qsv11_v2 (QuickSync H.264)
+14:38:54.728: 	- obs_qsv11_hevc (QuickSync HEVC)
+14:38:54.728: 	- obs_x264 (x264)
+14:38:54.728:   Audio Encoders:
+14:38:54.728: 	- ffmpeg_aac (FFmpeg AAC)
+14:38:54.728: 	- ffmpeg_opus (FFmpeg Opus)
+14:38:54.728: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+14:38:54.728: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+14:38:54.728: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+14:38:54.728: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+14:38:54.728: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+14:38:54.728: 	- libfdk_aac (libfdk AAC)
+14:38:54.728: ==== Startup complete ===============================================
+14:38:54.732: Switched to Preview/Program mode
+14:38:54.732: ------------------------------------------------
+14:38:54.801: All scene data cleared
+14:38:54.801: ------------------------------------------------
+14:38:54.808: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:38:54.809: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:38:54.809: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor' (default)
+14:38:54.809: [Loaded global audio device]: 'Desktop Audio'
+14:38:54.810: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:38:54.811: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:38:54.811: pulse-input: Started recording from 'alsa_input.pci-0000_00_1f.3.analog-stereo' (default)
+14:38:54.811: [Loaded global audio device]: 'Mic/Aux'
+14:38:54.813: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:38:54.813: pulse-input: An error occurred while getting the source info!
+14:38:54.814: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.2) 15.0.0'
+14:38:54.815: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+14:38:54.815: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+14:38:54.819: Switched to scene 'Online Meeting Recording'
+14:38:54.819: Attempted to add Scene without specifying a canvas! Using default canvas instead.
+14:38:54.820: User switched Program to scene 'Online Meeting Recording'
+14:38:54.822: ------------------------------------------------
+14:38:54.822: Loaded scenes:
+14:38:54.822: - scene 'Online Meeting Recording':
+14:38:54.822:     - source: 'Audio Input Capture (PulseAudio)' (pulse_input_capture)
+14:38:54.822:     - source: 'Audio Output Capture (PulseAudio)' (pulse_output_capture)
+14:38:54.822: ------------------------------------------------
+14:38:55.480: adding 42 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Desktop Audio)
+14:38:55.480: 
+14:39:02.809: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x5fa2f7a23dc0 with focusing surface 0x5fa2f9712950
+14:39:04.189: User added source 'Wayland output(dmabuf)' (wlrobs-dmabuf) to scene 'Online Meeting Recording'

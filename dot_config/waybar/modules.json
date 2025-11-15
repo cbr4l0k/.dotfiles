@@ -1,0 +1,123 @@
+{
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "01",
+            "2": "02",
+            "3": "03",
+            "4": "04",
+            "5": "05",
+            "6": "06",
+            "7": "07",
+            "8": "08",
+            "9": "09",
+            "10": "10"
+        },
+        "on-click": "activate",
+        "sort-by-number": true,
+        "active-only": false
+    },
+    "hyprland/window": {
+        "format": "<span foreground=\"#0a0908\"> </span> {}",
+        "max-length": 100
+    },
+    "clock": {
+        "format": "{:L%A, %B %d, %Y (%R)}  ",
+        "format-alt": "{:%H:%M}  ",
+    "tooltip-format": "{tz_list}",
+    "timezones": [
+        "Europe/Moscow",
+        "America/Bogota"
+    ],
+    "actions":  {
+        "on-click-right": "mode",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down"
+    }
+
+    },
+    "custom/external-ip" : {
+        "exec": "curl -s ifconfig.me"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "<span foreground=\"#0a0908\">{icon}</span> {percent}% ",
+        "format-icons": [
+            "",
+            ""
+        ],
+        "on-click": "pkill -USR1 gammastep || gammastep",
+        "tooltip-format": "Brightness"
+    },
+    "pulseaudio": {
+        "format": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\">{icon}</span> {volume}% ",
+        "format-bluetooth": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\"></span> {volume}% ",
+        "format-muted": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\"></span> ",
+        "format-icons": {
+            "headphone": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    "network": {
+        "format": "<span foreground=\"#0a0908\">|</span> {ifname}",
+        "format-wifi": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\"></span> {signalStrength}%",
+        "format-ethernet": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\">󰊗</span> {ipaddr}/{cidr}",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "hyprland/language": {
+        "format": "<span foreground=\"#0a0908\">󰌌</span> {short} <span foreground=\"#0a0908\"></span>"
+    },
+    "keyboard-state": {
+        "capslock": true,
+        "format": " <span foreground=\"#0a0908\">󰪛</span> {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "disk": {
+        "interval": 30,
+        "format": "<span foreground=\"#0a0908\" weight=\"bold\">/</span> {percentage_used}% ",
+        "path": "/"
+    },
+    "cpu": {
+        "format": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\" weight=\"bold\">CPU</span> {usage}% "
+    },
+    "memory": {
+        "format": "<span foreground=\"#0a0908\">|</span> <span foreground=\"#0a0908\" weight=\"bold\">RAM</span> {}% "
+    },
+    "custom/wlogout": {
+        "format": "⏻",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "bat": "BAT0",
+        "format": "<span foreground=\"#0a0908\" weight=\"bold\">{icon}</span> {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-discharging": "{icon}  {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    }
+
+}

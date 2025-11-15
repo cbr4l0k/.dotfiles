@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if pgrep -f "wofi --dmenu --prompt Clipboard" >/dev/null 2>&1; then
+    pkill -f "wofi --dmenu --prompt Clipboard"
+    pkill -f "cliphist decode"
+    pkill -f "wl-copy"
+else
+    selection=$(cliphist list | wofi --dmenu --prompt "Clipboard")
+    if [ -n "$selection" ]; then
+        echo "$selection" | cliphist decode | wl-copy
+    fi
+fi

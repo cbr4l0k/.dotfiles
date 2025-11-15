@@ -1,0 +1,30 @@
+% music
+
+# music toggle
+playerctl play-pause
+
+# music play
+playerctl play
+
+# music next
+playerctl next
+
+# music previous
+playerctl previous
+
+# music stop
+playerctl stop
+
+# music seek
+if [ "<action>" = "percentage" ]; then length=$(playerctl metadata mpris:length); playerctl position $(echo "$length * <value> / 100 / 1000000" | bc -l); elif [ "<action>" = "seconds" ]; then playerctl position <value>; fi
+
+$ action: echo -e "percentage\nseconds"
+$ value: echo -e "0\n"
+
+# music position (seconds and percentage)
+if playerctl status >/dev/null 2>&1; then pos_sec=$(playerctl position 2>/dev/null | cut -d. -f1); total_sec=$(playerctl metadata mpris:length 2>/dev/null | awk '{print int($1/1000000)}'); if [[ "$pos_sec" -ge 0 && "$total_sec" -gt 0 ]]; then percentage=$(echo "scale=1; $pos_sec * 100 / $total_sec" | bc -l); echo "🎵 Position: ${pos_sec}s (${percentage}%)"; else echo "❌ Unable to get song position"; fi; else echo "❌ No music player active"; fi
+
+# music toggle specific player
+playerctl -p <player> play-pause
+
+$ player: playerctl -l

@@ -1,0 +1,26 @@
+% music
+
+# music toggle
+playerctl play-pause
+
+# music play
+playerctl play
+
+# music next
+playerctl next
+
+# music previous
+playerctl previous
+
+# music stop
+playerctl stop
+
+# music seek
+if [ "<action>" = "percentage" ]; then length=$(playerctl metadata mpris:length); playerctl position $(echo "$length * <value> / 100 / 1000000" | bc -l); elif [ "<action>" = "seconds" ]; then playerctl position <value>; fi
+
+$ action: echo -e "percentage\nseconds"
+
+# music toggle specific player
+playerctl -p <player> play-pause
+
+$ player: playerctl -l

@@ -1,0 +1,7 @@
+% hyprland
+
+# Move window to specific workspace.
+hyprctl dispatch movetoworkspacesilent <workspace>,address:<window>
+
+$ workspace:  hyprctl -j workspaces | jq -r '.[] | .id'
+$ window: hyprctl clients -j | jq -r '.[] | [.address, .class, .title] | @sh' | sed "s/' '/';'/g"| sed "s/'//g" | awk -F';' '{printf "%s # [%s] %s\n", $1, $2, $3}'

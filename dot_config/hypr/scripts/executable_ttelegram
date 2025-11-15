@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# This is just a way to make my life harder... like, I'm really good getting distracted
+hyprscratch "$(openssl rand -base64 12)" /usr/bin/Telegram special social ephemeral

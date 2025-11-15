@@ -1,0 +1,206 @@
+#!/usr/bin/env bash
+
+# Function to display error messages
+print_error() {
+    echo -e "\e[31mERROR: $1\e[0m" >&2
+}
+
+# Function to display info messages
+print_info() {
+    echo -e "\e[34mINFO: $1\e[0m"
+}
+
+# Function to check if commands exist
+check_commands() {
+    local missing_commands=()
+    for cmd in "$@"; do
+        if ! command -v "$cmd" &> /dev/null; then
+            missing_commands+=("$cmd")
+        fi
+    done
+    
+    if [ ${#missing_commands[@]} -gt 0 ]; then
+        for cmd in "${missing_commands[@]}"; do
+            print_error "$cmd command not found. Please install it first."
+        done
+        return 1
+    fi
+    return 0
+}
+
+# Function to wait for workspace to become active
+wait_for_workspace() {
+    local target_workspace="$1"
+    local timeout="${2:-10}"
+    local counter=0
+    
+    while [ $counter -lt $timeout ]; do
+        local current_workspace
+        
+        # For special workspaces, check the name instead of ID
+        if [[ "$target_workspace" == special:* ]]; then
+            current_workspace=$(hyprctl activeworkspace -j 2>/dev/null | jq -r '.name // empty' 2>/dev/null)
+        else
+            current_workspace=$(hyprctl activewindow -j 2>/dev/null | jq -r '.workspace.id // empty' 2>/dev/null)
+            
+            if [ -z "$current_workspace" ]; then
+                current_workspace=$(hyprctl activeworkspace -j 2>/dev/null | jq -r '.id // empty' 2>/dev/null)
+            fi
+        fi
+        
+        if [ "$current_workspace" = "$target_workspace" ]; then
+            return 0
+        fi
+        
+        sleep 0.5
+        counter=$((counter + 1))
+    done
+    
+    return 1
+}
+
+# Function to wait for application to appear in workspace
+wait_for_app() {
+    local app_class="$1"
+    local workspace="$2"
+    local timeout="${3:-30}"
+    local counter=0
+    
+    while [ $counter -lt $timeout ]; do
+        local jq_filter
+        
+        # For special workspaces, match by name instead of ID
+        if [[ "$workspace" == special:* ]]; then
+            jq_filter='.[] | select(.class? | test($class; "i")) | select(.workspace.name == $ws)'
+        else
+            jq_filter='.[] | select(.class? | test($class; "i")) | select(.workspace.id == ($ws | tonumber))'
+        fi
+        
+        if hyprctl clients -j | jq -r --arg class "$app_class" --arg ws "$workspace" \
+            "$jq_filter" 2>/dev/null | grep -q .; then
+            return 0
+        fi
+        
+        sleep 0.5
+        counter=$((counter + 1))
+    done
+    
+    return 1
+}
+
+# Function to switch workspace with error handling
+switch_workspace() {
+    local workspace="$1"
+    local description="${2:-workspace $workspace}"
+    
+    if ! hyprctl dispatch workspace "$workspace"; then
+        print_error "Failed to switch to $description"
+        return 1
+    fi
+    
+    # Special workspaces don't need to wait for activation since they're created on-demand
+    if [[ "$workspace" == special:* ]]; then
+        return 0
+    fi
+    
+    if ! wait_for_workspace "$workspace"; then
+        print_error "Timeout waiting for $description to become active"
+        return 1
+    fi
+    
+    return 0
+}
+
+# Function to launch application with error handling
+launch_app() {
+    local app_name="$1"
+    local workspace="$2"
+    local description="${3:-$app_name}"
+    shift 3
+    local args=("$@")
+    
+    print_info "Launching $description in workspace $workspace..."
+    
+    if ! switch_workspace "$workspace" "$description workspace"; then
+        return 1
+    fi
+    
+    if [ ${#args[@]} -gt 0 ]; then
+        "$app_name" "${args[@]}" &> /dev/null & disown
+    else
+        "$app_name" &> /dev/null & disown
+    fi
+    
+    if [ $? -ne 0 ]; then
+        print_error "Failed to launch $description"
+        return 1
+    fi
+    
+    if ! wait_for_app "$app_name" "$workspace"; then
+        print_error "Timeout waiting for $description to appear in workspace $workspace"
+        return 1
+    fi
+    
+    return 0
+}
+
+# Function to launch kitty with command
+launch_kitty() {
+    local workspace="$1"
+    local command="$2"
+    local description="${3:-kitty with $command}"
+    shift 3
+    local kitty_args=("$@")
+    
+    print_info "Launching $description in workspace $workspace..."
+    
+    if ! switch_workspace "$workspace" "$description workspace"; then
+        return 1
+    fi
+    
+    if ! check_commands kitty "$command"; then
+        print_error "kitty or $command command not found"
+        return 1
+    fi
+    
+    kitty "${kitty_args[@]}" -e "$command" &> /dev/null & disown
+    if [ $? -ne 0 ]; then
+        print_error "Failed to launch $description"
+        return 1
+    fi
+    
+    # For special workspaces, we just wait a bit since they're created on-demand
+    if [[ "$workspace" == special:* ]]; then
+        sleep 1
+        return 0
+    fi
+    
+    if ! wait_for_app "kitty" "$workspace"; then
+        print_error "Timeout waiting for $description to appear in workspace $workspace"
+        return 1
+    fi
+    
+    return 0
+}
+
+# Check all required commands at once
+check_commands hyprctl obsidian jq rg || exit 1
+
+
+# STEP 1: Starting apps
+launch_app obsidian 1 "Obsidian"
+
+# STEP 2: Enable and start opentabletdriver service
+print_info "Enabling opentabletdriver service..."
+if systemctl --user list-unit-files | grep -q "opentabletdriver.service"; then
+    if ! systemctl --user enable opentabletdriver.service --now; then
+        print_error "Failed to enable/start opentabletdriver.service"
+    fi
+else
+    print_error "opentabletdriver.service does not exist"
+fi
+
+# STEP 3: Switch to special workspace and launch kitty with fastfetch
+launch_kitty "special:magic" fastfetch "kitty with fastfetch" --hold
+
+print_info "Script execution completed"

@@ -1,0 +1,23 @@
+% paru
+
+# Delete/Remove a package.
+paru -Rns <ExistingPackage>
+
+# Install package no questions asked.
+paru --noconfirm -S <PackageName>
+
+# Rebuild package
+paru --noconfirm -S <ExistingPackage> --rebuild
+
+# Cache clean
+paru <clean_option>
+
+## Vars
+$ ExistingPackage: paru -Qe | awk '{print $1}'
+
+$ clean_option: printf '%s\n' \
+    "Remove uninstalled packages|-Sc" \
+    "Remove all pacman cache versions|-Scc" \
+    "Clean pacman and delete AUR clone dirs|-Scd" \
+    "Full purge pacman cache and delete AUR clone dirs|-Sccd" \
+    --- --delimiter '\|' --column 2

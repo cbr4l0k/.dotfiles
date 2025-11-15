@@ -1,0 +1,303 @@
+# ============================================================================
+# ~/.zshrc - Zsh Configuration File
+# ============================================================================
+# This is my personal config file for the Zsh shell.
+#
+# I had an awful week so I'm organizing my Linux environment to cope with the
+# lack of control I currently feel.
+#
+# In russian there's a hollyday called "Суботник" where people come together
+# to clean and organize public spaces. So I'm calling this my personal
+# "Суботник". 🧹🧹🧹🧹
+# ============================================================================
+
+# ============================================================================
+# 1. ZSH-SPECIFIC OPTIONS
+# ============================================================================
+
+# Vi mode for command line editing
+bindkey -v
+
+# Enable command correction suggestions
+setopt CORRECT
+
+# Don't beep on errors
+setopt NO_BEEP
+
+# Allow comments in interactive shell
+setopt INTERACTIVE_COMMENTS
+
+# Share history between all sessions
+setopt SHARE_HISTORY
+
+# Append to history file instead of replacing it
+setopt APPEND_HISTORY
+
+# Add timestamps to history
+setopt EXTENDED_HISTORY
+
+# Don't save duplicate commands in history
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+
+# Remove extra blanks from commands before saving to history
+setopt HIST_REDUCE_BLANKS
+
+# Don't execute commands immediately when selecting from history
+setopt HIST_VERIFY
+
+# History file configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Enable command auto-completion
+autoload -Uz compinit
+compinit
+
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Colored completion (uses same colors as ls)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# ============================================================================
+# 2. ENVIRONMENT VARIABLES
+# ============================================================================
+
+
+# Personal website relevant paths
+export SEWS_REF_PATH=$HOME/Documents/projects/me/sews/src/data/references.json
+export SEWS_REA_PATH=$HOME/Documents/projects/me/sews/src/data/readings.json
+
+# Development tools
+export DOCKER_BUILDKIT=1
+export EDITOR='/usr/bin/nvim'
+export BROWSER='/usr/bin/zen-browser'
+
+# Path configuration
+export PATH="$HOME/.local/bin/scripts:$HOME/go/bin:$PATH"
+
+# Placeholder for MAC address
+export REAL_MAC=
+
+# ============================================================================
+# 3. COLORS AND PROMPT
+# ============================================================================
+
+# Enable colors
+autoload -Uz colors && colors
+
+# Load dircolors if available
+if command -v dircolors >/dev/null 2>&1; then
+    if [[ -f ~/.dir_colors ]]; then
+        eval $(dircolors -b ~/.dir_colors)
+    elif [[ -f /etc/DIR_COLORS ]]; then
+        eval $(dircolors -b /etc/DIR_COLORS)
+    else
+        eval $(dircolors -b)
+    fi
+fi
+
+# Basic prompt (will be overridden by starship if available)
+if [[ $EUID -eq 0 ]]; then
+    PROMPT='%F{red}[%m %F{cyan}%1~%F{red}]%#%f '
+else
+    PROMPT='%F{green}[%n@%m %F{white}%1~%F{green}]%#%f '
+fi
+
+# ============================================================================
+# 4. WINDOW TITLE
+# ============================================================================
+
+# Set terminal title
+case $TERM in
+    xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
+        precmd() {
+            print -Pn "\e]0;%n@%m: %~\a"
+        }
+        ;;
+    screen*)
+        precmd() {
+            print -Pn "\e_%n@%m: %~\e\\"
+        }
+        ;;
+esac
+
+# ============================================================================
+# 5. X11 CONFIGURATION
+# ============================================================================
+
+xhost +local:root > /dev/null 2>&1
+
+# ============================================================================
+# 6. CUSTOM FUNCTIONS
+# ============================================================================
+
+# Archive extraction function
+ex() {
+    if [ -f "$1" ]; then
+        case $1 in
+            *.tar.bz2)   tar xjf "$1"    ;;
+            *.tar.gz)    tar xzf "$1"    ;;
+            *.bz2)       bunzip2 "$1"    ;;
+            *.rar)       unrar x "$1"    ;;
+            *.gz)        gunzip "$1"     ;;
+            *.tar)       tar xf "$1"     ;;
+            *.tbz2)      tar xjf "$1"    ;;
+            *.tgz)       tar xzf "$1"    ;;
+            *.zip)       unzip "$1"      ;;
+            *.Z)         uncompress "$1" ;;
+            *.7z)        7z x "$1"       ;;
+            *)           echo "'$1' cannot be extracted via ex()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Make directory and cd into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Yazi file manager integration
+y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
+
+# Display terminal color capabilities
+colors() {
+    local fgc bgc vals seq0
+
+    printf "Color escapes are %s\n" '\e[${value};...;${value}m'
+    printf "Values 30..37 are \e[33mforeground colors\e[m\n"
+    printf "Values 40..47 are \e[43mbackground colors\e[m\n"
+    printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
+
+    for fgc in {30..37}; do
+        for bgc in {40..47}; do
+            fgc=${fgc#37}
+            bgc=${bgc#40}
+            vals="${fgc:+$fgc;}${bgc}"
+            vals=${vals%%;}
+            seq0="${vals:+\e[${vals}m}"
+            printf "  %-9s" "${seq0:-(default)}"
+            printf " ${seq0}TEXT\e[m"
+            printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
+        done
+        echo; echo
+    done
+}
+
+# ============================================================================
+# 7. ALIASES
+# ============================================================================
+
+# Enhanced ls using lsd
+alias ls="lsd --hyperlink=auto"
+alias ll="ls -ia"
+alias lL="ls -lia"
+
+# Editor shortcuts
+alias nv="nvim"
+alias lg="lazygit"
+
+# Colored grep (zsh doesn't need manual color aliases, but keeping for consistency)
+# For now, no need... I use ripgrep
+# alias grep='grep --colour=auto'
+# alias egrep='egrep --colour=auto'
+# alias fgrep='fgrep --colour=auto'
+
+# Interactive tldr browser
+alias tldrf='tldr --list | tr -d "[]'\''" | sed "s/, /\\n/g" | fzf --preview "tldr {1}" --preview-window=right,70% | xargs tldr'
+
+# Chezmoi add is borring
+alias chadd='chezmoi add'
+alias rechadd='chezmoi re-add'
+
+# ============================================================================
+# 8. THIRD-PARTY TOOL INITIALIZATION
+# ============================================================================
+
+# Zoxide - smarter cd command
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# Starship - cross-shell prompt
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
+
+# Atuin - enhanced history
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+
+# Navi - interactive cheatsheet
+if command -v navi >/dev/null 2>&1; then
+    eval "$(navi widget zsh)"
+
+    navi-widget() {
+        local selected
+        selected=$(navi --print)
+        if [[ -n $selected ]]; then
+            BUFFER=$selected
+            zle accept-line
+        fi
+        zle reset-prompt
+    }
+zle -N navi-widget
+bindkey '^F' navi-widget
+
+fi
+
+# ============================================================================
+# ZSH-SPECIFIC ENHANCEMENTS
+# ============================================================================
+
+# Enable syntax highlighting (if installed)
+if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Enable autosuggestions (if installed)
+if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# ============================================================================
+# OPTIONAL/COMMENTED SECTIONS
+# ============================================================================
+
+# Safety aliases
+# alias cp="cp -i"
+# alias mv="mv -i"
+# alias rm="rm -i"
+
+# System information
+# alias df='df -h'
+# alias free='free -m'
+
+# Keyboard layout switching
+# setxkbmap -model pc105 -layout us,latam -option grp:alt_shift_toggle
+
+# Display TODO list
+# mdcat ~/.todo.md
+
+# ============================================================================
+# END OF CONFIGURATION
+# ============================================================================
+
+
+# bun completions
+[ -s "/home/cbr4l0k/.bun/_bun" ] && source "/home/cbr4l0k/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -1,0 +1,4 @@
+% connectivity, windows
+
+# [windows][xfreerdp3][Connect to windows machine using RDP protocol]
+xfreerdp3 /u:<User> /p:<Password> /v:<IP>

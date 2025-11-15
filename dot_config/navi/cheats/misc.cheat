@@ -1,0 +1,19 @@
+% vpn
+
+# Simple VPN connection using openvpn
+sudo openvpn <vpn>
+$ vpn: fd "^*\.ovpn$" | sd '\(' '\\(' | sd '\)' '\\)' | sd ' ' '\\ '
+
+
+% help
+
+# copy
+wl-copy
+
+% OS Config
+
+# Change timezone
+timedatectl set-timezone <timezone>
+
+
+$ timezone: timedatectl list-timezones
