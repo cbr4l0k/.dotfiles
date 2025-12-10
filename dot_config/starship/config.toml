@@ -1,61 +1,21 @@
 # ============================================================================
 # ~/.config/starship/config.toml - Starship Prompt Configuration
 # ============================================================================
-# Starship is a minimal, fast, and customizable prompt for any shell.
-# This configuration creates a clean, informative prompt with directory,
-# git branch, and command status indicators.
-# ============================================================================
-
-# ============================================================================
-# 1. GENERAL SETTINGS
-# ============================================================================
-
-# Don't add a newline before the prompt
 add_newline = false
 
-# ============================================================================
-# 2. DIRECTORY DISPLAY
-# ============================================================================
-
 [directory]
-# Format: just the path with a space after
 format = "[$path]($style) "
-
-# Use a warm yellow/orange color
 style = "bold #FFC44F"
-
-# Only show the current directory name
 truncation_length = 1
-
-# When truncating, show 3 characters per directory (fish-style)
 fish_style_pwd_dir_length = 3
 
-# ============================================================================
-# 3. COMMAND STATUS INDICATOR
-# ============================================================================
-
 [character]
-# Show ➜ in green when last command succeeded
 success_symbol = "[➜](bold green) "
-
-# Show ✖ in red when last command failed
 error_symbol   = "[✖](bold red) "
 
-# ============================================================================
-# 4. GIT INTEGRATION
-# ============================================================================
-
 [git_branch]
-# Show branch name between dots
 format = "[· $branch ·]($style) "
-
-# Use a soft cream/beige color for git branch
 style = "bold #fcdd9f"
-
-# ============================================================================
-# 5. DISABLED MODULES
-# ============================================================================
-# These modules are turned off for a cleaner, minimal prompt
 
 [package]
 disabled = true
