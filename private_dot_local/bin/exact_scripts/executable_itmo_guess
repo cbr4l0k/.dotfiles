@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: Send phone number to ITMO WiFi API for authentication
 # Usage: itmo_guess <phone_number>
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -euo pipefail
 

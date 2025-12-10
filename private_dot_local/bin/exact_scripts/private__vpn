@@ -1,4 +1,5 @@
 #compdef vpn
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 _vpn() {
     local -a vpn_names

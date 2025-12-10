@@ -219,6 +219,9 @@ alias lg="lazygit"
 # Interactive tldr browser
 alias tldrf='tldr --list | tr -d "[]'\''" | sed "s/, /\\n/g" | fzf --preview "tldr {1}" --preview-window=right,70% | xargs tldr'
 
+# FastFetch but faster
+alias ff='fastfetch'
+
 # Chezmoi add is borring
 alias chadd='chezmoi add'
 alias rechadd='chezmoi re-add'

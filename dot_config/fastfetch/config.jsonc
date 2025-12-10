@@ -1,0 +1,114 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "none"
+    },
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "╭───────────────────────────────────────────────────────────────╮"
+        },
+        {
+            "type": "battery",
+            "key": "│   🔋",
+            "format": "{capacity<66}│",
+            "keyWidth": 7
+        },
+        {
+            "type": "title",
+            "format": "│   {user-name-colored}{at-symbol-colored}{host-name-colored}\t\t\t\t\t\t│"
+        },
+        {
+            "type": "localip",
+            "key": "│ ",
+            "format": "{ipv4<60}│"
+        },
+        {
+            "type": "custom",
+            "format": "├───────────────────────────────────────────────────────────────┤"
+        },
+        {
+            "type": "os",
+            "key": "│   os",
+            "keyColor": "cyan",
+            "format": "\t{pretty-name} {arch<37}│"
+        },
+        {
+            "type": "wm",
+            "key": "│   WM",
+            "keyColor": "cyan",
+            "format": "\t{pretty-name} {version} ({protocol-name})\t\t\t│"
+
+        },
+        {
+            "type": "kernel",
+            "key": "│   kernel",
+            "keyColor": "cyan",
+            "format": "\t{sysname} {release}\t\t\t\t│"
+        },
+        {
+            "type": "packages",
+            "key": "│   packages",
+            "keyColor": "cyan",
+            "format": "\t{all<23}\t\t\t\t│"
+        },
+        {
+            "type": "shell",
+            "key": "│   shell",
+            "keyColor": "cyan",
+            "format": "\t{process-name<7} {version<20}\t\t\t│"
+
+        },
+        {
+            "type": "terminal",
+            "key": "│   terminal",
+            "keyColor": "cyan",
+            "format": "\t{process-name<7} {version}\t\t\t\t\t│"
+        },
+        {
+            "type": "custom",
+            "format": "│\t\t\t\t\t\t\t\t│"
+        },
+        {
+            "type": "cpu",
+            "key": "│   cpu",
+            "keyColor": "yellow",
+            "format": "   {name} ({cores-logical}) @ {freq-max}\t\t│"
+        },
+        {
+            "type": "gpu",
+            "key": "│   gpu",
+            "keyColor": "yellow",
+            "format": "   {vendor} {name} @ {frequency} [{type}]\t│"
+        },
+        {
+            "type": "memory",
+            "key": "│   memory",
+            "keyColor": "yellow",
+            "format": "{used} / {total} ({percentage})\t\t\t\t│"
+        },
+        {
+            "type": "disk",
+            "key": "│   disk",
+            "keyColor": "yellow",
+            "format": "  {size-used} / {size-total} ({size-percentage}) - {filesystem} ({mountpoint})     \t│"
+        },
+        {
+            "type": "custom",
+            "format": "├───────────────────────────────────────────────────────────────┤"
+        },
+        {
+            "type": "uptime",
+            "key": "│   uptime",
+            "keyColor": "green",
+            "format": "{formatted<24}\t\t\t\t│"
+        },
+        {
+            "type": "custom",
+            "format": "╰───────────────────────────────────────────────────────────────╯"
+        }
+    ]
+}

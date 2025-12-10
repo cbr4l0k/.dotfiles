@@ -127,7 +127,7 @@ gui:
   theme:
     # Border color of focused window
     activeBorderColor:
-      - green
+      - "#FFC44F"
       - bold
 
     # Border color of non-focused windows
@@ -166,7 +166,7 @@ gui:
 
     # Background color of marked base commit (for rebase)
     markedBaseCommitBgColor:
-      - yellow
+      - "#FFC44F"
 
     # Color for file with unstaged changes
     unstagedChangesColor:
@@ -239,7 +239,7 @@ gui:
   showDivergenceFromBaseBranch: none
 
   # Height of the command log view
-  commandLogSize: 8
+  commandLogSize: 9
 
   # Whether to split the main window when viewing file changes.
   # One of: 'auto' | 'always'
@@ -272,10 +272,12 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - '|'
-      - /
-      - '-'
-      - \
+      - "·"
+      - "o"
+      - "O"
+      - "@"
+      - "*"
+      - " "
 
     # The "speed" of the spinner in milliseconds.
     rate: 50

@@ -1,6 +1,7 @@
 #!/bin/bash
 # Description: Display current IP address and country
 # Usage: mil
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -euo pipefail
 

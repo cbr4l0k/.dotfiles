@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Description: Manage ~/current symlink to track working directory
 # Usage: cur [show|go|force]
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -euo pipefail
 

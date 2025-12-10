@@ -1,4 +1,5 @@
 #compdef cur
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 _cur() {
   local -a commands

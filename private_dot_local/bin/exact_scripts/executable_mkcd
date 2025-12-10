@@ -1,6 +1,7 @@
 #!/bin/bash
 # Description: Create a directory and cd into it
 # Usage: mkcd <directory_name>
+# By: Juan P. Sierra Useche <cbr4l0k>
 
 if [ $# -eq 0 ]; then
   echo "Usage: mkcd <directory_name>"
