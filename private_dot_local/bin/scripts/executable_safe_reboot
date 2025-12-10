@@ -1,6 +1,5 @@
 #!/bin/bash
 # Description: Save git repos and safely reboot the system
 # Usage: safe_reboot
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 gsmr && systemctl reboot

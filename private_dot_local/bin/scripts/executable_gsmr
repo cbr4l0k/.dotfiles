@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Description: Git Save Multiple Repos - commit and push changes before shutdown
 # Usage: gsmr
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -o errexit   # exit on any command failure
 set -o nounset   # treat unset variables as errors
@@ -23,7 +22,7 @@ trap 'error_exit ${LINENO}' ERR
 
 # ——— config setup ———
 CONFIG_DIR="${HOME}/.config/gsmr"
-CONFIG_FILE="${CONFIG_DIR}/gsmr.conf"
+CONFIG_FILE="${CONFIG_DIR}/config.conf"
 
 mkdir -p "$CONFIG_DIR"
 log_info "Ensured configuration directory: $CONFIG_DIR"

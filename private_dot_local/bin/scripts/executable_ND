@@ -1,7 +1,6 @@
 #!/bin/bash
 # Description: Sybil document generator for creating business documents
 # Usage: ND
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -euo pipefail
 

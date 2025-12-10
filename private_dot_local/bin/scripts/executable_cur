@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Description: Manage ~/current symlink to track working directory
 # Usage: cur [show|go|force]
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -euo pipefail
 
@@ -47,7 +46,8 @@ case "$cmd" in
   go )
     if [ -L "$LINK" ]; then
       cd -P -- "$LINK" || exit 1
-      exec "${SHELL:-/bin/bash}"
+      shell="${SHELL:-/bin/bash}"
+      exec "$shell" -l
     else
       echo "No ~/current symlink yet. Run 'cu' in a project first."
       exit 1

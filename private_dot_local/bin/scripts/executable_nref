@@ -1,7 +1,6 @@
 #!/bin/bash
 # Description: Manage references, books, quotes, and strategic planning
 # Usage: nref
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 set -e
 

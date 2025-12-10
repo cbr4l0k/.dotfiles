@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Description: Move files to Obsidian attachments with sanitized filenames
 # Usage: matt <path_to_file>
-# By: Juan P. Sierra Useche <cbr4l0k>
 
 # Exit immediately if any command fails
 set -e
