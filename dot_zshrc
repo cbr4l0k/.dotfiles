@@ -210,6 +210,9 @@ alias lL="ls -lia"
 alias nv="nvim"
 alias lg="lazygit"
 
+# Math
+alias math="python -i -c 'from math import *; from random import *; from statistics import *; from fractions import Fraction as Fr; from decimal import Decimal as D;'"
+
 # Colored grep (zsh doesn't need manual color aliases, but keeping for consistency)
 # For now, no need... I use ripgrep
 # alias grep='grep --colour=auto'
@@ -244,6 +247,11 @@ fi
 # Atuin - enhanced history
 if command -v atuin >/dev/null 2>&1; then
     eval "$(atuin init zsh)"
+fi
+
+# BatMan - system manual pages but 🦇
+if command -v batman >/dev/null 2>&1; then
+    eval "$(batman --export-env)"
 fi
 
 # Navi - interactive cheatsheet
