@@ -12,6 +12,10 @@ require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false, -- keep this false to avoid dupes
+    disable = function(lang, buf)
+      -- Disable spell highlighting in treesitter
+      return false
+    end,
   },
 })
 

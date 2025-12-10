@@ -29,7 +29,7 @@ ls.add_snippets('lua', {
 -- Possible options:
 --     1. local <name> = <value>
 --     2. <name> = <value>
-]]-- 
+]]--
 ls.add_snippets('lua', {
     s('var', c(1, {
         fmt('local {} = {}', {
@@ -65,4 +65,3 @@ ls.add_snippets('lua', {
         i(1)
     }))
 })
-

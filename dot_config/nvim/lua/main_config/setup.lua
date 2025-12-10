@@ -30,8 +30,51 @@ opt.termguicolors = true
 
 opt.mouse = 'a'
 
-
 opt.scrolloff = 999
+vim.opt.colorcolumn = '80'
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
+
+-- Enable inlay hints for Rust
+vim.api.nvim_create_autocmd('LspAttach', {
+  pattern = '*.rs',
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+  end,
+})
+
+-- Spell checking
+opt.spelllang = "en,es"
+opt.spell = false  -- Disabled by default, toggle with <leader>sp
+opt.spelloptions = "camel"  -- Better handling of camelCase words
+
+-- Clear spell highlights when spell is disabled
+-- Initially clear them since spell starts disabled
+vim.api.nvim_set_hl(0, 'SpellBad', {})
+vim.api.nvim_set_hl(0, 'SpellCap', {})
+vim.api.nvim_set_hl(0, 'SpellRare', {})
+vim.api.nvim_set_hl(0, 'SpellLocal', {})
+
+vim.api.nvim_create_autocmd("OptionSet", {
+    pattern = "spell",
+    callback = function()
+        if not vim.opt.spell:get() then
+            -- Clear spell highlighting when spell is disabled
+            vim.api.nvim_set_hl(0, 'SpellBad', {})
+            vim.api.nvim_set_hl(0, 'SpellCap', {})
+            vim.api.nvim_set_hl(0, 'SpellRare', {})
+            vim.api.nvim_set_hl(0, 'SpellLocal', {})
+        else
+            -- Restore spell highlights when enabled
+            vim.cmd('highlight! link SpellBad GruvboxRed')
+            vim.cmd('highlight! link SpellCap GruvboxBlue')
+            vim.cmd('highlight! link SpellRare GruvboxPurple')
+            vim.cmd('highlight! link SpellLocal GruvboxAqua')
+        end
+    end,
+})
 
 -- Vimspector options
 -- vim.cmd([[
