@@ -28,7 +28,7 @@ return {
 
     -- 2) PCRE2 + multiline search (your requirement)
     {
-      "<leader>sm",
+      "<leader><leader>S",
       function()
         require("grug-far").open({
           staticTitle = "grug-far: PCRE2 multiline",
@@ -44,7 +44,7 @@ return {
 
     -- 3) Literal (fixed-strings) search
     {
-      "<leader>sw",
+      "<leader><leader>sw",
       function()
         require("grug-far").open({
           staticTitle = "grug-far: literal search",
