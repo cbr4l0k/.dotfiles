@@ -34,6 +34,15 @@ opt.scrolloff = 999
 vim.opt.colorcolumn = '80'
 vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
 
+-- Auto-wrap text at 80 characters for prose/text filetypes
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = { 'markdown', 'typst', 'text', 'tex', 'plaintex', 'latex', 'rst', 'asciidoc', 'org' },
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.formatoptions:append('t')  -- Auto-wrap text using textwidth
+  end,
+})
+
 -- Enable inlay hints for Rust
 vim.api.nvim_create_autocmd('LspAttach', {
   pattern = '*.rs',
