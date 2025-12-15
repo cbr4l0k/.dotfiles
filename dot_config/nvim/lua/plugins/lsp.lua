@@ -9,6 +9,19 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      -- Workaround for inlay_hint "Invalid 'col': out of range" error
+      -- See: https://github.com/neovim/neovim/issues/30985
+      -- Patch nvim_buf_set_extmark to silently ignore out-of-range errors
+      local orig_set_extmark = vim.api.nvim_buf_set_extmark
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.api.nvim_buf_set_extmark = function(buffer, ns_id, line, col, opts)
+        local ok, result = pcall(orig_set_extmark, buffer, ns_id, line, col, opts)
+        if ok then
+          return result
+        end
+        -- Return 0 for failed extmarks (invalid col, etc.)
+        return 0
+      end
       local lspconfig = require('lspconfig')
       local mason_lspconfig = require('mason-lspconfig')
 
