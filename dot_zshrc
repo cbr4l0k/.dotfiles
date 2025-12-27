@@ -70,8 +70,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 
 # Personal website relevant paths
-export SEWS_REF_PATH=$HOME/Documents/projects/me/sews/src/data/references.json
-export SEWS_REA_PATH=$HOME/Documents/projects/me/sews/src/data/readings.json
+export SEWS_REF_PATH=$HOME/Documents/projects/sews/src/data/references.json
+export SEWS_REA_PATH=$HOME/Documents/projects/sews/src/data/readings.json
 
 # Development tools
 export DOCKER_BUILDKIT=1

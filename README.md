@@ -1,4 +1,4 @@
-# dotfiles
+<img src="./assets/logo.png" style="width:700px" alt="Sparkling">
 
 Personal configuration files managed with [chezmoi](https://www.chezmoi.io/).
 

@@ -1,0 +1,12 @@
+[user]
+	name = cbr4l0k
+	email = juanpab.sierra@urosario.edu.co
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+
+[include]
+    path=~/.config/delta/delta.gitconfig
